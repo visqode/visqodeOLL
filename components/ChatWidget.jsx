@@ -28,10 +28,10 @@ const ChatWidget = () => {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [quickReplies, setQuickReplies] = useState([
-    "💰 What are your pricing options?",
-    "🚀 How do I get started?",
-    "📞 Can we schedule a call?",
-    "💼 Show me your portfolio",
+    "  What are your pricing options?",
+    "  How do I get started?",
+    "  Can we schedule a call?",
+    "  Show me your portfolio",
   ]);
 
   const messagesEndRef = useRef(null);

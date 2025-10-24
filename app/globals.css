@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
   --primary: #a7ff59;
@@ -18,7 +19,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Funnel Sans", sans-serif !important;
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;
