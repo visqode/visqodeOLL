@@ -1,12 +1,12 @@
-"use client"
-import { motion } from "framer-motion"
-import { useState, useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import EmailService from "@/lib/emailjs"
+"use client";
+import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import EmailService from "@/lib/emailjs";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 const ContactForm = () => {
@@ -17,31 +17,66 @@ const ContactForm = () => {
     services: [],
     budget: "",
     description: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState({ success: false, message: "" })
-  const [validationErrors, setValidationErrors] = useState([])
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ success: false, message: "" });
+  const [validationErrors, setValidationErrors] = useState([]);
 
-  const sectionRef = useRef(null)
-  const formRef = useRef(null)
-  const emailService = useRef(new EmailService())
+  const sectionRef = useRef(null);
+  const formRef = useRef(null);
+  const emailService = useRef(new EmailService());
 
   const services = [
-    { id: "web-dev", name: "Web Development", icon: "bx-code-alt", description: "Custom websites & web applications" },
-    { id: "branding", name: "Brand Identity", icon: "bx-palette", description: "Logo design & brand guidelines" },
-    { id: "ui-ux", name: "UI/UX Design", icon: "bx-brush", description: "User interface & experience design" },
-    { id: "ecommerce", name: "E-commerce", icon: "bx-store", description: "Online stores & marketplaces" },
-    { id: "mobile", name: "Mobile App", icon: "bx-mobile", description: "iOS & Android applications" },
-    { id: "consulting", name: "Digital Consulting", icon: "bx-bulb", description: "Strategy & technical guidance" },
+    {
+      id: "web-dev",
+      name: "Web Development",
+      icon: "bx-code-alt",
+      description: "Custom websites & web applications",
+    },
+    {
+      id: "branding",
+      name: "Brand Identity",
+      icon: "bx-palette",
+      description: "Logo design & brand guidelines",
+    },
+    {
+      id: "ui-ux",
+      name: "UI/UX Design",
+      icon: "bx-brush",
+      description: "User interface & experience design",
+    },
+    {
+      id: "ecommerce",
+      name: "E-commerce",
+      icon: "bx-store",
+      description: "Online stores & marketplaces",
+    },
+    {
+      id: "mobile",
+      name: "Mobile App",
+      icon: "bx-mobile",
+      description: "iOS & Android applications",
+    },
+    {
+      id: "consulting",
+      name: "Digital Consulting",
+      icon: "bx-bulb",
+      description: "Strategy & technical guidance",
+    },
     {
       id: "marketing",
       name: "Digital Marketing",
       icon: "bx-trending-up",
       description: "SEO, social media & campaigns",
     },
-    { id: "maintenance", name: "Maintenance & Support", icon: "bx-wrench", description: "Ongoing support & updates" },
-  ]
+    {
+      id: "maintenance",
+      name: "Maintenance & Support",
+      icon: "bx-wrench",
+      description: "Ongoing support & updates",
+    },
+  ];
 
   const budgetRanges = [
     { value: "1000-5000", label: "$1,000 - $5,000", description: "Small projects & startups" },
@@ -49,10 +84,13 @@ const ContactForm = () => {
     { value: "10000-25000", label: "$10,000 - $25,000", description: "Comprehensive platforms" },
     { value: "25000-50000", label: "$25,000 - $50,000", description: "Enterprise solutions" },
     { value: "50000+", label: "$50,000+", description: "Large-scale projects" },
-  ]
+  ];
 
+  // GSAP animation for section reveal
   useEffect(() => {
-    if (sectionRef.current) {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
       gsap.fromTo(
         sectionRef.current,
         { opacity: 0, y: 60 },
@@ -68,26 +106,62 @@ const ContactForm = () => {
             toggleActions: "play none none reverse",
           },
         },
-      )
-    }
+      );
+    }, sectionRef);
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ctx.revert();
+    };
+  }, []);
+
+  // Robust scroll-to-contact that accounts for sticky header height.
+  const scrollToContact = (instant = false) => {
+    if (typeof window === "undefined" || !sectionRef.current) return;
+
+    const el = sectionRef.current;
+    // try to measure a header nav if present
+    const header = document.querySelector("nav");
+    const headerHeight = header ? header.offsetHeight : 0;
+    // extra offset so content isn't flush under header
+    const extraOffset = 16;
+    const offset = headerHeight + extraOffset;
+
+    const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    // Use smooth unless instant requested
+    window.scrollTo({
+      top: Math.max(0, Math.floor(top)),
+      behavior: instant ? "auto" : "smooth",
+    });
+  };
+
+  // If page loaded with #contact or hash changes -> scroll properly
+  useEffect(() => {
+    // initial load
+    if (typeof window === "undefined") return;
+    if (window.location.hash === "#contact") {
+      // small timeout to let layout stabilize (images/fonts etc.)
+      setTimeout(() => scrollToContact(false), 60);
     }
-  }, [])
+
+    // handle future hash changes (user clicking a link that sets hash)
+    const onHash = () => {
+      if (window.location.hash === "#contact") {
+        // slight delay to allow SPA route content to mount
+        setTimeout(() => scrollToContact(false), 40);
+      }
+    };
+    window.addEventListener("hashchange", onHash);
+
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-
-    // Clear validation errors when user starts typing
-    if (validationErrors.length > 0) {
-      setValidationErrors([])
-    }
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (validationErrors.length > 0) setValidationErrors([]);
+  };
 
   const handleServiceToggle = (serviceId) => {
     setFormData((prev) => ({
@@ -95,47 +169,34 @@ const ContactForm = () => {
       services: prev.services.includes(serviceId)
         ? prev.services.filter((id) => id !== serviceId)
         : [...prev.services, serviceId],
-    }))
-
-    // Clear validation errors
-    if (validationErrors.length > 0) {
-      setValidationErrors([])
-    }
-  }
+    }));
+    if (validationErrors.length > 0) setValidationErrors([]);
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    setValidationErrors([]);
+    setSubmitStatus({ success: false, message: "" });
 
-    // Clear previous errors
-    setValidationErrors([])
-    setSubmitStatus({ success: false, message: "" })
-
-    // Validate form data
-    const validation = emailService.current.validateFormData(formData)
-
+    const validation = emailService.current.validateFormData(formData);
     if (!validation.isValid) {
-      setValidationErrors(validation.errors)
-      // Scroll to first error
+      setValidationErrors(validation.errors);
       if (formRef.current) {
-        formRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+        // scroll to form and offset for header
+        formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        // small nudge for sticky header
+        const header = document.querySelector("nav");
+        if (header) window.scrollBy(0, -header.offsetHeight - 12);
       }
-      return
+      return;
     }
 
-    setIsSubmitting(true)
-
+    setIsSubmitting(true);
     try {
-      // Send email via EmailJS
-      const result = await emailService.current.sendContactForm(formData)
-
+      const result = await emailService.current.sendContactForm(formData);
       if (result.success) {
-        setSubmitStatus({
-          success: true,
-          message: result.message,
-        })
-        setIsSubmitted(true)
-
-        // Reset form after successful submission
+        setSubmitStatus({ success: true, message: result.message });
+        setIsSubmitted(true);
         setTimeout(() => {
           setFormData({
             fullName: "",
@@ -144,35 +205,40 @@ const ContactForm = () => {
             services: [],
             budget: "",
             description: "",
-          })
-        }, 1000)
-
-        // Auto-hide success message after 10 seconds
+          });
+        }, 800);
         setTimeout(() => {
-          setIsSubmitted(false)
-          setSubmitStatus({ success: false, message: "" })
-        }, 10000)
+          setIsSubmitted(false);
+          setSubmitStatus({ success: false, message: "" });
+        }, 10000);
       } else {
         setSubmitStatus({
           success: false,
-          message: result.message,
-        })
+          message: result.message || "Failed to send. Try again later.",
+        });
       }
-    } catch (error) {
-      console.error("Form submission error:", error)
+    } catch (err) {
+      console.error("Form submission error:", err);
       setSubmitStatus({
         success: false,
-        message: "An unexpected error occurred. Please try again or contact us directly at visqode@gmail.com",
-      })
+        message: "An unexpected error occurred. Please try again or email visqode@gmail.com",
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
-  // Success State Component
+  // Success state UI (kept your markup mostly as-is)
   if (isSubmitted && submitStatus.success) {
     return (
-      <section className="py-20 lg:py-32 bg-white">
+      <section
+        id="contact"
+        ref={sectionRef}
+        aria-label="Contact section"
+        className="py-20 lg:py-32 bg-white"
+        style={{ scrollMarginTop: "120px" }}
+      >
+        {/* ... your success UI (same as before) */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -189,7 +255,9 @@ const ContactForm = () => {
               <i className="bx bx-check text-[#a7ff59] text-4xl"></i>
             </motion.div>
 
-            <h3 className="text-3xl lg:text-4xl racing font-bold text-black mb-4">Message Sent Successfully!</h3>
+            <h3 className="text-3xl lg:text-4xl racing font-bold text-black mb-4">
+              Message Sent Successfully!
+            </h3>
             <p className="text-xl openSans text-black/80 mb-6">{submitStatus.message}</p>
 
             <div className="bg-white/20 rounded-2xl p-6 mb-8">
@@ -218,8 +286,8 @@ const ContactForm = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
-                  setIsSubmitted(false)
-                  setSubmitStatus({ success: false, message: "" })
+                  setIsSubmitted(false);
+                  setSubmitStatus({ success: false, message: "" });
                 }}
                 className="px-8 py-4 bg-black text-white rounded-xl hover:bg-gray-800 transition-all duration-300 racing font-bold"
               >
@@ -247,11 +315,18 @@ const ContactForm = () => {
           </motion.div>
         </div>
       </section>
-    )
+    );
   }
 
+  // Default form UI (kept your existing markup)
   return (
-    <section ref={sectionRef} className="py-20 lg:py-32 bg-white">
+    <section
+      id="contact"
+      ref={sectionRef}
+      aria-label="Contact section"
+      className="py-20 lg:py-32 bg-white"
+      style={{ scrollMarginTop: "120px" }}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -261,10 +336,12 @@ const ContactForm = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl racing font-bold text-gray-900 mb-6">Start Your Project</h2>
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl racing font-bold text-gray-900 mb-6">
+            Start Your Project
+          </h2>
           <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto openSans leading-relaxed">
-            Ready to transform your digital presence? Tell us about your project and let's create something amazing
-            together.
+            Ready to transform your digital presence? Tell us about your project and let's create
+            something amazing together.
           </p>
         </motion.div>
 
@@ -366,7 +443,9 @@ const ContactForm = () => {
               >
                 <div className="flex items-center mb-2">
                   <i className="bx bx-error-circle text-red-500 text-xl mr-2"></i>
-                  <h4 className="racing font-bold text-red-800">Please fix the following errors:</h4>
+                  <h4 className="racing font-bold text-red-800">
+                    Please fix the following errors:
+                  </h4>
                 </div>
                 <ul className="list-disc list-inside openSans text-sm text-red-700 space-y-1">
                   {validationErrors.map((error, index) => (
@@ -434,17 +513,15 @@ const ContactForm = () => {
 
               {/* Services Selection */}
               <div>
-                <label className="block text-lg racing font-bold mb-4">What services are you interested in? *</label>
+                <label className="block text-lg racing font-bold mb-4">
+                  What services are you interested in? *
+                </label>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {services.map((service) => (
                     <motion.label
                       key={service.id}
                       whileHover={{ scale: 1.02 }}
-                      className={`flex items-start p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
-                        formData.services.includes(service.id)
-                          ? "border-[#a7ff59] bg-[#a7ff59]/10"
-                          : "border-gray-200 hover:border-gray-300"
-                      }`}
+                      className={`flex items-start p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${formData.services.includes(service.id) ? "border-[#a7ff59] bg-[#a7ff59]/10" : "border-gray-200 hover:border-gray-300"}`}
                     >
                       <input
                         type="checkbox"
@@ -453,9 +530,7 @@ const ContactForm = () => {
                         className="sr-only"
                       />
                       <div
-                        className={`w-5 h-5 rounded border-2 mr-3 flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                          formData.services.includes(service.id) ? "border-[#a7ff59] bg-[#a7ff59]" : "border-gray-300"
-                        }`}
+                        className={`w-5 h-5 rounded border-2 mr-3 flex items-center justify-center flex-shrink-0 mt-0.5 ${formData.services.includes(service.id) ? "border-[#a7ff59] bg-[#a7ff59]" : "border-gray-300"}`}
                       >
                         {formData.services.includes(service.id) && (
                           <motion.i
@@ -468,9 +543,7 @@ const ContactForm = () => {
                       <div className="flex-1">
                         <div className="flex items-center mb-1">
                           <i
-                            className={`bx ${service.icon} text-lg mr-2 ${
-                              formData.services.includes(service.id) ? "text-[#a7ff59]" : "text-gray-600"
-                            }`}
+                            className={`bx ${service.icon} text-lg mr-2 ${formData.services.includes(service.id) ? "text-[#a7ff59]" : "text-gray-600"}`}
                           ></i>
                           <span className="openSans font-medium">{service.name}</span>
                         </div>
@@ -489,11 +562,7 @@ const ContactForm = () => {
                     <motion.label
                       key={budget.value}
                       whileHover={{ scale: 1.01 }}
-                      className={`flex items-center p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
-                        formData.budget === budget.value
-                          ? "border-[#a7ff59] bg-[#a7ff59]/10"
-                          : "border-gray-200 hover:border-gray-300"
-                      }`}
+                      className={`flex items-center p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${formData.budget === budget.value ? "border-[#a7ff59] bg-[#a7ff59]/10" : "border-gray-200 hover:border-gray-300"}`}
                     >
                       <input
                         type="radio"
@@ -504,9 +573,7 @@ const ContactForm = () => {
                         className="sr-only"
                       />
                       <div
-                        className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center ${
-                          formData.budget === budget.value ? "border-[#a7ff59] bg-[#a7ff59]" : "border-gray-300"
-                        }`}
+                        className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center ${formData.budget === budget.value ? "border-[#a7ff59] bg-[#a7ff59]" : "border-gray-300"}`}
                       >
                         {formData.budget === budget.value && (
                           <motion.div
@@ -580,7 +647,7 @@ const ContactForm = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;

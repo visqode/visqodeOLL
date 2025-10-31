@@ -1,7 +1,7 @@
-"use client"
-import { motion } from "framer-motion"
-import ScrollReveal from "./Features/ScrollReveal"
-import GlareHover from "./Features/GlareHover"
+"use client";
+import { motion } from "framer-motion";
+import ScrollReveal from "./Features/ScrollReveal";
+import GlareHover from "./Features/GlareHover";
 
 const AboutSection = () => {
   return (
@@ -14,7 +14,9 @@ const AboutSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, ease: [0.33, 0, 0, 1] }}
         >
-          <div className="text-4xl md:text-6xl racing font-bold mb-8 md:mb-16 text-center lg:text-left">About Us</div>
+          <div className="text-4xl md:text-6xl racing font-bold mb-8 md:mb-16 text-center lg:text-left">
+            About Us
+          </div>
           <ScrollReveal
             baseOpacity={0}
             enableBlur={true}
@@ -22,9 +24,10 @@ const AboutSection = () => {
             blurStrength={10}
             textClassName="text-base md:text-lg text-gray-700 text-black leading-relaxed openSans mb-6"
           >
-            We are a dynamic web development and brand-building company dedicated to crafting innovative digital
-            experiences. Specializing in cutting-edge web solutions and strategic branding, we empower businesses to
-            stand out in the digital landscape with bespoke websites and compelling brand identities.
+            We are a dynamic web development and brand-building company dedicated to crafting
+            innovative digital experiences. Specializing in cutting-edge web solutions and strategic
+            branding, we empower businesses to stand out in the digital landscape with bespoke
+            websites and compelling brand identities.
           </ScrollReveal>
           <ScrollReveal
             baseOpacity={0}
@@ -33,9 +36,10 @@ const AboutSection = () => {
             blurStrength={10}
             textClassName="text-base md:text-lg text-gray-700 text-black/80 leading-relaxed openSans"
           >
-            Our team combines creativity and technical expertise to deliver seamless, high-performance websites using
-            technologies like React, Next.js, and GSAP. From startups to established enterprises, we transform visions
-            into reality, ensuring every project resonates with its audience and drives growth.
+            Our team combines creativity and technical expertise to deliver seamless,
+            high-performance websites using technologies like React, Next.js, and GSAP. From
+            startups to established enterprises, we transform visions into reality, ensuring every
+            project resonates with its audience and drives growth.
           </ScrollReveal>
         </motion.div>
 
@@ -64,7 +68,7 @@ const AboutSection = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutSection
+export default AboutSection;
