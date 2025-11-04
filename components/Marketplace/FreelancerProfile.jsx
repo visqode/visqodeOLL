@@ -1,16 +1,16 @@
-"use client"
-import { motion } from "framer-motion"
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+"use client";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 const FreelancerProfile = () => {
-  const heroRef = useRef(null)
-  const sectionsRef = useRef([])
+  const heroRef = useRef(null);
+  const sectionsRef = useRef([]);
 
   useEffect(() => {
     // Hero animation
@@ -24,7 +24,7 @@ const FreelancerProfile = () => {
           duration: 1,
           ease: "power3.out",
         },
-      )
+      );
     }
 
     // Sections animation
@@ -45,14 +45,14 @@ const FreelancerProfile = () => {
               toggleActions: "play none none reverse",
             },
           },
-        )
+        );
       }
-    })
+    });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   const freelancer = {
     name: "Sarah Chen",
@@ -113,7 +113,7 @@ const FreelancerProfile = () => {
         avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face",
       },
     ],
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -381,7 +381,7 @@ const FreelancerProfile = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FreelancerProfile
+export default FreelancerProfile;

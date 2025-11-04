@@ -6,7 +6,7 @@ const TeamSection = () => {
     {
       name: "Abdulla Al mahin",
       role: "Founder & CEO",
-      image: "/Abdullah.jpeg",
+      image: "/ibwmahin.jpg",
     },
     {
       name: "Abdul Rehman",
@@ -16,12 +16,12 @@ const TeamSection = () => {
     {
       name: "Yousuf Mollah",
       role: "UI/UX Designer",
-      image: "/yousuf.jpeg",
+      image: "/yousuf.png",
     },
     {
       name: "Mohammad Bin Salim",
       role: "AI Automation",
-      image: "/muhammad.jpeg",
+      image: "/mohammad.jpg",
     },
   ];
 
@@ -36,9 +36,7 @@ const TeamSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl lg:text-5xl racing font-bold text-gray-900">
-              OUR BEST DESIGNERS
-            </h2>
+            <h2 className="text-4xl lg:text-5xl racing font-bold text-gray-900">OUR BEST DESIGNERS</h2>
           </motion.div>
 
           <motion.div
@@ -79,18 +77,14 @@ const TeamSection = () => {
                 </div>
 
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 racing">
-                    {member.name}
-                  </h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 racing">{member.name}</h3>
                   <p className="text-gray-600 openSans">{member.role}</p>
                 </div>
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-[#a7ff59]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center text-black">
-                    <h3 className="text-xl font-bold mb-2 racing">
-                      {member.name}
-                    </h3>
+                    <h3 className="text-xl font-bold mb-2 racing">{member.name}</h3>
                     <p className="mb-4 openSans">{member.role}</p>
                     <div className="flex justify-center space-x-4">
                       <motion.a

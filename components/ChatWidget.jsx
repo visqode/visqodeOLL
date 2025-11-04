@@ -79,24 +79,15 @@ const ChatWidget = () => {
 
     // ✅ Detect “connect/contact” messages
     const lower = messageText.toLowerCase();
-    const contactKeywords = [
-      "connect",
-      "contact",
-      "reach out",
-      "talk",
-      "team",
-      "call",
-    ];
-    const shouldShowContactInfo = contactKeywords.some((word) =>
-      lower.includes(word)
-    );
+    const contactKeywords = ["connect", "contact", "reach out", "talk", "team", "call"];
+    const shouldShowContactInfo = contactKeywords.some((word) => lower.includes(word));
 
     if (shouldShowContactInfo) {
       setTimeout(() => {
         setIsTyping(false);
         addMessage(
           "You can connect with our team directly here:\n\n👉 [Contact Page](https://visqode.com/contact)\n📧 Email: hello@visqode.com",
-          "bot"
+          "bot",
         );
       }, 1000);
       return;
@@ -105,30 +96,29 @@ const ChatWidget = () => {
     // 🤖 Normal AI flow
     try {
       const convo = [...messages, userMessage];
-      const response = await geminiService.current.generateResponse(
-        messageText,
-        convo
-      );
+      const response = await geminiService.current.generateResponse(messageText, convo);
 
-      setTimeout(() => {
-        setIsTyping(false);
+      setTimeout(
+        () => {
+          setIsTyping(false);
 
-        if (response.success) {
-          addMessage(response.message, "bot");
-          const newQuickReplies =
-            geminiService.current.getQuickReplies?.(messageText) ?? [];
-          if (newQuickReplies.length > 0) {
-            setQuickReplies(newQuickReplies.map((reply) => `💡 ${reply}`));
+          if (response.success) {
+            addMessage(response.message, "bot");
+            const newQuickReplies = geminiService.current.getQuickReplies?.(messageText) ?? [];
+            if (newQuickReplies.length > 0) {
+              setQuickReplies(newQuickReplies.map((reply) => `💡 ${reply}`));
+            }
+          } else {
+            addMessage(response.message, "bot");
           }
-        } else {
-          addMessage(response.message, "bot");
-        }
-      }, 1000 + Math.random() * 1000);
+        },
+        1000 + Math.random() * 1000,
+      );
     } catch (error) {
       setIsTyping(false);
       addMessage(
         "I'm experiencing some technical difficulties. Please try again later or contact our team at hello@visqode.com.",
-        "bot"
+        "bot",
       );
     }
   };
@@ -218,16 +208,10 @@ const ChatWidget = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="racing font-bold text-black">
-                    VisQode AI Assistant
-                  </h4>
+                  <h4 className="racing font-bold text-black">VisQode AI Assistant</h4>
                   <div className="flex items-center">
-                    <div
-                      className={`w-2 h-2 ${connectionStatus.color} rounded-full mr-2`}
-                    ></div>
-                    <span className="text-black/70 openSans text-sm">
-                      {connectionStatus.text}
-                    </span>
+                    <div className={`w-2 h-2 ${connectionStatus.color} rounded-full mr-2`}></div>
+                    <span className="text-black/70 openSans text-sm">{connectionStatus.text}</span>
                   </div>
                 </div>
               </div>
@@ -249,15 +233,9 @@ const ChatWidget = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.03 }}
-                  className={`flex ${
-                    message.sender === "user" ? "justify-end" : "justify-start"
-                  }`}
+                  className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
                 >
-                  <div
-                    className={`max-w-[85%] ${
-                      message.sender === "user" ? "order-2" : "order-1"
-                    }`}
-                  >
+                  <div className={`max-w-[85%] ${message.sender === "user" ? "order-2" : "order-1"}`}>
                     <div
                       className={`p-3 rounded-2xl ${
                         message.sender === "user"
@@ -265,13 +243,9 @@ const ChatWidget = () => {
                           : "bg-gradient-to-r from-gray-100 to-gray-50 text-gray-800 border border-gray-200"
                       }`}
                     >
-                      <p className="openSans text-sm leading-relaxed whitespace-pre-line">
-                        {message.text}
-                      </p>
+                      <p className="openSans text-sm leading-relaxed whitespace-pre-line">{message.text}</p>
                     </div>
-                    <p className="text-xs text-gray-500 mt-1 openSans">
-                      {message.timestamp}
-                    </p>
+                    <p className="text-xs text-gray-500 mt-1 openSans">{message.timestamp}</p>
                   </div>
                 </motion.div>
               ))}
@@ -284,9 +258,7 @@ const ChatWidget = () => {
                   className="flex justify-start"
                 >
                   <div className="w-8 h-8 bg-gradient-to-r from-[#a7ff59] to-[#8fee3f] rounded-full flex items-center justify-center mr-2 relative">
-                    <span className="text-black racing font-bold text-sm">
-                      V
-                    </span>
+                    <span className="text-black racing font-bold text-sm">V</span>
                   </div>
                   <div className="bg-gradient-to-r from-gray-100 to-gray-50 p-3 rounded-2xl border border-gray-200">
                     <div className="flex space-x-1">
@@ -313,9 +285,7 @@ const ChatWidget = () => {
             {/* ✅ Suggested Questions (restored) */}
             {quickReplies.length > 0 && messages.length <= 4 && (
               <div className="p-4 border-t border-gray-100 bg-gray-50">
-                <p className="text-xs text-gray-500 mb-3 openSans">
-                  Suggested questions:
-                </p>
+                <p className="text-xs text-gray-500 mb-3 openSans">Suggested questions:</p>
                 <div className="grid grid-cols-1 gap-2">
                   {quickReplies.slice(0, 3).map((reply, index) => (
                     <motion.button
@@ -340,14 +310,8 @@ const ChatWidget = () => {
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={(e) =>
-                    e.key === "Enter" && !isTyping && handleSendMessage()
-                  }
-                  placeholder={
-                    isTyping
-                      ? "AI is thinking..."
-                      : "Ask me anything about VisQode..."
-                  }
+                  onKeyPress={(e) => e.key === "Enter" && !isTyping && handleSendMessage()}
+                  placeholder={isTyping ? "AI is thinking..." : "Ask me anything about VisQode..."}
                   disabled={isTyping}
                   className="flex-1 p-3 border border-gray-200 rounded-xl focus:border-[#a7ff59] focus:outline-none openSans text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
                 />
@@ -375,8 +339,7 @@ const ChatWidget = () => {
               </div>
 
               <p className="text-xs text-gray-400 mt-2 openSans text-center">
-                Powered by AI • Responses may vary • For urgent matters:
-                hello@visqode.com
+                Powered by AI • Responses may vary • For urgent matters: visqode@gmail.com
               </p>
             </div>
           </motion.div>
