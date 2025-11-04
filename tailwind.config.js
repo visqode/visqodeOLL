@@ -37,6 +37,7 @@ module.exports = {
         },
       },
       fontFamily: {
+        sans: ["Rajdhani", "sans-serif"], // ✅ Make Rajdhani default font
         racing: ["Racing Sans One", "cursive"],
         openSans: ["Open Sans", "sans-serif"],
       },

@@ -1,33 +1,29 @@
-"use client"
-import { motion } from "framer-motion"
+"use client";
+import { motion } from "framer-motion";
 
 const TeamSection = () => {
   const team = [
     {
-      name: "Jordan Abigail",
-      role: "Creative Director",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      name: "Abdulla Al mahin",
+      role: "Founder & CEO",
+      image: "/Abdullah.jpeg",
     },
     {
-      name: "Marcus Horizon",
-      role: "Lead Developer",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      name: "Abdul Rehman",
+      role: "Web Developer",
+      image: "/Ab.jpeg",
     },
     {
-      name: "Ahmad Jalaladin",
+      name: "Yousuf Mollah",
       role: "UI/UX Designer",
-      image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: "/yousuf.jpeg",
     },
     {
-      name: "Jimmy Su",
-      role: "Brand Strategist",
-      image:
-        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      name: "Mohammad Bin Salim",
+      role: "AI Automation",
+      image: "/muhammad.jpeg",
     },
-  ]
+  ];
 
   return (
     <section className="py-20 lg:py-32 bg-gray-50">
@@ -40,7 +36,9 @@ const TeamSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl lg:text-5xl racing font-bold text-gray-900">OUR BEST DESIGNERS</h2>
+            <h2 className="text-4xl lg:text-5xl racing font-bold text-gray-900">
+              OUR BEST DESIGNERS
+            </h2>
           </motion.div>
 
           <motion.div
@@ -81,14 +79,18 @@ const TeamSection = () => {
                 </div>
 
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 racing">{member.name}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 racing">
+                    {member.name}
+                  </h3>
                   <p className="text-gray-600 openSans">{member.role}</p>
                 </div>
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-[#a7ff59]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center text-black">
-                    <h3 className="text-xl font-bold mb-2 racing">{member.name}</h3>
+                    <h3 className="text-xl font-bold mb-2 racing">
+                      {member.name}
+                    </h3>
                     <p className="mb-4 openSans">{member.role}</p>
                     <div className="flex justify-center space-x-4">
                       <motion.a
@@ -96,14 +98,14 @@ const TeamSection = () => {
                         href="#"
                         className="w-10 h-10 bg-black/20 rounded-full flex items-center justify-center hover:bg-black/30 transition-colors"
                       >
-                        <i className="bxl bx-linkedin text-white"></i>
+                        <i className="ri-linkedin-fill text-white"></i>
                       </motion.a>
                       <motion.a
                         whileHover={{ scale: 1.1 }}
                         href="#"
                         className="w-10 h-10 bg-black/20 rounded-full flex items-center justify-center hover:bg-black/30 transition-colors"
                       >
-                        <i className="bxl bx-twitter text-white"></i>
+                        <i className="ri-twitter-fill text-white"></i>
                       </motion.a>
                     </div>
                   </div>
@@ -114,7 +116,7 @@ const TeamSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TeamSection
+export default TeamSection;

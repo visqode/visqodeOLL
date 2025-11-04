@@ -24,6 +24,7 @@ const CircularText = ({
   text,
   spinDuration = 20,
   onHover = "speedUp",
+  fontSize = "text-lg md:text-2xl", // ✅ You can control letter size from outside
   className = "",
 }) => {
   const letters = Array.from(text);
@@ -95,7 +96,7 @@ const CircularText = ({
     >
       {letters.map((letter, i) => {
         const rotationDeg = (360 / letters.length) * i;
-        const radius = 30;
+        const radius = 50; // Adjust circle size here if needed
         const x = Math.cos((rotationDeg * Math.PI) / 180) * radius;
         const y = Math.sin((rotationDeg * Math.PI) / 180) * radius;
         const transform = `translate(${x}px, ${y}px) rotate(${
@@ -105,7 +106,7 @@ const CircularText = ({
         return (
           <div
             key={i}
-            className="absolute text-xs md:text-sm transition-all duration-500 ease-[cubic-bezier(0,0,0,1)]"
+            className={`absolute ${fontSize} transition-all duration-500 ease-[cubic-bezier(0,0,0,1)]`}
             style={{
               transform,
               WebkitTransform: transform,

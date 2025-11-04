@@ -6,10 +6,23 @@ import { usePathname, useRouter } from "next/navigation";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const mobileMenuRef = useRef(null);
   const pathname = usePathname();
   const router = useRouter();
 
+  // Handle navbar scroll position behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) setScrolled(true);
+      else setScrolled(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // GSAP mobile menu slide animation
   useEffect(() => {
     if (mobileMenuRef.current) {
       gsap.set(mobileMenuRef.current, {
@@ -36,85 +49,75 @@ const Navigation = () => {
     }
   }, [isOpen]);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   const scrollToContact = () => {
-    if (typeof window === "undefined") return;
     const el = document.getElementById("contact");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleContactClick = (e) => {
-    // If the user clicked an <a> anchor, prevent default so we control behavior
-    if (e && e.preventDefault) e.preventDefault();
+    if (e?.preventDefault) e.preventDefault();
 
-    // If already on home page, just smooth-scroll
     if (pathname === "/") {
       scrollToContact();
-      // close mobile menu if open
       setIsOpen(false);
       return;
     }
 
-    // Otherwise navigate to home with hash - ContactForm will auto-scroll on mount if it sees the hash
-    // This avoids a full reload and keeps client-side nav
     router.push("/#contact");
-    // close mobile menu if open
     setIsOpen(false);
   };
 
   return (
-    <nav className="flex items-center  justify-between p-4 bg-transparent border-b border-b-gray-500/30 openSans font-extrabold">
-      <div className="text-xl md:text-2xl font-bold text-white">
-        <Link href="/">VisQode</Link>
-      </div>
-      <div className="hidden md:flex  translate-x-8 space-x-6 lg:space-x-8">
-        <Link
-          href="/"
-          className="text-white hover:scale-105 hover:transition-all duration-200 text-sm lg:text-base"
-        >
-          Home
-        </Link>
-        <Link
-          href="/about"
-          className="text-white hover:scale-105 hover:transition-all duration-200 text-sm lg:text-base"
-        >
-          About
-        </Link>
-        <Link
-          href="/services"
-          className="text-white hover:scale-105 hover:transition-all duration-200 text-sm lg:text-base"
-        >
-          Services
-        </Link>
-        <Link
-          href="/consulting"
-          className="text-white hover:scale-105 hover:transition-all duration-200 text-sm lg:text-base"
-        >
-          Consulting
-        </Link>
-      </div>
+    <nav
+      className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] openSans font-extrabold
+        ${
+          scrolled
+            ? "top-0 w-full bg-black/60 backdrop-blur-md border-b border-gray-600/20 shadow-lg"
+            : "top-5 w-[90%] bg-transparent mb-[20px]"
+        }
+      `}
+    >
+      <div className="flex items-center justify-between px-6 py-4">
+        {/* Logo */}
+        <div className="text-xl md:text-2xl font-bold text-white">
+          <Link href="/">VisQode</Link>
+        </div>
 
-      <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
-        {/* Use a button so we can intercept and do smooth-scroll or router push */}
-        <button
-          onClick={handleContactClick}
-          className="bg-[#a7ff59] text-black px-6 py-2 rounded-full hover:scale-105 hover:transition-all duration-200 text-sm lg:text-base"
-        >
-          Contact Us
+        {/* Desktop Links */}
+        <div className="hidden md:flex space-x-6">
+          {["Home", "About", "Services", "Consulting"].map((item) => (
+            <Link
+              key={item}
+              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+              className="text-white px-4 py-2 rounded-lg hover:bg-white/10 transition-all duration-200 text-sm lg:text-base"
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+
+        {/* Buttons // Contact & Quote */}
+        <div className="hidden md:flex items-center space-x-3">
+          <button
+            onClick={handleContactClick}
+            className="bg-[#a7ff59] text-black px-5 py-2 rounded-full hover:bg-[#8fee3f] hover:scale-105 transition duration-200"
+          >
+            Contact Us
+          </button>
+          <button className="border border-[#a7ff59] text-[#a7ff59] px-5 py-2 rounded-full hover:bg-[#a7ff5920] hover:scale-105 transition duration-200">
+            Get a Quote
+          </button>
+        </div>
+
+        {/* Mobile Menu Icon */}
+        <button onClick={toggleMenu} className="md:hidden text-2xl text-white">
+          <i className={`ri-${isOpen ? "close-line" : "menu-line"}`}></i>
         </button>
       </div>
 
-      <div className="md:hidden">
-        <button onClick={toggleMenu} aria-label="Toggle menu" className="p-2">
-          <i className={`bx ${isOpen ? "bx-x" : "bx-menu"} text-2xl text-white`}></i>
-        </button>
-      </div>
-
+      {/* Mobile Menu */}
       <div
         ref={mobileMenuRef}
         className="fixed top-0 right-0 h-full w-full bg-white flex flex-col items-center justify-center space-y-8 md:hidden z-50"
@@ -123,45 +126,24 @@ const Navigation = () => {
         <button
           onClick={toggleMenu}
           className="absolute top-4 right-4 text-2xl p-2"
-          aria-label="Close menu"
         >
-          <i className="bx bx-x"></i>
+          <i className="ri-close-line"></i>
         </button>
 
-        <Link
-          href="/"
-          className="text-2xl text-gray-700 hover:text-black py-2"
-          onClick={toggleMenu}
-        >
-          Home
-        </Link>
-        <Link
-          href="/about"
-          className="text-2xl text-gray-700 hover:text-black py-2"
-          onClick={toggleMenu}
-        >
-          About
-        </Link>
-        <Link
-          href="/services"
-          className="text-2xl text-gray-700 hover:text-black py-2"
-          onClick={toggleMenu}
-        >
-          Services
-        </Link>
-        <Link
-          href="/consulting"
-          className="text-2xl text-gray-700 hover:text-black py-2"
-          onClick={toggleMenu}
-        >
-          Consulting
-        </Link>
+        {["Home", "About", "Services", "Consulting"].map((item) => (
+          <Link
+            key={item}
+            href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+            onClick={toggleMenu}
+            className="text-2xl text-gray-700 hover:text-black py-2"
+          >
+            {item}
+          </Link>
+        ))}
 
-        {/* Contact entry for mobile - uses handleContactClick so it will scroll or navigate */}
         <button
           onClick={(e) => {
             handleContactClick(e);
-            // toggleMenu will be handled inside handleContactClick via setIsOpen(false)
           }}
           className="text-2xl text-gray-700 hover:text-black py-2"
         >
@@ -170,14 +152,14 @@ const Navigation = () => {
 
         <Link
           href="/signin"
-          className="text-xl px-6 py-3 text-black border border-black rounded-full hover:bg-gray-100 mt-4"
+          className="text-xl px-6 py-3 text-black border border-black rounded-full hover:bg-gray-100"
           onClick={toggleMenu}
         >
           Sign In
         </Link>
         <Link
           href="/signup"
-          className="text-xl px-6 py-3 text-black bg-[#a7ff59] rounded-full hover:bg-[#8fee3f]"
+          className="text-xl px-6 py-3 bg-[#a7ff59] text-black rounded-full hover:bg-[#8fee3f]"
           onClick={toggleMenu}
         >
           Sign Up

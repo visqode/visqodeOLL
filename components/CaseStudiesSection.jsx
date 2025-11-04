@@ -1,19 +1,19 @@
-"use client"
-import { motion } from "framer-motion"
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+"use client";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 const CaseStudiesSection = () => {
-  const sectionRef = useRef(null)
-  const cardsRef = useRef([])
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
 
   useEffect(() => {
-    const cards = cardsRef.current
+    const cards = cardsRef.current;
 
     cards.forEach((card, index) => {
       if (card) {
@@ -37,45 +37,52 @@ const CaseStudiesSection = () => {
               toggleActions: "play none none reverse",
             },
             delay: index * 0.15,
-          },
-        )
+          }
+        );
       }
-    })
+    });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   const caseStudies = [
     {
       id: 1,
       title: "TechFlow SaaS Platform",
-      description: "Complete brand identity and web platform for a B2B SaaS startup targeting enterprise clients.",
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Complete brand identity and web platform for a B2B SaaS startup targeting enterprise clients.",
+      image:
+        "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tags: ["Web Development", "Branding", "SaaS"],
       category: "Web & Brand",
     },
     {
       id: 2,
       title: "GreenEarth E-commerce",
-      description: "Sustainable fashion brand with custom e-commerce solution and comprehensive digital marketing.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Sustainable fashion brand with custom e-commerce solution and comprehensive digital marketing.",
+      image:
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tags: ["E-commerce", "Branding", "Marketing"],
       category: "E-commerce",
     },
     {
       id: 3,
       title: "FinanceHub Dashboard",
-      description: "Modern financial dashboard with real-time analytics and intuitive user experience design.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      description:
+        "Modern financial dashboard with real-time analytics and intuitive user experience design.",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tags: ["UI/UX", "Dashboard", "Finance"],
       category: "Web App",
     },
     {
       id: 4,
       title: "MedCare Mobile App",
-      description: "Healthcare mobile application with patient management system and telemedicine features.",
+      description:
+        "Healthcare mobile application with patient management system and telemedicine features.",
       image:
         "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tags: ["Mobile App", "Healthcare", "UI/UX"],
@@ -84,7 +91,8 @@ const CaseStudiesSection = () => {
     {
       id: 5,
       title: "RestaurantPro Brand",
-      description: "Complete restaurant chain rebranding with digital menu system and online ordering platform.",
+      description:
+        "Complete restaurant chain rebranding with digital menu system and online ordering platform.",
       image:
         "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tags: ["Branding", "Web Development", "Food"],
@@ -93,16 +101,17 @@ const CaseStudiesSection = () => {
     {
       id: 6,
       title: "EduLearn Platform",
-      description: "Online learning platform with interactive courses and student progress tracking system.",
+      description:
+        "Online learning platform with interactive courses and student progress tracking system.",
       image:
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       tags: ["Education", "Web Platform", "UI/UX"],
       category: "EdTech",
     },
-  ]
+  ];
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-32 bg-white">
+    <section id="work" ref={sectionRef} className="py-20 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -116,7 +125,8 @@ const CaseStudiesSection = () => {
             Our Work Speaks for Itself
           </h2>
           <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto openSans leading-relaxed">
-            Discover how we've helped businesses transform their digital presence and achieve remarkable growth.
+            Discover how we've helped businesses transform their digital
+            presence and achieve remarkable growth.
           </p>
         </motion.div>
 
@@ -151,7 +161,9 @@ const CaseStudiesSection = () => {
                   {study.title}
                 </h3>
 
-                <p className="text-gray-600 openSans leading-relaxed mb-6 text-sm lg:text-base">{study.description}</p>
+                <p className="text-gray-600 openSans leading-relaxed mb-6 text-sm lg:text-base">
+                  {study.description}
+                </p>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -197,7 +209,7 @@ const CaseStudiesSection = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CaseStudiesSection
+export default CaseStudiesSection;

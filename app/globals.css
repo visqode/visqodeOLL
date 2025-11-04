@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
   --primary: #a7ff59;
@@ -16,10 +18,13 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth; /* Smooth scrolling for all elements */
+  font-family: "Rajdhani", sans-serif !important;
 }
 
 body {
-  font-family: "Funnel Sans", sans-serif !important;
+  /* font-family: "Funnel Sans", sans-serif !important; */
+  /* font-family: "Raleway", sans-serif !important; */
+  font-family: "Rajdhani", sans-serif !important;
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;
@@ -50,6 +55,20 @@ html {
 .openSans {
   font-family: "Open Sans", sans-serif;
 }
+
+.font-raleway {
+  /* ✅ New utility class */
+  font-family: "Raleway", sans-serif;
+}
+
+.font-rajdhani {
+  font-family: "Rajdhani", sans-serif;
+}
+
+/* p,
+span {
+  font-weight: 600 !important;
+} */
 
 /* Custom animations */
 @keyframes fadeInUp {
