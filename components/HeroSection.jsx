@@ -35,7 +35,7 @@ const HeroSection = () => {
   return (
     <section
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/hero-bg2.jpeg')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/hero-bg.jpeg')`,
       }}
       className="min-h-screen bg-center bg-cover bg-no-repeat bg-gray-100 flex flex-col m-2 md:m-5 rounded-2xl md:rounded-3xl px-4 md:px-10 relative"
     >
