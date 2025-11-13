@@ -35,7 +35,7 @@ const HeroSection = () => {
   return (
     <section
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/hero-bg2.jpeg')`,
       }}
       className="min-h-screen bg-center bg-cover bg-no-repeat bg-gray-100 flex flex-col m-2 md:m-5 rounded-2xl md:rounded-3xl px-4 md:px-10 relative"
     >
@@ -89,7 +89,8 @@ const HeroSection = () => {
           {/* View Our Work Button - goes to work section */}
           <button
             onClick={(e) => handleSectionClick(e, "projects")}
-            className="w-full font-[600] sm:w-auto px-6 md:px-7 hover:px-8 md:hover:px-10 transition-all duration-300 py-3 text-black bg-[#a7ff59] rounded-full hover:bg-[#8fee3f] text-center"
+            style={{ backgroundColor: "var(--primary)" }}
+            className="w-full font-[600] sm:w-auto px-6 md:px-7 hover:px-8 md:hover:px-10 transition-all duration-300 py-3 text-black rounded-full hover:bg-[#8fee3f] text-center"
           >
             <i className="ri-folder-open-line"></i> &nbsp; View Our Work
           </button>

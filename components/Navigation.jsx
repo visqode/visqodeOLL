@@ -101,12 +101,16 @@ const Navigation = () => {
         {/* Buttons // Contact & Quote */}
         <div className="hidden md:flex items-center space-x-3">
           <button
+            style={{ backgroundColor: "var(--primary)" }}
             onClick={handleContactClick}
             className="bg-[#a7ff59] text-black px-5 py-2 rounded-full hover:bg-[#8fee3f] hover:scale-105 transition duration-200"
           >
             Contact Us
           </button>
-          <button className="border border-[#a7ff59] text-[#a7ff59] px-5 py-2 rounded-full hover:bg-[#a7ff5920] hover:scale-105 transition duration-200">
+          <button
+            style={{ borderColor: "var(--primary)", color: "var(--primary)" }}
+            className="border border-[#a7ff59] text-[#a7ff59] px-5 py-2 rounded-full hover:bg-[#a7ff5920] hover:scale-105 transition duration-200"
+          >
             Get a Quote
           </button>
         </div>
