@@ -55,7 +55,7 @@ const ProjectsSection = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-[#a7ff59] text-black font-semibold rounded-full hover:bg-[#8fee3f] transition-all duration-300 flex items-center gap-2"
+              className="px-8 py-4 bg-[#e97f33] text-black font-semibold rounded-full hover:bg-[#f0883e] transition-all duration-300 flex items-center gap-2"
             >
               View More
               <svg
@@ -103,7 +103,7 @@ const ProjectsSection = () => {
 
                 {/* Project Info - Always Visible at Bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                  <span className="text-[#a7ff59] text-sm font-medium block mb-1">
+                  <span className="text-[#e97f33] text-sm font-medium block mb-1">
                     {project.category}
                   </span>
                   <h3 className="text-xl font-bold racing mb-2">
@@ -115,7 +115,7 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Arrow Icon - Using SVG instead of Remix Icons */}
-                <div className="absolute top-4 right-4 w-10 h-10 bg-[#a7ff59] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-90 z-20">
+                <div className="absolute top-4 right-4 w-10 h-10 bg-[#e97f33] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-90 z-20">
                   <svg
                     className="w-5 h-5"
                     fill="none"

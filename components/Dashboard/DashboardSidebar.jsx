@@ -76,7 +76,7 @@ const DashboardSidebar = ({ activeTab, setActiveTab, isOpen, setIsOpen }) => {
               }}
               className={`w-full flex items-center justify-between p-3 rounded-xl transition-all duration-300 ${
                 activeTab === item.id
-                  ? "bg-[#a7ff59] text-black"
+                  ? "bg-[#e97f33] text-black"
                   : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
               }`}
             >
@@ -87,7 +87,7 @@ const DashboardSidebar = ({ activeTab, setActiveTab, isOpen, setIsOpen }) => {
               {item.badge && (
                 <span
                   className={`px-2 py-1 text-xs rounded-full ${
-                    activeTab === item.id ? "bg-black text-white" : "bg-[#a7ff59] text-black"
+                    activeTab === item.id ? "bg-black text-white" : "bg-[#e97f33] text-black"
                   }`}
                 >
                   {item.badge}
@@ -100,7 +100,7 @@ const DashboardSidebar = ({ activeTab, setActiveTab, isOpen, setIsOpen }) => {
         {/* User Profile */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
           <div className="flex items-center">
-            <div className="w-10 h-10 bg-[#a7ff59] rounded-full flex items-center justify-center mr-3">
+            <div className="w-10 h-10 bg-[#e97f33] rounded-full flex items-center justify-center mr-3">
               <span className="racing font-bold text-black">JD</span>
             </div>
             <div className="flex-1">

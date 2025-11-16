@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#a7ff59",
-        "primary-hover": "#8fee3f",
+        primary: "#e97f33",
+        "primary-hover": "#f0883e",
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",

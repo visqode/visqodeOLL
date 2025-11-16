@@ -20,7 +20,10 @@ const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({ success: false, message: "" });
+  const [submitStatus, setSubmitStatus] = useState({
+    success: false,
+    message: "",
+  });
   const [validationErrors, setValidationErrors] = useState([]);
 
   const sectionRef = useRef(null);
@@ -79,10 +82,26 @@ const ContactForm = () => {
   ];
 
   const budgetRanges = [
-    { value: "1000-5000", label: "$1,000 - $5,000", description: "Small projects & startups" },
-    { value: "5000-10000", label: "$5,000 - $10,000", description: "Medium business solutions" },
-    { value: "10000-25000", label: "$10,000 - $25,000", description: "Comprehensive platforms" },
-    { value: "25000-50000", label: "$25,000 - $50,000", description: "Enterprise solutions" },
+    {
+      value: "1000-5000",
+      label: "$1,000 - $5,000",
+      description: "Small projects & startups",
+    },
+    {
+      value: "5000-10000",
+      label: "$5,000 - $10,000",
+      description: "Medium business solutions",
+    },
+    {
+      value: "10000-25000",
+      label: "$10,000 - $25,000",
+      description: "Comprehensive platforms",
+    },
+    {
+      value: "25000-50000",
+      label: "$25,000 - $50,000",
+      description: "Enterprise solutions",
+    },
     { value: "50000+", label: "$50,000+", description: "Large-scale projects" },
   ];
 
@@ -221,7 +240,8 @@ const ContactForm = () => {
       console.error("Form submission error:", err);
       setSubmitStatus({
         success: false,
-        message: "An unexpected error occurred. Please try again or email visqode@gmail.com",
+        message:
+          "An unexpected error occurred. Please try again or email visqode@gmail.com",
       });
     } finally {
       setIsSubmitting(false);
@@ -244,7 +264,7 @@ const ContactForm = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "back.out(1.7)" }}
-            className="bg-gradient-to-br from-[#a7ff59] to-[#8fee3f] rounded-3xl p-12"
+            className="bg-gradient-to-br from-[#e97f33] to-[#f0883e] rounded-3xl p-12"
           >
             <motion.div
               initial={{ scale: 0 }}
@@ -252,16 +272,20 @@ const ContactForm = () => {
               transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
               className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6"
             >
-              <i className="bx bx-check text-[#a7ff59] text-4xl"></i>
+              <i className="bx bx-check text-[#e97f33] text-4xl"></i>
             </motion.div>
 
             <h3 className="text-3xl lg:text-4xl racing font-bold text-black mb-4">
               Message Sent Successfully!
             </h3>
-            <p className="text-xl openSans text-black/80 mb-6">{submitStatus.message}</p>
+            <p className="text-xl openSans text-black/80 mb-6">
+              {submitStatus.message}
+            </p>
 
             <div className="bg-white/20 rounded-2xl p-6 mb-8">
-              <h4 className="racing font-bold text-black mb-4">What happens next?</h4>
+              <h4 className="racing font-bold text-black mb-4">
+                What happens next?
+              </h4>
               <div className="grid sm:grid-cols-3 gap-4 text-sm openSans text-black/80">
                 <div className="flex flex-col items-center">
                   <i className="bx bx-time-five text-2xl mb-2"></i>
@@ -308,7 +332,10 @@ const ContactForm = () => {
 
             <p className="text-sm openSans text-black/60 mt-6">
               Need immediate assistance? Email us at{" "}
-              <a href="mailto:ibwmahin@gmail.com" className="underline font-semibold">
+              <a
+                href="mailto:ibwmahin@gmail.com"
+                className="underline font-semibold"
+              >
                 ibwmahin@gmail.com
               </a>
             </p>
@@ -340,8 +367,8 @@ const ContactForm = () => {
             Start Your Project
           </h2>
           <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto openSans leading-relaxed">
-            Ready to transform your digital presence? Tell us about your project and let's create
-            something amazing together.
+            Ready to transform your digital presence? Tell us about your project
+            and let's create something amazing together.
           </p>
         </motion.div>
 
@@ -355,18 +382,20 @@ const ContactForm = () => {
             className="lg:sticky lg:top-8"
           >
             <div className="bg-gray-50 rounded-3xl p-8">
-              <h3 className="text-2xl lg:text-3xl racing font-bold mb-6">Let's Talk</h3>
+              <h3 className="text-2xl lg:text-3xl racing font-bold mb-6">
+                Let's Talk
+              </h3>
 
               <div className="space-y-6 mb-8">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-[#a7ff59] rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-[#e97f33] rounded-full flex items-center justify-center mr-4">
                     <i className="bx bx-phone text-black text-xl"></i>
                   </div>
                   <div>
                     <p className="racing font-bold">Phone</p>
                     <a
                       href="tel:+15551234567"
-                      className="openSans text-gray-600 hover:text-[#a7ff59] transition-colors"
+                      className="openSans text-gray-600 hover:text-[#e97f33] transition-colors"
                     >
                       +1 (555) 123-4567
                     </a>
@@ -374,14 +403,14 @@ const ContactForm = () => {
                 </div>
 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-[#a7ff59] rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-[#e97f33] rounded-full flex items-center justify-center mr-4">
                     <i className="bx bx-envelope text-black text-xl"></i>
                   </div>
                   <div>
                     <p className="racing font-bold">Email</p>
                     <a
                       href="mailto:visqode@gmail.com"
-                      className="openSans text-gray-600 hover:text-[#a7ff59] transition-colors"
+                      className="openSans text-gray-600 hover:text-[#e97f33] transition-colors"
                     >
                       visqode@gmail.com
                     </a>
@@ -389,7 +418,7 @@ const ContactForm = () => {
                 </div>
 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-[#a7ff59] rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-[#e97f33] rounded-full flex items-center justify-center mr-4">
                     <i className="bx bx-time text-black text-xl"></i>
                   </div>
                   <div>
@@ -418,7 +447,7 @@ const ContactForm = () => {
                 href="tel:+15551234567"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full py-4 bg-[#a7ff59] text-black rounded-xl hover:bg-[#8fee3f] transition-all duration-300 racing font-bold text-lg flex items-center justify-center"
+                className="w-full py-4 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-all duration-300 racing font-bold text-lg flex items-center justify-center"
               >
                 <i className="bx bx-phone mr-2"></i>
                 Call Us Now
@@ -464,7 +493,9 @@ const ContactForm = () => {
               >
                 <div className="flex items-center">
                   <i className="bx bx-error-circle text-red-500 text-xl mr-2"></i>
-                  <p className="openSans text-red-800">{submitStatus.message}</p>
+                  <p className="openSans text-red-800">
+                    {submitStatus.message}
+                  </p>
                 </div>
               </motion.div>
             )}
@@ -473,40 +504,46 @@ const ContactForm = () => {
               {/* Basic Info */}
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-lg racing font-bold mb-3">Full Name *</label>
+                  <label className="block text-lg racing font-bold mb-3">
+                    Full Name *
+                  </label>
                   <input
                     type="text"
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-[#a7ff59] focus:outline-none transition-all duration-300 openSans"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-[#e97f33] focus:outline-none transition-all duration-300 openSans"
                     placeholder="Your full name"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-lg racing font-bold mb-3">Business/Brand Name</label>
+                  <label className="block text-lg racing font-bold mb-3">
+                    Business/Brand Name
+                  </label>
                   <input
                     type="text"
                     name="businessName"
                     value={formData.businessName}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-[#a7ff59] focus:outline-none transition-all duration-300 openSans"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-[#e97f33] focus:outline-none transition-all duration-300 openSans"
                     placeholder="Your business name (optional)"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-lg racing font-bold mb-3">Email Address *</label>
+                <label className="block text-lg racing font-bold mb-3">
+                  Email Address *
+                </label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-[#a7ff59] focus:outline-none transition-all duration-300 openSans"
+                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-[#e97f33] focus:outline-none transition-all duration-300 openSans"
                   placeholder="your@email.com"
                 />
               </div>
@@ -521,7 +558,7 @@ const ContactForm = () => {
                     <motion.label
                       key={service.id}
                       whileHover={{ scale: 1.02 }}
-                      className={`flex items-start p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${formData.services.includes(service.id) ? "border-[#a7ff59] bg-[#a7ff59]/10" : "border-gray-200 hover:border-gray-300"}`}
+                      className={`flex items-start p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${formData.services.includes(service.id) ? "border-[#e97f33] bg-[#e97f33]/10" : "border-gray-200 hover:border-gray-300"}`}
                     >
                       <input
                         type="checkbox"
@@ -530,7 +567,7 @@ const ContactForm = () => {
                         className="sr-only"
                       />
                       <div
-                        className={`w-5 h-5 rounded border-2 mr-3 flex items-center justify-center flex-shrink-0 mt-0.5 ${formData.services.includes(service.id) ? "border-[#a7ff59] bg-[#a7ff59]" : "border-gray-300"}`}
+                        className={`w-5 h-5 rounded border-2 mr-3 flex items-center justify-center flex-shrink-0 mt-0.5 ${formData.services.includes(service.id) ? "border-[#e97f33] bg-[#e97f33]" : "border-gray-300"}`}
                       >
                         {formData.services.includes(service.id) && (
                           <motion.i
@@ -543,11 +580,15 @@ const ContactForm = () => {
                       <div className="flex-1">
                         <div className="flex items-center mb-1">
                           <i
-                            className={`bx ${service.icon} text-lg mr-2 ${formData.services.includes(service.id) ? "text-[#a7ff59]" : "text-gray-600"}`}
+                            className={`bx ${service.icon} text-lg mr-2 ${formData.services.includes(service.id) ? "text-[#e97f33]" : "text-gray-600"}`}
                           ></i>
-                          <span className="openSans font-medium">{service.name}</span>
+                          <span className="openSans font-medium">
+                            {service.name}
+                          </span>
                         </div>
-                        <p className="text-xs text-gray-500 openSans">{service.description}</p>
+                        <p className="text-xs text-gray-500 openSans">
+                          {service.description}
+                        </p>
                       </div>
                     </motion.label>
                   ))}
@@ -556,13 +597,15 @@ const ContactForm = () => {
 
               {/* Budget Range */}
               <div>
-                <label className="block text-lg racing font-bold mb-4">Budget Range *</label>
+                <label className="block text-lg racing font-bold mb-4">
+                  Budget Range *
+                </label>
                 <div className="space-y-3">
                   {budgetRanges.map((budget) => (
                     <motion.label
                       key={budget.value}
                       whileHover={{ scale: 1.01 }}
-                      className={`flex items-center p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${formData.budget === budget.value ? "border-[#a7ff59] bg-[#a7ff59]/10" : "border-gray-200 hover:border-gray-300"}`}
+                      className={`flex items-center p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${formData.budget === budget.value ? "border-[#e97f33] bg-[#e97f33]/10" : "border-gray-200 hover:border-gray-300"}`}
                     >
                       <input
                         type="radio"
@@ -573,7 +616,7 @@ const ContactForm = () => {
                         className="sr-only"
                       />
                       <div
-                        className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center ${formData.budget === budget.value ? "border-[#a7ff59] bg-[#a7ff59]" : "border-gray-300"}`}
+                        className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center ${formData.budget === budget.value ? "border-[#e97f33] bg-[#e97f33]" : "border-gray-300"}`}
                       >
                         {formData.budget === budget.value && (
                           <motion.div
@@ -584,8 +627,12 @@ const ContactForm = () => {
                         )}
                       </div>
                       <div className="flex-1">
-                        <span className="openSans font-medium block">{budget.label}</span>
-                        <span className="text-xs text-gray-500 openSans">{budget.description}</span>
+                        <span className="openSans font-medium block">
+                          {budget.label}
+                        </span>
+                        <span className="text-xs text-gray-500 openSans">
+                          {budget.description}
+                        </span>
                       </div>
                     </motion.label>
                   ))}
@@ -594,14 +641,16 @@ const ContactForm = () => {
 
               {/* Project Description */}
               <div>
-                <label className="block text-lg racing font-bold mb-3">Project Description *</label>
+                <label className="block text-lg racing font-bold mb-3">
+                  Project Description *
+                </label>
                 <textarea
                   name="description"
                   value={formData.description}
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-[#a7ff59] focus:outline-none transition-all duration-300 openSans resize-none"
+                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:border-[#e97f33] focus:outline-none transition-all duration-300 openSans resize-none"
                   placeholder="Tell us about your project goals, target audience, timeline, and any specific requirements..."
                 />
                 <p className="text-sm text-gray-500 openSans mt-2">
@@ -615,13 +664,17 @@ const ContactForm = () => {
                 disabled={isSubmitting}
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                className="w-full py-6 bg-[#a7ff59] text-black rounded-xl hover:bg-[#8fee3f] transition-all duration-300 racing font-bold text-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                className="w-full py-6 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-all duration-300 racing font-bold text-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
                     <motion.div
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                      transition={{
+                        duration: 1,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "linear",
+                      }}
                       className="w-6 h-6 border-2 border-black border-t-transparent rounded-full mr-3"
                     />
                     Sending Message...
@@ -637,7 +690,7 @@ const ContactForm = () => {
               {/* Privacy Notice */}
               <p className="text-sm text-gray-500 openSans text-center">
                 By submitting this form, you agree to our{" "}
-                <a href="#" className="text-[#a7ff59] hover:underline">
+                <a href="#" className="text-[#e97f33] hover:underline">
                   Privacy Policy
                 </a>
                 . We'll never share your information with third parties.

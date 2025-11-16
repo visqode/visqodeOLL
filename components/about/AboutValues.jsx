@@ -55,7 +55,7 @@ const AboutValues = () => {
             >
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-16 h-16 bg-[#a7ff59] rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-[#e97f33] rounded-full flex items-center justify-center mx-auto mb-6"
               >
                 <i className={`bx ${value.icon} text-2xl text-black`}></i>
               </motion.div>

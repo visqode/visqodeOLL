@@ -158,13 +158,13 @@ export default function Services() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center justify-center lg:justify-start gap-3">
-                        <i className="bx bx-check text-[#a7ff59] text-xl flex-shrink-0"></i>
+                        <i className="bx bx-check text-[#e97f33] text-xl flex-shrink-0"></i>
                         <span className="openSans text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
 
-                  <button className="px-8 py-4 bg-[#a7ff59] text-black rounded-full hover:bg-[#8fee3f] transition-all duration-300 racing font-bold">
+                  <button className="px-8 py-4 bg-[#e97f33] text-black rounded-full hover:bg-[#f0883e] transition-all duration-300 racing font-bold">
                     Learn More
                   </button>
                 </div>
@@ -198,12 +198,12 @@ export default function Services() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-gray-50 p-8 rounded-3xl hover:shadow-lg transition-all duration-300 relative overflow-hidden"
               >
-                <div className="absolute top-4 right-4 bg-[#a7ff59] text-black px-3 py-1 rounded-full text-xs racing font-bold">
+                <div className="absolute top-4 right-4 bg-[#e97f33] text-black px-3 py-1 rounded-full text-xs racing font-bold">
                   {service.status}
                 </div>
 
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-[#a7ff59] rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 bg-[#e97f33] rounded-full flex items-center justify-center">
                     <i className={`bx ${service.icon} text-2xl text-black`}></i>
                   </div>
                   <h3 className="text-2xl md:text-3xl racing font-bold">{service.title}</h3>
@@ -222,7 +222,7 @@ export default function Services() {
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-3">
-                      <i className="bx bx-check text-[#a7ff59] text-lg flex-shrink-0"></i>
+                      <i className="bx bx-check text-[#e97f33] text-lg flex-shrink-0"></i>
                       <span className="openSans text-sm">{feature}</span>
                     </li>
                   ))}

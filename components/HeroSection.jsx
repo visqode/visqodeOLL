@@ -90,21 +90,11 @@ const HeroSection = () => {
           <button
             onClick={(e) => handleSectionClick(e, "projects")}
             style={{ backgroundColor: "var(--primary)" }}
-            className="w-full font-[600] sm:w-auto px-6 md:px-7 hover:px-8 md:hover:px-10 transition-all duration-300 py-3 text-black rounded-full hover:bg-[#8fee3f] text-center"
+            className="w-full font-[600] sm:w-auto px-6 md:px-7 hover:px-8 md:hover:px-10 transition-all duration-300 py-3 text-black rounded-full hover:bg-[#f0883e] text-center"
           >
             <i className="ri-folder-open-line"></i> &nbsp; View Our Work
           </button>
         </div>
-      </div>
-
-      <div className="absolute bottom-4 md:bottom-5 right-8 md:right-5 hidden md:block">
-        <CircularText
-          text="Your*Trusted*Partner*"
-          onHover="speedUp"
-          fontSize="text-[15px]"
-          spinDuration={20}
-          className="w-16 h-16 md:w-20 md:h-20"
-        />
       </div>
     </section>
   );

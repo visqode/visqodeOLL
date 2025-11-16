@@ -1,15 +1,15 @@
-"use client"
-import { motion } from "framer-motion"
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+"use client";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 const ProjectsTab = () => {
-  const projectsRef = useRef([])
+  const projectsRef = useRef([]);
 
   useEffect(() => {
     projectsRef.current.forEach((project, index) => {
@@ -29,20 +29,21 @@ const ProjectsTab = () => {
               toggleActions: "play none none reverse",
             },
           },
-        )
+        );
       }
-    })
+    });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   const projects = [
     {
       id: 1,
       name: "E-commerce Website Redesign",
-      description: "Complete overhaul of the existing e-commerce platform with modern UI/UX",
+      description:
+        "Complete overhaul of the existing e-commerce platform with modern UI/UX",
       status: "In Progress",
       progress: 75,
       startDate: "Nov 1, 2023",
@@ -107,17 +108,21 @@ const ProjectsTab = () => {
       color: "bg-purple-500",
       statusColor: "bg-purple-100 text-purple-800",
     },
-  ]
+  ];
 
   return (
     <div className="space-y-8">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl racing font-bold text-gray-900">Your Projects</h1>
-          <p className="openSans text-gray-600 mt-1">Track progress and manage your active projects</p>
+          <h1 className="text-3xl racing font-bold text-gray-900">
+            Your Projects
+          </h1>
+          <p className="openSans text-gray-600 mt-1">
+            Track progress and manage your active projects
+          </p>
         </div>
-        <button className="px-6 py-3 bg-[#a7ff59] text-black rounded-xl hover:bg-[#8fee3f] transition-colors racing font-bold">
+        <button className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
           <i className="bx bx-plus mr-2"></i>
           New Project
         </button>
@@ -136,9 +141,15 @@ const ProjectsTab = () => {
               <div className="flex-1">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="text-xl racing font-bold text-gray-900 mb-2">{project.name}</h3>
-                    <p className="openSans text-gray-600 mb-3">{project.description}</p>
-                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${project.statusColor}`}>
+                    <h3 className="text-xl racing font-bold text-gray-900 mb-2">
+                      {project.name}
+                    </h3>
+                    <p className="openSans text-gray-600 mb-3">
+                      {project.description}
+                    </p>
+                    <span
+                      className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${project.statusColor}`}
+                    >
                       {project.status}
                     </span>
                   </div>
@@ -147,8 +158,12 @@ const ProjectsTab = () => {
                 {/* Progress */}
                 <div className="mb-4">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="openSans text-sm text-gray-600">Progress</span>
-                    <span className="openSans text-sm font-semibold text-gray-900">{project.progress}%</span>
+                    <span className="openSans text-sm text-gray-600">
+                      Progress
+                    </span>
+                    <span className="openSans text-sm font-semibold text-gray-900">
+                      {project.progress}%
+                    </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <motion.div
@@ -164,15 +179,21 @@ const ProjectsTab = () => {
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
                   <div>
                     <span className="text-gray-500 openSans">Start Date</span>
-                    <p className="font-semibold text-gray-900 openSans">{project.startDate}</p>
+                    <p className="font-semibold text-gray-900 openSans">
+                      {project.startDate}
+                    </p>
                   </div>
                   <div>
                     <span className="text-gray-500 openSans">Due Date</span>
-                    <p className="font-semibold text-gray-900 openSans">{project.dueDate}</p>
+                    <p className="font-semibold text-gray-900 openSans">
+                      {project.dueDate}
+                    </p>
                   </div>
                   <div>
                     <span className="text-gray-500 openSans">Budget</span>
-                    <p className="font-semibold text-gray-900 openSans">{project.budget}</p>
+                    <p className="font-semibold text-gray-900 openSans">
+                      {project.budget}
+                    </p>
                   </div>
                   <div>
                     <span className="text-gray-500 openSans">Tasks</span>
@@ -187,12 +208,14 @@ const ProjectsTab = () => {
               <div className="lg:w-64 space-y-4">
                 {/* Team */}
                 <div>
-                  <span className="text-gray-500 openSans text-sm mb-2 block">Team</span>
+                  <span className="text-gray-500 openSans text-sm mb-2 block">
+                    Team
+                  </span>
                   <div className="flex -space-x-2">
                     {project.team.map((member, idx) => (
                       <div
                         key={idx}
-                        className="w-8 h-8 bg-[#a7ff59] rounded-full flex items-center justify-center border-2 border-white"
+                        className="w-8 h-8 bg-[#e97f33] rounded-full flex items-center justify-center border-2 border-white"
                         title={member}
                       >
                         <span className="racing font-bold text-black text-xs">
@@ -211,7 +234,7 @@ const ProjectsTab = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 py-2 px-4 bg-[#a7ff59] text-black rounded-lg hover:bg-[#8fee3f] transition-colors racing font-bold text-sm"
+                    className="flex-1 py-2 px-4 bg-[#e97f33] text-black rounded-lg hover:bg-[#f0883e] transition-colors racing font-bold text-sm"
                   >
                     View Details
                   </motion.button>
@@ -254,7 +277,7 @@ const ProjectsTab = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectsTab
+export default ProjectsTab;

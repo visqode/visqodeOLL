@@ -1,5 +1,5 @@
-"use client"
-import { motion } from "framer-motion"
+"use client";
+import { motion } from "framer-motion";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -30,7 +30,7 @@ const TestimonialsSection = () => {
       avatar:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
     },
-  ]
+  ];
 
   return (
     <section className="py-20 lg:py-32 bg-white">
@@ -43,9 +43,12 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl lg:text-5xl racing font-bold text-gray-900 mb-6">What Our Clients Say</h2>
+          <h2 className="text-4xl lg:text-5xl racing font-bold text-gray-900 mb-6">
+            What Our Clients Say
+          </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto openSans">
-            Don't just take our word for it. Here's what our clients have to say about working with us.
+            Don't just take our word for it. Here's what our clients have to say
+            about working with us.
           </p>
         </motion.div>
 
@@ -64,12 +67,14 @@ const TestimonialsSection = () => {
               {/* Rating */}
               <div className="flex mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <i key={i} className="bx bxs-star text-[#a7ff59] text-xl"></i>
+                  <i key={i} className="bx bxs-star text-[#e97f33] text-xl"></i>
                 ))}
               </div>
 
               {/* Content */}
-              <p className="text-gray-700 text-lg leading-relaxed mb-6 openSans">"{testimonial.content}"</p>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6 openSans">
+                "{testimonial.content}"
+              </p>
 
               {/* Author */}
               <div className="flex items-center">
@@ -79,8 +84,12 @@ const TestimonialsSection = () => {
                   className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-900 racing">{testimonial.name}</h4>
-                  <p className="text-gray-600 text-sm openSans">{testimonial.role}</p>
+                  <h4 className="font-semibold text-gray-900 racing">
+                    {testimonial.name}
+                  </h4>
+                  <p className="text-gray-600 text-sm openSans">
+                    {testimonial.role}
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -88,7 +97,7 @@ const TestimonialsSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TestimonialsSection
+export default TestimonialsSection;

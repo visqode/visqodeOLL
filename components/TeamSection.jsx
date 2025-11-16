@@ -48,7 +48,7 @@ const TeamSection = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-[#a7ff59] text-black font-semibold rounded-full hover:bg-[#8fee3f] transition-all duration-300"
+              className="px-8 py-4 bg-[#e97f33] text-black font-semibold rounded-full hover:bg-[#f0883e] transition-all duration-300"
             >
               View More
             </motion.button>
@@ -82,7 +82,7 @@ const TeamSection = () => {
                 </div>
 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-[#a7ff59]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-[#e97f33]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center text-black">
                     <h3 className="text-xl font-bold mb-2 racing">{member.name}</h3>
                     <p className="mb-4 openSans">{member.role}</p>

@@ -84,7 +84,7 @@ const ServicesGrid = () => {
                         transition={{ duration: 0.4, delay: idx * 0.1 }}
                         className="flex items-center"
                       >
-                        <i className="bx bx-check text-[#a7ff59] text-xl mr-3"></i>
+                        <i className="bx bx-check text-[#e97f33] text-xl mr-3"></i>
                         <span className="text-sm">{feature}</span>
                       </motion.div>
                     ))}
@@ -93,7 +93,7 @@ const ServicesGrid = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="mt-6 px-6 py-3 bg-[#a7ff59] text-black font-semibold rounded-full hover:bg-[#8fee3f] transition-all duration-300 self-start"
+                    className="mt-6 px-6 py-3 bg-[#e97f33] text-black font-semibold rounded-full hover:bg-[#f0883e] transition-all duration-300 self-start"
                   >
                     Learn More
                   </motion.button>

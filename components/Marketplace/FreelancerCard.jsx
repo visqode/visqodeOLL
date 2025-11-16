@@ -1,5 +1,5 @@
-"use client"
-import { motion } from "framer-motion"
+"use client";
+import { motion } from "framer-motion";
 
 const FreelancerCard = ({ freelancer, index }) => {
   return (
@@ -19,14 +19,17 @@ const FreelancerCard = ({ freelancer, index }) => {
             className="w-16 h-16 rounded-full object-cover mr-4"
           />
           <div>
-            <h3 className="racing font-bold text-lg text-gray-900 group-hover:text-[#a7ff59] transition-colors">
+            <h3 className="racing font-bold text-lg text-gray-900 group-hover:text-[#e97f33] transition-colors">
               {freelancer.name}
             </h3>
             <p className="openSans text-gray-600 text-sm">{freelancer.title}</p>
             <div className="flex items-center mt-1">
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
-                  <i key={i} className={`bx bx${i < Math.floor(freelancer.rating) ? "s" : ""}-star text-sm`}></i>
+                  <i
+                    key={i}
+                    className={`bx bx${i < Math.floor(freelancer.rating) ? "s" : ""}-star text-sm`}
+                  ></i>
                 ))}
               </div>
               <span className="openSans text-xs text-gray-500 ml-2">
@@ -47,12 +50,15 @@ const FreelancerCard = ({ freelancer, index }) => {
       <div className="mb-4">
         <div className="flex flex-wrap gap-2">
           {freelancer.skills.slice(0, 4).map((skill, idx) => (
-            <span key={idx} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs openSans font-medium">
+            <span
+              key={idx}
+              className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs openSans font-medium"
+            >
               {skill}
             </span>
           ))}
           {freelancer.skills.length > 4 && (
-            <span className="px-3 py-1 bg-[#a7ff59] text-black rounded-full text-xs openSans font-medium">
+            <span className="px-3 py-1 bg-[#e97f33] text-black rounded-full text-xs openSans font-medium">
               +{freelancer.skills.length - 4} more
             </span>
           )}
@@ -60,20 +66,28 @@ const FreelancerCard = ({ freelancer, index }) => {
       </div>
 
       {/* Description */}
-      <p className="openSans text-gray-600 text-sm mb-4 line-clamp-3">{freelancer.description}</p>
+      <p className="openSans text-gray-600 text-sm mb-4 line-clamp-3">
+        {freelancer.description}
+      </p>
 
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4 mb-4 text-center">
         <div>
-          <p className="racing font-bold text-lg text-gray-900">{freelancer.completedJobs}</p>
+          <p className="racing font-bold text-lg text-gray-900">
+            {freelancer.completedJobs}
+          </p>
           <p className="openSans text-xs text-gray-500">Jobs Done</p>
         </div>
         <div>
-          <p className="racing font-bold text-lg text-gray-900">{freelancer.successRate}%</p>
+          <p className="racing font-bold text-lg text-gray-900">
+            {freelancer.successRate}%
+          </p>
           <p className="openSans text-xs text-gray-500">Success Rate</p>
         </div>
         <div>
-          <p className="racing font-bold text-lg text-gray-900">{freelancer.responseTime}</p>
+          <p className="racing font-bold text-lg text-gray-900">
+            {freelancer.responseTime}
+          </p>
           <p className="openSans text-xs text-gray-500">Response</p>
         </div>
       </div>
@@ -81,19 +95,21 @@ const FreelancerCard = ({ freelancer, index }) => {
       {/* Price & CTA */}
       <div className="flex items-center justify-between">
         <div>
-          <p className="racing font-bold text-xl text-gray-900">${freelancer.hourlyRate}/hr</p>
+          <p className="racing font-bold text-xl text-gray-900">
+            ${freelancer.hourlyRate}/hr
+          </p>
           <p className="openSans text-xs text-gray-500">Starting at</p>
         </div>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-6 py-3 bg-[#a7ff59] text-black rounded-xl hover:bg-[#8fee3f] transition-colors racing font-bold"
+          className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold"
         >
           View Profile
         </motion.button>
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default FreelancerCard
+export default FreelancerCard;

@@ -1,16 +1,16 @@
-"use client"
-import { motion } from "framer-motion"
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+"use client";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 const DashboardOverview = () => {
-  const cardsRef = useRef([])
-  const statsRef = useRef([])
+  const cardsRef = useRef([]);
+  const statsRef = useRef([]);
 
   useEffect(() => {
     // Animate cards on scroll
@@ -31,9 +31,9 @@ const DashboardOverview = () => {
               toggleActions: "play none none reverse",
             },
           },
-        )
+        );
       }
-    })
+    });
 
     // Animate stats
     statsRef.current.forEach((stat, index) => {
@@ -53,14 +53,14 @@ const DashboardOverview = () => {
               toggleActions: "play none none reverse",
             },
           },
-        )
+        );
       }
-    })
+    });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   const projects = [
     {
@@ -87,21 +87,42 @@ const DashboardOverview = () => {
       dueDate: "Nov 28, 2023",
       color: "bg-green-500",
     },
-  ]
+  ];
 
   const stats = [
-    { label: "Active Projects", value: "3", icon: "bx-briefcase", color: "text-blue-600" },
-    { label: "Completed", value: "12", icon: "bx-check-circle", color: "text-green-600" },
-    { label: "Total Spent", value: "$24,500", icon: "bx-dollar", color: "text-purple-600" },
-    { label: "Support Tickets", value: "1", icon: "bx-support", color: "text-orange-600" },
-  ]
+    {
+      label: "Active Projects",
+      value: "3",
+      icon: "bx-briefcase",
+      color: "text-blue-600",
+    },
+    {
+      label: "Completed",
+      value: "12",
+      icon: "bx-check-circle",
+      color: "text-green-600",
+    },
+    {
+      label: "Total Spent",
+      value: "$24,500",
+      icon: "bx-dollar",
+      color: "text-purple-600",
+    },
+    {
+      label: "Support Tickets",
+      value: "1",
+      icon: "bx-support",
+      color: "text-orange-600",
+    },
+  ];
 
   const recentMessages = [
     {
       id: 1,
       from: "Sarah Chen",
       role: "Project Manager",
-      message: "Your e-commerce project is ahead of schedule! We'll have the first preview ready by tomorrow.",
+      message:
+        "Your e-commerce project is ahead of schedule! We'll have the first preview ready by tomorrow.",
       time: "2 hours ago",
       avatar: "SC",
     },
@@ -109,7 +130,8 @@ const DashboardOverview = () => {
       id: 2,
       from: "Marcus Rodriguez",
       role: "Lead Developer",
-      message: "The mobile app wireframes have been uploaded to your files section for review.",
+      message:
+        "The mobile app wireframes have been uploaded to your files section for review.",
       time: "1 day ago",
       avatar: "MR",
     },
@@ -117,11 +139,12 @@ const DashboardOverview = () => {
       id: 3,
       from: "Emily Johnson",
       role: "Designer",
-      message: "Brand guidelines document is ready. Please check the latest version in your files.",
+      message:
+        "Brand guidelines document is ready. Please check the latest version in your files.",
       time: "2 days ago",
       avatar: "EJ",
     },
-  ]
+  ];
 
   return (
     <div className="space-y-8">
@@ -130,11 +153,14 @@ const DashboardOverview = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-gradient-to-r from-[#a7ff59] to-[#8fee3f] rounded-3xl p-8 text-black"
+        className="bg-gradient-to-r from-[#e97f33] to-[#f0883e] rounded-3xl p-8 text-black"
       >
-        <h1 className="text-3xl lg:text-4xl racing font-bold mb-2">Welcome back, John! 👋</h1>
+        <h1 className="text-3xl lg:text-4xl racing font-bold mb-2">
+          Welcome back, John! 👋
+        </h1>
         <p className="text-lg openSans opacity-80">
-          Here's what's happening with your projects today. Your e-commerce site is looking amazing!
+          Here's what's happening with your projects today. Your e-commerce site
+          is looking amazing!
         </p>
       </motion.div>
 
@@ -153,7 +179,9 @@ const DashboardOverview = () => {
                 <i className={`bx ${stat.icon} text-2xl ${stat.color}`}></i>
               </div>
             </div>
-            <h3 className="text-2xl racing font-bold text-gray-900 mb-1">{stat.value}</h3>
+            <h3 className="text-2xl racing font-bold text-gray-900 mb-1">
+              {stat.value}
+            </h3>
             <p className="openSans text-sm text-gray-600">{stat.label}</p>
           </div>
         ))}
@@ -163,7 +191,9 @@ const DashboardOverview = () => {
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Active Projects */}
         <div className="space-y-6">
-          <h2 className="text-2xl racing font-bold text-gray-900">Active Projects</h2>
+          <h2 className="text-2xl racing font-bold text-gray-900">
+            Active Projects
+          </h2>
           <div className="space-y-4">
             {projects.map((project, index) => (
               <div
@@ -173,20 +203,32 @@ const DashboardOverview = () => {
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="racing font-bold text-lg text-gray-900 mb-1">{project.name}</h3>
+                    <h3 className="racing font-bold text-lg text-gray-900 mb-1">
+                      {project.name}
+                    </h3>
                     <div className="flex items-center">
-                      <span className={`inline-block w-2 h-2 ${project.color} rounded-full mr-2`}></span>
-                      <span className="openSans text-sm text-gray-600">{project.status}</span>
+                      <span
+                        className={`inline-block w-2 h-2 ${project.color} rounded-full mr-2`}
+                      ></span>
+                      <span className="openSans text-sm text-gray-600">
+                        {project.status}
+                      </span>
                     </div>
                   </div>
-                  <span className="openSans text-sm text-gray-500">{project.dueDate}</span>
+                  <span className="openSans text-sm text-gray-500">
+                    {project.dueDate}
+                  </span>
                 </div>
 
                 {/* Progress Bar */}
                 <div className="mb-4">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="openSans text-sm text-gray-600">Progress</span>
-                    <span className="openSans text-sm font-semibold text-gray-900">{project.progress}%</span>
+                    <span className="openSans text-sm text-gray-600">
+                      Progress
+                    </span>
+                    <span className="openSans text-sm font-semibold text-gray-900">
+                      {project.progress}%
+                    </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <motion.div
@@ -198,7 +240,7 @@ const DashboardOverview = () => {
                   </div>
                 </div>
 
-                <button className="w-full py-3 bg-gray-50 hover:bg-[#a7ff59] hover:text-black rounded-xl transition-all duration-300 openSans font-medium">
+                <button className="w-full py-3 bg-gray-50 hover:bg-[#e97f33] hover:text-black rounded-xl transition-all duration-300 openSans font-medium">
                   View Details
                 </button>
               </div>
@@ -208,7 +250,9 @@ const DashboardOverview = () => {
 
         {/* Recent Messages */}
         <div className="space-y-6">
-          <h2 className="text-2xl racing font-bold text-gray-900">Recent Messages</h2>
+          <h2 className="text-2xl racing font-bold text-gray-900">
+            Recent Messages
+          </h2>
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
             <div className="space-y-4">
               {recentMessages.map((message, index) => (
@@ -217,21 +261,31 @@ const DashboardOverview = () => {
                   ref={(el) => (cardsRef.current[projects.length + index] = el)}
                   className="flex items-start space-x-4 p-4 hover:bg-gray-50 rounded-xl transition-colors"
                 >
-                  <div className="w-10 h-10 bg-[#a7ff59] rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="racing font-bold text-black text-sm">{message.avatar}</span>
+                  <div className="w-10 h-10 bg-[#e97f33] rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="racing font-bold text-black text-sm">
+                      {message.avatar}
+                    </span>
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
-                      <h4 className="racing font-bold text-sm text-gray-900">{message.from}</h4>
-                      <span className="openSans text-xs text-gray-500">{message.time}</span>
+                      <h4 className="racing font-bold text-sm text-gray-900">
+                        {message.from}
+                      </h4>
+                      <span className="openSans text-xs text-gray-500">
+                        {message.time}
+                      </span>
                     </div>
-                    <p className="openSans text-xs text-gray-600 mb-1">{message.role}</p>
-                    <p className="openSans text-sm text-gray-800 leading-relaxed">{message.message}</p>
+                    <p className="openSans text-xs text-gray-600 mb-1">
+                      {message.role}
+                    </p>
+                    <p className="openSans text-sm text-gray-800 leading-relaxed">
+                      {message.message}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
-            <button className="w-full mt-4 py-3 bg-[#a7ff59] text-black rounded-xl hover:bg-[#8fee3f] transition-colors racing font-bold">
+            <button className="w-full mt-4 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
               View All Messages
             </button>
           </div>
@@ -240,32 +294,48 @@ const DashboardOverview = () => {
 
       {/* Quick Actions */}
       <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-        <h2 className="text-2xl racing font-bold text-gray-900 mb-6">Quick Actions</h2>
+        <h2 className="text-2xl racing font-bold text-gray-900 mb-6">
+          Quick Actions
+        </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { icon: "bx-upload", label: "Upload Files", color: "bg-blue-500" },
-            { icon: "bx-message", label: "Send Message", color: "bg-green-500" },
-            { icon: "bx-receipt", label: "View Invoices", color: "bg-purple-500" },
-            { icon: "bx-support", label: "Get Support", color: "bg-orange-500" },
+            {
+              icon: "bx-message",
+              label: "Send Message",
+              color: "bg-green-500",
+            },
+            {
+              icon: "bx-receipt",
+              label: "View Invoices",
+              color: "bg-purple-500",
+            },
+            {
+              icon: "bx-support",
+              label: "Get Support",
+              color: "bg-orange-500",
+            },
           ].map((action, index) => (
             <motion.button
               key={action.label}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex flex-col items-center p-6 bg-gray-50 hover:bg-[#a7ff59]/10 rounded-xl transition-all duration-300 group"
+              className="flex flex-col items-center p-6 bg-gray-50 hover:bg-[#e97f33]/10 rounded-xl transition-all duration-300 group"
             >
               <div
                 className={`w-12 h-12 ${action.color} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}
               >
                 <i className={`bx ${action.icon} text-white text-xl`}></i>
               </div>
-              <span className="openSans font-medium text-gray-700 group-hover:text-gray-900">{action.label}</span>
+              <span className="openSans font-medium text-gray-700 group-hover:text-gray-900">
+                {action.label}
+              </span>
             </motion.button>
           ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DashboardOverview
+export default DashboardOverview;

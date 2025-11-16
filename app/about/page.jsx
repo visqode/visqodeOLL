@@ -1,40 +1,56 @@
-"use client"
+"use client";
 
-import Navigation from "@/components/Navigation"
-import Footer from "@/components/Footer"
-import PageHero from "@/components/PageHero"
-import ScrollReveal from "@/components/Features/ScrollReveal"
-import { motion } from "framer-motion"
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import ScrollReveal from "@/components/Features/ScrollReveal";
+import { motion } from "framer-motion";
 
 export default function About() {
   const stats = [
-    { number: "50+", label: "Projects Completed", desc: "Successfully delivered across various industries" },
-    { number: "5+", label: "Years Experience", desc: "Years of expertise in digital solutions" },
-    { number: "100%", label: "Client Satisfaction", desc: "Committed to exceeding expectations" },
-  ]
+    {
+      number: "50+",
+      label: "Projects Completed",
+      desc: "Successfully delivered across various industries",
+    },
+    {
+      number: "5+",
+      label: "Years Experience",
+      desc: "Years of expertise in digital solutions",
+    },
+    {
+      number: "100%",
+      label: "Client Satisfaction",
+      desc: "Committed to exceeding expectations",
+    },
+  ];
 
   const values = [
     {
       icon: "bx-rocket",
       title: "Innovation",
-      description: "We constantly push boundaries with cutting-edge technologies and creative solutions.",
+      description:
+        "We constantly push boundaries with cutting-edge technologies and creative solutions.",
     },
     {
       icon: "bx-heart",
       title: "Partnership",
-      description: "We work closely with our clients as true partners in their digital transformation journey.",
+      description:
+        "We work closely with our clients as true partners in their digital transformation journey.",
     },
     {
       icon: "bx-shield-check",
       title: "Quality",
-      description: "Every project meets the highest standards of excellence and attention to detail.",
+      description:
+        "Every project meets the highest standards of excellence and attention to detail.",
     },
     {
       icon: "bx-trending-up",
       title: "Growth",
-      description: "We focus on solutions that drive real business growth and long-term success.",
+      description:
+        "We focus on solutions that drive real business growth and long-term success.",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -67,7 +83,9 @@ export default function About() {
             </motion.div>
 
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl racing font-bold">What is VisQode?</h2>
+              <h2 className="text-3xl md:text-4xl racing font-bold">
+                What is VisQode?
+              </h2>
               <ScrollReveal
                 baseOpacity={0}
                 enableBlur={true}
@@ -75,9 +93,10 @@ export default function About() {
                 blurStrength={10}
                 textClassName="text-base md:text-lg openSans leading-relaxed text-gray-700"
               >
-                VisQode is a full-service digital agency focused on building brands, websites, and long-term digital
-                strategies. We partner with individuals, startups, and enterprises to bring their vision to life — from
-                concept to launch.
+                VisQode is a full-service digital agency focused on building
+                brands, websites, and long-term digital strategies. We partner
+                with individuals, startups, and enterprises to bring their
+                vision to life — from concept to launch.
               </ScrollReveal>
               <ScrollReveal
                 baseOpacity={0}
@@ -86,8 +105,9 @@ export default function About() {
                 blurStrength={10}
                 textClassName="text-base md:text-lg openSans leading-relaxed text-gray-700"
               >
-                We handle the creative, the technical, and the strategic so you can focus on your vision. Our
-                comprehensive approach ensures every aspect of your digital presence works together seamlessly.
+                We handle the creative, the technical, and the strategic so you
+                can focus on your vision. Our comprehensive approach ensures
+                every aspect of your digital presence works together seamlessly.
               </ScrollReveal>
             </div>
           </div>
@@ -103,16 +123,22 @@ export default function About() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center p-6 bg-gray-50 rounded-2xl"
               >
-                <div className="text-4xl md:text-5xl racing text-[#a7ff59] mb-4">{stat.number}</div>
+                <div className="text-4xl md:text-5xl racing text-[#e97f33] mb-4">
+                  {stat.number}
+                </div>
                 <h3 className="text-lg md:text-xl racing mb-2">{stat.label}</h3>
-                <p className="openSans text-gray-600 text-sm md:text-base">{stat.desc}</p>
+                <p className="openSans text-gray-600 text-sm md:text-base">
+                  {stat.desc}
+                </p>
               </motion.div>
             ))}
           </div>
 
           {/* Our Values */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl racing font-bold mb-6">Our Core Values</h2>
+            <h2 className="text-3xl md:text-4xl racing font-bold mb-6">
+              Our Core Values
+            </h2>
             <ScrollReveal
               baseOpacity={0}
               enableBlur={true}
@@ -120,7 +146,8 @@ export default function About() {
               blurStrength={10}
               textClassName="text-lg openSans text-gray-600 max-w-3xl mx-auto"
             >
-              These principles guide everything we do and shape how we work with our clients.
+              These principles guide everything we do and shape how we work with
+              our clients.
             </ScrollReveal>
           </div>
 
@@ -134,11 +161,13 @@ export default function About() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center p-6 bg-white border border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-[#a7ff59] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#e97f33] rounded-full flex items-center justify-center mx-auto mb-4">
                   <i className={`bx ${value.icon} text-2xl text-black`}></i>
                 </div>
                 <h3 className="text-xl racing font-bold mb-3">{value.title}</h3>
-                <p className="openSans text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                <p className="openSans text-gray-600 text-sm leading-relaxed">
+                  {value.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -147,5 +176,5 @@ export default function About() {
 
       <Footer />
     </div>
-  )
+  );
 }

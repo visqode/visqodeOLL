@@ -183,14 +183,14 @@ const FreelancerProfile = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 bg-[#a7ff59] text-black rounded-xl hover:bg-[#8fee3f] transition-colors racing font-bold text-lg"
+                    className="w-full py-4 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold text-lg"
                   >
                     Hire Sarah
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 border-2 border-[#a7ff59] text-[#a7ff59] rounded-xl hover:bg-[#a7ff59] hover:text-black transition-all duration-300 racing font-bold"
+                    className="w-full py-4 border-2 border-[#e97f33] text-[#e97f33] rounded-xl hover:bg-[#e97f33] hover:text-black transition-all duration-300 racing font-bold"
                   >
                     Send Message
                   </motion.button>
@@ -233,7 +233,7 @@ const FreelancerProfile = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.1 }}
-                    className="px-4 py-2 bg-[#a7ff59] text-black rounded-xl racing font-bold"
+                    className="px-4 py-2 bg-[#e97f33] text-black rounded-xl racing font-bold"
                   >
                     {skill}
                   </motion.span>
@@ -264,7 +264,7 @@ const FreelancerProfile = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <h3 className="racing font-bold text-lg text-gray-900 group-hover:text-[#a7ff59] transition-colors">
+                    <h3 className="racing font-bold text-lg text-gray-900 group-hover:text-[#e97f33] transition-colors">
                       {item.title}
                     </h3>
                     <p className="openSans text-gray-600 text-sm">{item.category}</p>
@@ -353,7 +353,7 @@ const FreelancerProfile = () => {
                       key={index}
                       className="flex items-center gap-3 p-3 hover:bg-gray-50 rounded-xl transition-colors cursor-pointer"
                     >
-                      <div className="w-10 h-10 bg-[#a7ff59] rounded-full flex items-center justify-center">
+                      <div className="w-10 h-10 bg-[#e97f33] rounded-full flex items-center justify-center">
                         <span className="racing font-bold text-black text-sm">
                           {freelancer.name
                             .split(" ")

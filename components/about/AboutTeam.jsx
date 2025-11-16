@@ -1,5 +1,5 @@
-"use client"
-import { motion } from "framer-motion"
+"use client";
+import { motion } from "framer-motion";
 
 const AboutTeam = () => {
   const leadership = [
@@ -24,7 +24,7 @@ const AboutTeam = () => {
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
       bio: "Full-stack expert specializing in scalable web applications and modern frameworks.",
     },
-  ]
+  ];
 
   return (
     <section className="py-20 lg:py-32 bg-gray-50">
@@ -36,9 +36,12 @@ const AboutTeam = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold font-playfair text-gray-900 mb-6">Meet Our Leadership</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold font-playfair text-gray-900 mb-6">
+            Meet Our Leadership
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            The passionate individuals who drive our vision and lead our talented team to success.
+            The passionate individuals who drive our vision and lead our
+            talented team to success.
           </p>
         </motion.div>
 
@@ -61,8 +64,12 @@ const AboutTeam = () => {
                 />
               </div>
               <div className="p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-[#a7ff59] font-semibold mb-4">{member.role}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-[#e97f33] font-semibold mb-4">
+                  {member.role}
+                </p>
                 <p className="text-gray-600 leading-relaxed">{member.bio}</p>
               </div>
             </motion.div>
@@ -70,7 +77,7 @@ const AboutTeam = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutTeam
+export default AboutTeam;

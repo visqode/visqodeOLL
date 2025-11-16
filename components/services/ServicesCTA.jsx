@@ -16,7 +16,7 @@ const ServicesCTA = () => {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#a7ff59]/10 to-transparent rounded-full"
+          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#e97f33]/10 to-transparent rounded-full"
         />
       </div>
 
@@ -36,7 +36,7 @@ const ServicesCTA = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/consulting"
-                className="px-10 py-5 bg-[#a7ff59] text-black text-lg font-semibold rounded-full hover:bg-[#8fee3f] transition-all duration-300 btn-luxury inline-block"
+                className="px-10 py-5 bg-[#e97f33] text-black text-lg font-semibold rounded-full hover:bg-[#f0883e] transition-all duration-300 btn-luxury inline-block"
               >
                 Get Started Today
               </Link>

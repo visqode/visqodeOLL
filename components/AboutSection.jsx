@@ -17,30 +17,21 @@ const AboutSection = () => {
           <div className="text-4xl md:text-6xl racing font-bold mb-8 md:mb-16 text-center lg:text-left">
             About Us
           </div>
-          <ScrollReveal
-            baseOpacity={0}
-            enableBlur={true}
-            baseRotation={5}
-            blurStrength={10}
-            textClassName="text-base md:text-lg text-gray-700 text-black leading-relaxed openSans mb-6"
-          >
-            We are a dynamic web development and brand-building company dedicated to crafting
-            innovative digital experiences. Specializing in cutting-edge web solutions and strategic
-            branding, we empower businesses to stand out in the digital landscape with bespoke
+          <div className="text-xl mb-10">
+            We are a dynamic web development and brand-building company
+            dedicated to crafting innovative digital experiences. Specializing
+            in cutting-edge web solutions and strategic branding, we empower
+            businesses to stand out in the digital landscape with bespoke
             websites and compelling brand identities.
-          </ScrollReveal>
-          <ScrollReveal
-            baseOpacity={0}
-            enableBlur={true}
-            baseRotation={5}
-            blurStrength={10}
-            textClassName="text-base md:text-lg text-gray-700 text-black/80 leading-relaxed openSans"
-          >
-            Our team combines creativity and technical expertise to deliver seamless,
-            high-performance websites using technologies like React, Next.js, and GSAP. From
-            startups to established enterprises, we transform visions into reality, ensuring every
-            project resonates with its audience and drives growth.
-          </ScrollReveal>
+          </div>
+
+          <div className="text-xl">
+            Our team combines creativity and technical expertise to deliver
+            seamless, high-performance websites using technologies like React,
+            Next.js, and GSAP. From startups to established enterprises, we
+            transform visions into reality, ensuring every project resonates
+            with its audience and drives growth.
+          </div>
         </motion.div>
 
         <motion.div

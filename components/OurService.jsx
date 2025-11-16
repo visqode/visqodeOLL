@@ -16,7 +16,7 @@ const OurService = () => {
           </div>
         </div>
         <Link href="/services" className="w-full lg:w-auto">
-          <button className="w-full lg:w-auto px-6 md:px-7 hover:px-8 md:hover:px-10 transition-all duration-300 py-3 text-black bg-[#a7ff59] rounded-full hover:bg-[#8fee3f] text-center">
+          <button className="w-full lg:w-auto px-6 md:px-7 hover:px-8 md:hover:px-10 transition-all duration-300 py-3 text-black bg-[#e97f33] rounded-full hover:bg-[#f0883e] text-center">
             View more
           </button>
         </Link>

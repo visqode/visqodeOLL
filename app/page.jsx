@@ -1,5 +1,4 @@
 import HeroSection from "@/components/HeroSection";
-import ScrollText from "@/components/ScrollText";
 import AboutSection from "@/components/AboutSection";
 import OurService from "@/components/OurService";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <ScrollText />
       <AboutSection />
       <OurService />
       <ProjectsSection />

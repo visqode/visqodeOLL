@@ -103,13 +103,13 @@ const Navigation = () => {
           <button
             style={{ backgroundColor: "var(--primary)" }}
             onClick={handleContactClick}
-            className="bg-[#a7ff59] text-black px-5 py-2 rounded-full hover:bg-[#8fee3f] hover:scale-105 transition duration-200"
+            className="bg-[#e97f33] text-black px-5 py-2 rounded-full hover:bg-[#f0883e] hover:scale-105 transition duration-200"
           >
             Contact Us
           </button>
           <button
             style={{ borderColor: "var(--primary)", color: "var(--primary)" }}
-            className="border border-[#a7ff59] text-[#a7ff59] px-5 py-2 rounded-full hover:bg-[#a7ff5920] hover:scale-105 transition duration-200"
+            className="border border-[#e97f33] text-[#e97f33] px-5 py-2 rounded-full hover:bg-[#e97f3320] hover:scale-105 transition duration-200"
           >
             Get a Quote
           </button>
@@ -163,7 +163,7 @@ const Navigation = () => {
         </Link>
         <Link
           href="/signup"
-          className="text-xl px-6 py-3 bg-[#a7ff59] text-black rounded-full hover:bg-[#8fee3f]"
+          className="text-xl px-6 py-3 bg-[#e97f33] text-black rounded-full hover:bg-[#f0883e]"
           onClick={toggleMenu}
         >
           Sign Up

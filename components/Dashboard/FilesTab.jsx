@@ -1,16 +1,16 @@
-"use client"
-import { motion } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+"use client";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
 const FilesTab = () => {
-  const [viewMode, setViewMode] = useState("grid") // grid or list
-  const filesRef = useRef([])
+  const [viewMode, setViewMode] = useState("grid"); // grid or list
+  const filesRef = useRef([]);
 
   useEffect(() => {
     filesRef.current.forEach((file, index) => {
@@ -30,14 +30,14 @@ const FilesTab = () => {
               toggleActions: "play none none reverse",
             },
           },
-        )
+        );
       }
-    })
+    });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [viewMode])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [viewMode]);
 
   const files = [
     {
@@ -47,7 +47,8 @@ const FilesTab = () => {
       size: "2.4 MB",
       modified: "2 hours ago",
       project: "Brand Identity Package",
-      thumbnail: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=200&h=200&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=200&h=200&fit=crop",
       color: "bg-red-500",
     },
     {
@@ -57,7 +58,8 @@ const FilesTab = () => {
       size: "15.2 MB",
       modified: "1 day ago",
       project: "E-commerce Website",
-      thumbnail: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=200&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=200&fit=crop",
       color: "bg-purple-500",
     },
     {
@@ -77,7 +79,8 @@ const FilesTab = () => {
       size: "5.1 MB",
       modified: "1 week ago",
       project: "Mobile App Design",
-      thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=200&h=200&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=200&h=200&fit=crop",
       color: "bg-red-500",
     },
     {
@@ -97,7 +100,8 @@ const FilesTab = () => {
       size: "3.2 MB",
       modified: "2 weeks ago",
       project: "Brand Identity Package",
-      thumbnail: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=200&h=200&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1558655146-d09347e92766?w=200&h=200&fit=crop",
       color: "bg-red-500",
     },
     {
@@ -107,7 +111,8 @@ const FilesTab = () => {
       size: "1.8 MB",
       modified: "2 weeks ago",
       project: "Mobile App Design",
-      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop",
+      thumbnail:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop",
       color: "bg-green-500",
     },
     {
@@ -120,32 +125,36 @@ const FilesTab = () => {
       thumbnail: null,
       color: "bg-orange-500",
     },
-  ]
+  ];
 
   const getFileIcon = (type) => {
     switch (type) {
       case "pdf":
-        return "bx-file-pdf"
+        return "bx-file-pdf";
       case "figma":
-        return "bx-palette"
+        return "bx-palette";
       case "zip":
-        return "bx-archive"
+        return "bx-archive";
       case "image":
-        return "bx-image"
+        return "bx-image";
       case "powerpoint":
-        return "bx-slideshow"
+        return "bx-slideshow";
       default:
-        return "bx-file"
+        return "bx-file";
     }
-  }
+  };
 
   return (
     <div className="space-y-8">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl racing font-bold text-gray-900">Project Files</h1>
-          <p className="openSans text-gray-600 mt-1">Access and download your project deliverables</p>
+          <h1 className="text-3xl racing font-bold text-gray-900">
+            Project Files
+          </h1>
+          <p className="openSans text-gray-600 mt-1">
+            Access and download your project deliverables
+          </p>
         </div>
         <div className="flex items-center gap-4">
           {/* View Toggle */}
@@ -167,7 +176,7 @@ const FilesTab = () => {
               <i className="bx bx-list-ul text-gray-600"></i>
             </button>
           </div>
-          <button className="px-6 py-3 bg-[#a7ff59] text-black rounded-xl hover:bg-[#8fee3f] transition-colors racing font-bold">
+          <button className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
             <i className="bx bx-upload mr-2"></i>
             Upload Files
           </button>
@@ -178,14 +187,16 @@ const FilesTab = () => {
       <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="racing font-bold text-lg">Storage Usage</h3>
-          <span className="openSans text-sm text-gray-600">2.1 GB of 10 GB used</span>
+          <span className="openSans text-sm text-gray-600">
+            2.1 GB of 10 GB used
+          </span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-3">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "21%" }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="h-3 bg-gradient-to-r from-[#a7ff59] to-[#8fee3f] rounded-full"
+            className="h-3 bg-gradient-to-r from-[#e97f33] to-[#f0883e] rounded-full"
           ></motion.div>
         </div>
       </div>
@@ -209,15 +220,19 @@ const FilesTab = () => {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className={`w-16 h-16 ${file.color} rounded-xl flex items-center justify-center`}>
-                    <i className={`bx ${getFileIcon(file.type)} text-white text-2xl`}></i>
+                  <div
+                    className={`w-16 h-16 ${file.color} rounded-xl flex items-center justify-center`}
+                  >
+                    <i
+                      className={`bx ${getFileIcon(file.type)} text-white text-2xl`}
+                    ></i>
                   </div>
                 )}
               </div>
 
               {/* File Info */}
               <div className="space-y-2">
-                <h4 className="racing font-bold text-gray-900 truncate group-hover:text-[#a7ff59] transition-colors">
+                <h4 className="racing font-bold text-gray-900 truncate group-hover:text-[#e97f33] transition-colors">
                   {file.name}
                 </h4>
                 <p className="openSans text-sm text-gray-600">{file.project}</p>
@@ -229,7 +244,7 @@ const FilesTab = () => {
 
               {/* Actions */}
               <div className="flex gap-2 mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="flex-1 py-2 bg-[#a7ff59] text-black rounded-lg hover:bg-[#8fee3f] transition-colors racing font-bold text-sm">
+                <button className="flex-1 py-2 bg-[#e97f33] text-black rounded-lg hover:bg-[#f0883e] transition-colors racing font-bold text-sm">
                   Download
                 </button>
                 <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
@@ -259,18 +274,28 @@ const FilesTab = () => {
               >
                 <div className="grid grid-cols-12 gap-4 items-center">
                   <div className="col-span-5 flex items-center">
-                    <div className={`w-10 h-10 ${file.color} rounded-lg flex items-center justify-center mr-3`}>
-                      <i className={`bx ${getFileIcon(file.type)} text-white`}></i>
+                    <div
+                      className={`w-10 h-10 ${file.color} rounded-lg flex items-center justify-center mr-3`}
+                    >
+                      <i
+                        className={`bx ${getFileIcon(file.type)} text-white`}
+                      ></i>
                     </div>
                     <div>
-                      <h4 className="racing font-bold text-gray-900 group-hover:text-[#a7ff59] transition-colors">
+                      <h4 className="racing font-bold text-gray-900 group-hover:text-[#e97f33] transition-colors">
                         {file.name}
                       </h4>
                     </div>
                   </div>
-                  <div className="col-span-2 openSans text-sm text-gray-600">{file.project}</div>
-                  <div className="col-span-2 openSans text-sm text-gray-600">{file.size}</div>
-                  <div className="col-span-2 openSans text-sm text-gray-600">{file.modified}</div>
+                  <div className="col-span-2 openSans text-sm text-gray-600">
+                    {file.project}
+                  </div>
+                  <div className="col-span-2 openSans text-sm text-gray-600">
+                    {file.size}
+                  </div>
+                  <div className="col-span-2 openSans text-sm text-gray-600">
+                    {file.modified}
+                  </div>
                   <div className="col-span-1">
                     <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button className="p-2 hover:bg-gray-200 rounded-lg transition-colors">
@@ -291,22 +316,49 @@ const FilesTab = () => {
       {/* File Categories */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
-          { type: "Images", count: 12, icon: "bx-image", color: "bg-green-500" },
-          { type: "Documents", count: 8, icon: "bx-file-pdf", color: "bg-red-500" },
-          { type: "Design Files", count: 5, icon: "bx-palette", color: "bg-purple-500" },
-          { type: "Archives", count: 3, icon: "bx-archive", color: "bg-yellow-500" },
+          {
+            type: "Images",
+            count: 12,
+            icon: "bx-image",
+            color: "bg-green-500",
+          },
+          {
+            type: "Documents",
+            count: 8,
+            icon: "bx-file-pdf",
+            color: "bg-red-500",
+          },
+          {
+            type: "Design Files",
+            count: 5,
+            icon: "bx-palette",
+            color: "bg-purple-500",
+          },
+          {
+            type: "Archives",
+            count: 3,
+            icon: "bx-archive",
+            color: "bg-yellow-500",
+          },
         ].map((category, index) => (
-          <div key={category.type} className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center">
-            <div className={`w-12 h-12 ${category.color} rounded-xl flex items-center justify-center mx-auto mb-4`}>
+          <div
+            key={category.type}
+            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center"
+          >
+            <div
+              className={`w-12 h-12 ${category.color} rounded-xl flex items-center justify-center mx-auto mb-4`}
+            >
               <i className={`bx ${category.icon} text-white text-2xl`}></i>
             </div>
-            <h3 className="text-2xl racing font-bold text-gray-900">{category.count}</h3>
+            <h3 className="text-2xl racing font-bold text-gray-900">
+              {category.count}
+            </h3>
             <p className="openSans text-gray-600">{category.type}</p>
           </div>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FilesTab
+export default FilesTab;
