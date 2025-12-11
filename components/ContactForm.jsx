@@ -255,21 +255,32 @@ const ContactForm = () => {
         id="contact"
         ref={sectionRef}
         aria-label="Contact section"
-        className="py-20 lg:py-32 bg-[var(--dark)] text-[var(--white)]"
+        className="py-20 lg:py-32 bg-[#0a0a0a] text-[var(--white)] relative overflow-hidden"
         style={{ scrollMarginTop: "120px" }}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Futuristic grid background */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `linear-gradient(rgba(220, 40, 40, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(220, 40, 40, 0.3) 1px, transparent 1px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "back.out(1.7)" }}
-            className="bg-gradient-to-br from-[#dc2828] to-[#b91c1c] rounded-3xl p-12"
+            className="bg-gradient-to-br from-[#dc2828] to-[#b91c1c] rounded-2xl p-12"
           >
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-              className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6"
+              className="w-20 h-20 bg-white rounded-xl flex items-center justify-center mx-auto mb-6"
             >
               <i className="bx bx-check text-[#dc2828] text-4xl"></i>
             </motion.div>
@@ -277,15 +288,15 @@ const ContactForm = () => {
             <h3 className="text-3xl lg:text-4xl racing font-bold text-[#fffffd] mb-4">
               Message Sent Successfully!
             </h3>
-            <p className="text-xl openSans text-gray-300 mb-6">
+            <p className="text-xl openSans text-white/80 mb-6">
               {submitStatus.message}
             </p>
 
-            <div className="bg-white/20 rounded-2xl p-6 mb-8">
+            <div className="bg-white/20 rounded-xl p-6 mb-8">
               <h4 className="racing font-bold text-black mb-4">
                 What happens next?
               </h4>
-              <div className="grid sm:grid-cols-3 gap-4 text-sm openSans text-gray-300">
+              <div className="grid sm:grid-cols-3 gap-4 text-sm openSans text-white/80">
                 <div className="flex flex-col items-center">
                   <i className="bx bx-time-five text-2xl mb-2"></i>
                   <span className="font-semibold">Within 2 hours</span>
@@ -329,7 +340,7 @@ const ContactForm = () => {
               </motion.a>
             </div>
 
-            <p className="text-sm openSans text-gray-400 mt-6">
+            <p className="text-sm openSans text-white/60 mt-6">
               Need immediate assistance? Email us at{" "}
               <a
                 href="mailto:ibwmahin@gmail.com"
@@ -344,17 +355,32 @@ const ContactForm = () => {
     );
   }
 
-  // Default form UI - Updated to Dark Theme
+  // Default form UI - Futuristic Dark Theme
   return (
     <section
       id="contact"
       ref={sectionRef}
       aria-label="Contact section"
-      className="py-20 lg:py-32 bg-[var(--dark)] text-[var(--white)]"
+      className="py-20 lg:py-32 bg-[#0a0a0a] text-[var(--white)] relative overflow-hidden"
       style={{ scrollMarginTop: "120px" }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+      {/* Futuristic grid background */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(rgba(220, 40, 40, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(220, 40, 40, 0.5) 1px, transparent 1px)`,
+            backgroundSize: "80px 80px",
+          }}
+        ></div>
+      </div>
+
+      {/* Subtle glow effects */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#dc2828]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#dc2828]/5 rounded-full blur-3xl"></div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header - Rule of thirds: 1/3 for header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -362,74 +388,97 @@ const ContactForm = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#dc2828]/10 border border-[#dc2828]/20 mb-6">
+            <span className="w-2 h-2 bg-[#dc2828] rounded-sm animate-pulse"></span>
+            <span className="text-sm text-[#dc2828] font-medium tracking-wide">
+              READY TO START
+            </span>
+          </div>
           <h2 className="text-4xl lg:text-5xl xl:text-6xl racing font-bold text-[#fffffd] mb-6">
-            Start Your Project
+            Launch Your Vision
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto openSans leading-relaxed">
+          <p className="text-lg lg:text-xl text-white/60 max-w-2xl mx-auto openSans leading-relaxed">
             Ready to transform your digital presence? Tell us about your project
-            and let's create something amazing together.
+            and let's create something extraordinary together.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Info - Updated bg to slightly lighter dark for contrast */}
+        {/* Grid Layout - 2/3 for content following golden ratio */}
+        <div className="grid lg:grid-cols-5 gap-8 items-start">
+          {/* Contact Info - 2 columns */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:sticky lg:top-8"
+            className="lg:col-span-2 lg:sticky lg:top-8"
           >
-            <div className="bg-white/5 rounded-3xl p-8 border border-white/10">
+            <div className="bg-[#111111] rounded-2xl p-8 border border-white/5 backdrop-blur-sm">
               <h3 className="text-2xl lg:text-3xl racing font-bold mb-6 text-[#fffffd]">
-                Let's Talk
+                Let's Connect
               </h3>
 
               <div className="space-y-6 mb-8">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-[#dc2828] rounded-full flex items-center justify-center mr-4">
-                    <i className="bx bx-phone text-[#fffffd] text-xl"></i>
+                <div className="flex items-center group">
+                  <div className="w-12 h-12 bg-[#dc2828]/10 border border-[#dc2828]/20 rounded-xl flex items-center justify-center mr-4 group-hover:bg-[#dc2828]/20 transition-colors">
+                    <i className="bx bx-phone text-[#dc2828] text-xl"></i>
                   </div>
                   <div>
                     <p className="racing font-bold text-[#fffffd]">Phone</p>
                     <a
                       href="tel:+15551234567"
-                      className="openSans text-gray-400 hover:text-[#dc2828] transition-colors"
+                      className="openSans text-white/60 hover:text-[#dc2828] transition-colors"
                     >
                       +1 (555) 123-4567
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-[#dc2828] rounded-full flex items-center justify-center mr-4">
-                    <i className="bx bx-envelope text-black text-xl"></i>
+                <div className="flex items-center group">
+                  <div className="w-12 h-12 bg-[#dc2828]/10 border border-[#dc2828]/20 rounded-xl flex items-center justify-center mr-4 group-hover:bg-[#dc2828]/20 transition-colors">
+                    <i className="bx bx-envelope text-[#dc2828] text-xl"></i>
                   </div>
                   <div>
                     <p className="racing font-bold text-[#fffffd]">Email</p>
                     <a
                       href="mailto:visqode@gmail.com"
-                      className="openSans text-gray-400 hover:text-[#dc2828] transition-colors"
+                      className="openSans text-white/60 hover:text-[#dc2828] transition-colors"
                     >
                       visqode@gmail.com
                     </a>
                   </div>
                 </div>
               </div>
+
+              {/* Quick stats */}
+              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/5">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#dc2828]">24h</div>
+                  <div className="text-xs text-white/40 openSans">
+                    Response Time
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#dc2828]">100+</div>
+                  <div className="text-xs text-white/40 openSans">
+                    Projects Done
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form - 3 columns */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:sticky lg:top-8"
+            className="lg:col-span-3"
           >
-            <div className="bg-white/5 rounded-3xl p-8 border border-white/10">
+            <div className="bg-[#111111] rounded-2xl p-8 border border-white/5 backdrop-blur-sm">
               <h3 className="text-2xl lg:text-3xl racing font-bold mb-6 text-[#fffffd]">
-                Get in Touch
+                Project Details
               </h3>
 
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
@@ -437,7 +486,7 @@ const ContactForm = () => {
                   <div>
                     <label
                       htmlFor="fullName"
-                      className="block text-sm racing font-bold text-[#fffffd] mb-2"
+                      className="block text-sm racing font-bold text-white/80 mb-2"
                     >
                       Full Name
                     </label>
@@ -448,13 +497,14 @@ const ContactForm = () => {
                       value={formData.fullName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 border border-white/10 rounded-xl bg-white/5 text-gray-400 focus:outline-none focus:border-[#dc2828] transition-colors"
+                      className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus:outline-none focus:border-[#dc2828]/50 focus:bg-white/[0.07] transition-all"
+                      placeholder="John Doe"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="businessName"
-                      className="block text-sm racing font-bold text-[#fffffd] mb-2"
+                      className="block text-sm racing font-bold text-white/80 mb-2"
                     >
                       Business Name
                     </label>
@@ -465,7 +515,8 @@ const ContactForm = () => {
                       value={formData.businessName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 border border-white/10 rounded-xl bg-white/5 text-gray-400 focus:outline-none focus:border-[#dc2828] transition-colors"
+                      className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus:outline-none focus:border-[#dc2828]/50 focus:bg-white/[0.07] transition-all"
+                      placeholder="Your Company"
                     />
                   </div>
                 </div>
@@ -473,7 +524,7 @@ const ContactForm = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm racing font-bold text-[#fffffd] mb-2"
+                    className="block text-sm racing font-bold text-white/80 mb-2"
                   >
                     Email Address
                   </label>
@@ -484,7 +535,8 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2 border border-white/10 rounded-xl bg-white/5 text-gray-400 focus:outline-none focus:border-[#dc2828] transition-colors"
+                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus:outline-none focus:border-[#dc2828]/50 focus:bg-white/[0.07] transition-all"
+                    placeholder="john@example.com"
                   />
                 </div>
 
@@ -492,15 +544,19 @@ const ContactForm = () => {
                   <div>
                     <label
                       htmlFor="services"
-                      className="block text-sm racing font-bold text-[#fffffd] mb-2"
+                      className="block text-sm racing font-bold text-white/80 mb-3"
                     >
                       Services
                     </label>
-                    <div className="flex flex-wrap gap-2">
-                      {services.map((service) => (
+                    <div className="grid grid-cols-2 gap-2">
+                      {services.slice(0, 4).map((service) => (
                         <label
                           key={service.id}
-                          className="flex items-center gap-2"
+                          className={`flex items-center gap-2 p-2 rounded-xl border cursor-pointer transition-all ${
+                            formData.services.includes(service.id)
+                              ? "border-[#dc2828]/50 bg-[#dc2828]/10"
+                              : "border-white/10 hover:border-white/20"
+                          }`}
                         >
                           <input
                             type="checkbox"
@@ -509,9 +565,9 @@ const ContactForm = () => {
                             value={service.id}
                             checked={formData.services.includes(service.id)}
                             onChange={() => handleServiceToggle(service.id)}
-                            className="w-4 h-4 rounded border border-white/10 focus:ring-[#dc2828]"
+                            className="w-3 h-3 rounded border border-white/20 accent-[#dc2828]"
                           />
-                          <span className="text-gray-400 openSans">
+                          <span className="text-white/70 openSans text-xs">
                             {service.name}
                           </span>
                         </label>
@@ -521,9 +577,9 @@ const ContactForm = () => {
                   <div>
                     <label
                       htmlFor="budget"
-                      className="block text-sm racing font-bold text-[#fffffd] mb-2"
+                      className="block text-sm racing font-bold text-white/80 mb-3"
                     >
-                      Budget
+                      Budget Range
                     </label>
                     <select
                       id="budget"
@@ -531,11 +587,17 @@ const ContactForm = () => {
                       value={formData.budget}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 border border-white/10 rounded-xl bg-white/5 text-gray-400 focus:outline-none focus:border-[#dc2828] transition-colors"
+                      className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white focus:outline-none focus:border-[#dc2828]/50 focus:bg-white/[0.07] transition-all"
                     >
-                      <option value="">Select a budget</option>
+                      <option value="" className="bg-[#111111]">
+                        Select budget
+                      </option>
                       {budgetRanges.map((range) => (
-                        <option key={range.value} value={range.value}>
+                        <option
+                          key={range.value}
+                          value={range.value}
+                          className="bg-[#111111]"
+                        >
                           {range.label}
                         </option>
                       ))}
@@ -546,9 +608,9 @@ const ContactForm = () => {
                 <div>
                   <label
                     htmlFor="description"
-                    className="block text-sm racing font-bold text-[#fffffd] mb-2"
+                    className="block text-sm racing font-bold text-white/80 mb-2"
                   >
-                    Description
+                    Project Description
                   </label>
                   <textarea
                     id="description"
@@ -557,18 +619,31 @@ const ContactForm = () => {
                     onChange={handleInputChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-2 border border-white/10 rounded-xl bg-white/5 text-gray-400 focus:outline-none focus:border-[#dc2828] transition-colors"
+                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus:outline-none focus:border-[#dc2828]/50 focus:bg-white/[0.07] transition-all resize-none"
+                    placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
 
-                <div className="flex justify-center">
-                  <button
+                <div className="flex justify-end">
+                  <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-8 py-4 bg-[#dc2828] text-[#fffffd] rounded-xl hover:bg-[#b91c1c] transition-all duration-300 racing font-bold"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-8 py-4 bg-[#dc2828] text-[#fffffd] rounded-xl hover:bg-[#b91c1c] transition-all duration-300 racing font-bold flex items-center gap-2 disabled:opacity-50"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </button>
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Launch Project
+                        <i className="bx bx-rocket text-lg"></i>
+                      </>
+                    )}
+                  </motion.button>
                 </div>
               </form>
             </div>

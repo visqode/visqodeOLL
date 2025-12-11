@@ -1,7 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import OurService from "@/components/OurService";
-import ProjectsSection from "@/components/ProjectsSection";
 import TeamSection from "@/components/TeamSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ValueTrustLayer from "@/components/ValueTrustLayer";
@@ -14,7 +13,6 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <OurService />
-      <ProjectsSection />
       <TeamSection />
       <TestimonialsSection />
       <ValueTrustLayer />

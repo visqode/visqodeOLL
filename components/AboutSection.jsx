@@ -35,14 +35,14 @@ const AboutSection = () => {
         </motion.div>
 
         <motion.div
-          className="w-full lg:w-1/2 flex justify-center lg:justify-end order-1 lg:order-2"
+          className="w-full lg:w-1/2 flex justify-center rounded-2xl lg:justify-end order-1 lg:order-2"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: [0.33, 0, 0, 1] }}
         >
           <GlareHover
-            className="border-none shadow-black/90 drop-shadow-lg w-full max-w-[400px] md:max-w-[500px] lg:max-w-[600px]"
+            className="border-none shadow-black/90 drop-shadow-lg w-full max-w-[400px] rounded-3xl md:max-w-[500px] lg:max-w-[600px]"
             glareColor="#fff"
             glareOpacity={0.3}
             glareAngle={-30}

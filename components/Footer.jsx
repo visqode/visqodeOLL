@@ -34,7 +34,7 @@ const Footer = () => {
             whileTap={{ scale: 0.95 }}
             className="cursor-pointer flex-shrink-0"
           >
-            <div className="bg-[#39FF14] rounded-full w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center text-black font-bold shadow-[0_0_20px_rgba(57,255,20,0.5)] racing text-center text-sm md:text-base">
+            <div className="bg-[var(--primary)] rounded-3xl w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center text-black font-bold shadow-[0_0_20px_rgba(220,40,40,0.5)] racing text-center text-sm md:text-base">
               <span>GET STARTED</span>
               <i className="ri-arrow-left-line mt-1 text-lg md:text-xl"></i>
             </div>
@@ -57,7 +57,7 @@ const Footer = () => {
                 <motion.div
                   key={icon}
                   whileHover={{ scale: 1.2 }}
-                  className="bg-[#333333] rounded-full w-9 h-9 flex items-center justify-center cursor-pointer"
+                  className="bg-[#333333] rounded-lg w-9 h-9 flex items-center justify-center cursor-pointer"
                 >
                   <i
                     className={`ri-${icon}`}

@@ -37,23 +37,8 @@ const TeamSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl lg:text-5xl racing font-bold text-[#fffffd]">
-              OUR BEST DESIGNERS
+              MINDS BEHIND THE MAGIC
             </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-[#dc2828] text-[#fffffd] font-semibold rounded-full hover:bg-[#b91c1c] transition-all duration-300"
-            >
-              View More
-            </motion.button>
           </motion.div>
         </div>
 
@@ -82,7 +67,7 @@ const TeamSection = () => {
                   <h3 className="text-xl font-bold text-[#fffffd] mb-2 racing">
                     {member.name}
                   </h3>
-                  <p className="text-gray-400 openSans">{member.role}</p>
+                  <p className="text-white/70 openSans">{member.role}</p>
                 </div>
 
                 {/* Hover overlay */}
@@ -96,14 +81,14 @@ const TeamSection = () => {
                       <motion.a
                         whileHover={{ scale: 1.1 }}
                         href="#"
-                        className="w-10 h-10 bg-black/20 rounded-full flex items-center justify-center hover:bg-black/30 transition-colors"
+                        className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center hover:bg-black/30 transition-colors"
                       >
                         <i className="ri-linkedin-fill text-white"></i>
                       </motion.a>
                       <motion.a
                         whileHover={{ scale: 1.1 }}
                         href="#"
-                        className="w-10 h-10 bg-black/20 rounded-full flex items-center justify-center hover:bg-black/30 transition-colors"
+                        className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center hover:bg-black/30 transition-colors"
                       >
                         <i className="ri-twitter-fill text-white"></i>
                       </motion.a>

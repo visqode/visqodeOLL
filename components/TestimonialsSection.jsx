@@ -81,7 +81,7 @@ const TestimonialsSection = () => {
                 <img
                   src={testimonial.avatar || "/placeholder.svg"}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
+                  className="w-12 h-12 rounded-lg object-cover mr-4"
                 />
                 <div>
                   <h4 className="font-semibold text-[#fffffd] racing">

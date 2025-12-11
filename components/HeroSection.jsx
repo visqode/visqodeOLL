@@ -35,16 +35,16 @@ const HeroSection = () => {
   return (
     <section
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('/hero-bg.jpeg')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/hero-bg.jpeg')`,
       }}
-      className="min-h-screen bg-center bg-cover bg-no-repeat bg-gray-100 flex flex-col m-2 md:m-5 rounded-2xl md:rounded-3xl px-4 md:px-10 relative"
+      className="min-h-[85vh] bg-center bg-cover bg-no-repeat flex flex-col m-2 md:m-4 rounded-xl md:rounded-2xl px-4 md:px-8"
     >
       <Navigation />
 
-      <div className="flex justify-center items-center flex-col flex-1 text-center cursor-default mt-[20px] px-4">
-        <div className="max-w-[95%] md:max-w-[80%] mx-auto text-center text-white text-balance flex justify-center items-center flex-col text-3xl sm:text-8xl">
+      <div className="flex justify-center items-center flex-col flex-1 text-center cursor-default py-12 md:py-16 px-4">
+        <div className="max-w-[90%] md:max-w-[75%] mx-auto text-center text-white flex justify-center items-center flex-col">
           <SplitText
-            className="hero-text-large text-center py-2 md:py-3 racing font-bold"
+            className="text-4xl sm:text-6xl md:text-7xl text-center py-1 md:py-2 racing font-bold tracking-tight"
             text="We Build & Scale"
             delay={100}
             duration={0.3}
@@ -56,7 +56,7 @@ const HeroSection = () => {
             textAlign="center"
           />
           <SplitText
-            className="hero-text-medium text-center py-2 md:py-3 racing font-bold"
+            className="text-4xl sm:text-6xl md:text-7xl text-center py-1 md:py-2 racing font-bold tracking-tight"
             text="Digital Products"
             delay={100}
             duration={0.3}
@@ -67,21 +67,21 @@ const HeroSection = () => {
             threshold={0.1}
             textAlign="center"
           />
-          <div className="mt-4 max-w-2xl font-[600]">
+          <div className="mt-6 max-w-xl">
             <ShinyText
               text="Founding successful companies by combining ideas with business expertise, capital and technical execution."
               disabled={false}
               speed={3}
-              className="!text-[20px] md:text-lg leading-relaxed"
+              className="!text-base md:text-lg leading-relaxed font-medium opacity-90"
             />
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8 w-full max-w-md">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mt-8 w-full max-w-md">
           {/* Start Your Project Button - goes to contact section */}
           <button
             onClick={(e) => handleSectionClick(e, "contact")}
-            className="w-full font-[600] sm:w-auto px-6 md:px-7 hover:px-8 md:hover:px-10 transition-all duration-300 py-3 text-[#fffffd] border border-[#fffffd] rounded-full text-center hover:bg-[#fffffd]/10"
+            className="w-full font-semibold sm:w-auto px-6 py-3 text-[#fffffd] border border-[#fffffd]/60 rounded-lg text-center hover:bg-[#fffffd]/10 hover:border-[#fffffd] transition-all duration-300"
           >
             Start Your Project <i className="ri-arrow-right-long-line"></i>
           </button>
@@ -89,7 +89,7 @@ const HeroSection = () => {
           {/* View Our Work Button - goes to work section */}
           <button
             onClick={(e) => handleSectionClick(e, "projects")}
-            className="w-full font-[600] sm:w-auto px-6 md:px-7 hover:px-8 md:hover:px-10 transition-all duration-300 py-3 bg-[#dc2828] text-[#fffffd] rounded-full hover:bg-[#b91c1c] text-center"
+            className="w-full font-semibold sm:w-auto px-6 py-3 bg-[#dc2828] text-[#fffffd] rounded-lg hover:bg-[#b91c1c] text-center transition-all duration-300"
           >
             <i className="ri-folder-open-line"></i> &nbsp; View Our Work
           </button>
