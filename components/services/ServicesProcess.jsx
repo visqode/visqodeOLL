@@ -39,7 +39,7 @@ const ServicesProcess = () => {
   ]
 
   return (
-    <section className="py-20 lg:py-32 bg-gray-50">
+    <section className="py-20 lg:py-32 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,8 +48,8 @@ const ServicesProcess = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold font-playfair text-gray-900 mb-6">Our Process</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold font-playfair text-white mb-6">Our Process</h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             A proven methodology that ensures successful project delivery and exceptional results every time.
           </p>
         </motion.div>
@@ -63,15 +63,15 @@ const ServicesProcess = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-[#1a1a1a] p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/5"
             >
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-[#e97f33] rounded-full flex items-center justify-center text-black font-bold text-lg mr-4">
+                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                   {step.number}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
+                <h3 className="text-xl font-bold text-white">{step.title}</h3>
               </div>
-              <p className="text-gray-600 leading-relaxed">{step.description}</p>
+              <p className="text-gray-400 leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
         </div>

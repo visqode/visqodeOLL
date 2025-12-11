@@ -44,7 +44,7 @@ const AboutStats = () => {
     }, [end, duration, isVisible])
 
     return (
-      <span ref={ref} className="text-5xl lg:text-6xl font-bold text-[#e97f33]">
+      <span ref={ref} className="text-5xl lg:text-6xl font-bold text-[#dc2828]">
         {count}
         {suffix}
       </span>

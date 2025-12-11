@@ -140,7 +140,7 @@ const BlogSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4 bg-[#e97f33] text-black px-3 py-1 rounded-full text-sm racing font-bold">
+                <div className="absolute top-4 left-4 bg-[#dc2828] text-black px-3 py-1 rounded-full text-sm racing font-bold">
                   {post.category}
                 </div>
 
@@ -152,7 +152,7 @@ const BlogSection = () => {
 
               {/* Content */}
               <div className="p-6 lg:p-8">
-                <h3 className="text-xl lg:text-2xl racing font-bold text-gray-900 mb-3 group-hover:text-[#e97f33] transition-colors duration-300 line-clamp-2">
+                <h3 className="text-xl lg:text-2xl racing font-bold text-gray-900 mb-3 group-hover:text-[#dc2828] transition-colors duration-300 line-clamp-2">
                   {post.title}
                 </h3>
 
@@ -175,7 +175,7 @@ const BlogSection = () => {
                 {/* Author & Date */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center">
-                    <div className="w-10 h-10 bg-[#e97f33] rounded-full flex items-center justify-center mr-3">
+                    <div className="w-10 h-10 bg-[#dc2828] rounded-full flex items-center justify-center mr-3">
                       <span className="text-black font-bold text-sm racing">
                         {post.author
                           .split(" ")
@@ -198,7 +198,7 @@ const BlogSection = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-3 bg-gray-900 text-white rounded-xl hover:bg-[#e97f33] hover:text-black transition-all duration-300 racing font-semibold group-hover:bg-[#e97f33] group-hover:text-black"
+                  className="w-full py-3 bg-gray-900 text-white rounded-xl hover:bg-[#dc2828] hover:text-black transition-all duration-300 racing font-semibold group-hover:bg-[#dc2828] group-hover:text-black"
                 >
                   Read More
                   <i className="bx bx-arrow-up-right ml-2 text-lg"></i>

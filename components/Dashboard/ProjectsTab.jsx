@@ -122,7 +122,7 @@ const ProjectsTab = () => {
             Track progress and manage your active projects
           </p>
         </div>
-        <button className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
+        <button className="px-6 py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold">
           <i className="bx bx-plus mr-2"></i>
           New Project
         </button>
@@ -215,7 +215,7 @@ const ProjectsTab = () => {
                     {project.team.map((member, idx) => (
                       <div
                         key={idx}
-                        className="w-8 h-8 bg-[#e97f33] rounded-full flex items-center justify-center border-2 border-white"
+                        className="w-8 h-8 bg-[#dc2828] rounded-full flex items-center justify-center border-2 border-white"
                         title={member}
                       >
                         <span className="racing font-bold text-black text-xs">
@@ -234,7 +234,7 @@ const ProjectsTab = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-1 py-2 px-4 bg-[#e97f33] text-black rounded-lg hover:bg-[#f0883e] transition-colors racing font-bold text-sm"
+                    className="flex-1 py-2 px-4 bg-[#dc2828] text-black rounded-lg hover:bg-[#b91c1c] transition-colors racing font-bold text-sm"
                   >
                     View Details
                   </motion.button>

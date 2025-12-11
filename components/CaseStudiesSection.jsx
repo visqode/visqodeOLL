@@ -150,14 +150,14 @@ const CaseStudiesSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Category Badge */}
-                <div className="absolute top-4 left-4 bg-[#e97f33] text-black px-3 py-1 rounded-full text-sm racing font-bold">
+                <div className="absolute top-4 left-4 bg-[#dc2828] text-black px-3 py-1 rounded-full text-sm racing font-bold">
                   {study.category}
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-6 lg:p-8">
-                <h3 className="text-xl lg:text-2xl racing font-bold text-gray-900 mb-3 group-hover:text-[#e97f33] transition-colors duration-300">
+                <h3 className="text-xl lg:text-2xl racing font-bold text-gray-900 mb-3 group-hover:text-[#dc2828] transition-colors duration-300">
                   {study.title}
                 </h3>
 
@@ -170,7 +170,7 @@ const CaseStudiesSection = () => {
                   {study.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs openSans font-medium hover:bg-[#e97f33] hover:text-black transition-colors duration-300"
+                      className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs openSans font-medium hover:bg-[#dc2828] hover:text-black transition-colors duration-300"
                     >
                       {tag}
                     </span>
@@ -181,7 +181,7 @@ const CaseStudiesSection = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full py-3 bg-gray-900 text-white rounded-xl hover:bg-[#e97f33] hover:text-black transition-all duration-300 racing font-semibold group-hover:bg-[#e97f33] group-hover:text-black"
+                  className="w-full py-3 bg-gray-900 text-white rounded-xl hover:bg-[#dc2828] hover:text-black transition-all duration-300 racing font-semibold group-hover:bg-[#dc2828] group-hover:text-black"
                 >
                   View Case Study
                   <i className="bx bx-arrow-up-right ml-2 text-lg"></i>

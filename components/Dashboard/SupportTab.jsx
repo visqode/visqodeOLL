@@ -138,7 +138,7 @@ const SupportTab = () => {
             Get help with your projects and account
           </p>
         </div>
-        <button className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
+        <button className="px-6 py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold">
           <i className="bx bx-plus mr-2"></i>
           New Ticket
         </button>
@@ -158,7 +158,7 @@ const SupportTab = () => {
             >
               <i className={`bx ${action.icon} text-white text-2xl`}></i>
             </div>
-            <span className="racing font-bold text-gray-900 group-hover:text-[#e97f33] transition-colors">
+            <span className="racing font-bold text-gray-900 group-hover:text-[#dc2828] transition-colors">
               {action.label}
             </span>
           </motion.button>
@@ -180,8 +180,8 @@ const SupportTab = () => {
                 onClick={() => setActiveTicket(ticket)}
                 className={`p-4 rounded-2xl border cursor-pointer transition-all duration-300 ${
                   activeTicket?.id === ticket.id
-                    ? "bg-[#e97f33] border-[#e97f33] text-black"
-                    : "bg-white border-gray-200 hover:border-[#e97f33] hover:shadow-lg"
+                    ? "bg-[#dc2828] border-[#dc2828] text-black"
+                    : "bg-white border-gray-200 hover:border-[#dc2828] hover:shadow-lg"
                 }`}
               >
                 <div className="flex items-start justify-between mb-2">
@@ -254,7 +254,7 @@ const SupportTab = () => {
                     <div
                       className={`max-w-md p-4 rounded-2xl ${
                         message.isClient
-                          ? "bg-[#e97f33] text-black"
+                          ? "bg-[#dc2828] text-black"
                           : "bg-gray-100 text-gray-900"
                       }`}
                     >
@@ -281,7 +281,7 @@ const SupportTab = () => {
                   <textarea
                     placeholder="Type your message here..."
                     rows={4}
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
                   ></textarea>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -290,7 +290,7 @@ const SupportTab = () => {
                         <span className="openSans text-sm">Attach File</span>
                       </button>
                     </div>
-                    <button className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
+                    <button className="px-6 py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold">
                       Send Reply
                     </button>
                   </div>

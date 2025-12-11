@@ -67,7 +67,7 @@ export default function Consulting() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#161616]">
       <div className="bg-black text-white">
         <Navigation />
       </div>
@@ -89,7 +89,7 @@ export default function Consulting() {
               enableBlur={true}
               baseRotation={5}
               blurStrength={10}
-              textClassName="text-lg md:text-xl openSans text-gray-600 max-w-3xl mx-auto"
+              textClassName="text-lg md:text-xl openSans text-gray-400 max-w-3xl mx-auto"
             >
               Our consulting services help you make informed decisions and avoid costly mistakes in your digital
               journey.
@@ -104,11 +104,11 @@ export default function Consulting() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-50 p-8 rounded-3xl hover:shadow-lg transition-all duration-300"
+                className="bg-[#1a1a1a] p-8 rounded-3xl hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-start gap-6 mb-6">
-                  <div className="w-16 h-16 bg-[#e97f33] rounded-full flex items-center justify-center flex-shrink-0">
-                    <i className={`bx ${area.icon} text-2xl text-black`}></i>
+                  <div className="w-16 h-16 bg-[#dc2828] rounded-full flex items-center justify-center flex-shrink-0">
+                    <i className={`bx ${area.icon} text-2xl text-[#fffffd]`}></i>
                   </div>
                   <div>
                     <h3 className="text-2xl md:text-3xl racing font-bold mb-4">{area.title}</h3>
@@ -117,7 +117,7 @@ export default function Consulting() {
                       enableBlur={true}
                       baseRotation={5}
                       blurStrength={10}
-                      textClassName="openSans text-gray-700 leading-relaxed mb-6"
+                      textClassName="openSans text-gray-300 leading-relaxed mb-6"
                     >
                       {area.description}
                     </ScrollReveal>
@@ -127,8 +127,8 @@ export default function Consulting() {
                 <div className="grid grid-cols-2 gap-3">
                   {area.benefits.map((benefit, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <i className="bx bx-check text-[#e97f33] text-sm flex-shrink-0"></i>
-                      <span className="openSans text-sm text-gray-600">{benefit}</span>
+                      <i className="bx bx-check text-[#dc2828] text-sm flex-shrink-0"></i>
+                      <span className="openSans text-sm text-gray-400">{benefit}</span>
                     </div>
                   ))}
                 </div>
@@ -146,7 +146,7 @@ export default function Consulting() {
               enableBlur={true}
               baseRotation={5}
               blurStrength={10}
-              textClassName="text-lg md:text-xl openSans text-gray-600 max-w-3xl mx-auto"
+              textClassName="text-lg md:text-xl openSans text-gray-400 max-w-3xl mx-auto"
             >
               A structured approach that ensures you get the guidance and support you need at every step.
             </ScrollReveal>
@@ -162,9 +162,9 @@ export default function Consulting() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-8`}
               >
-                <div className="flex-1 bg-white p-8 rounded-3xl shadow-lg">
+                <div className="flex-1 bg-[#161616] p-8 rounded-3xl shadow-lg">
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="text-4xl md:text-5xl racing text-[#e97f33] font-bold">{step.step}</span>
+                    <span className="text-4xl md:text-5xl racing text-[#dc2828] font-bold">{step.step}</span>
                     <div>
                       <h3 className="text-2xl md:text-3xl racing font-bold">{step.title}</h3>
                       <span className="text-sm openSans text-gray-500">{step.duration}</span>
@@ -175,14 +175,14 @@ export default function Consulting() {
                     enableBlur={true}
                     baseRotation={5}
                     blurStrength={10}
-                    textClassName="openSans text-gray-700 leading-relaxed"
+                    textClassName="openSans text-gray-300 leading-relaxed"
                   >
                     {step.description}
                   </ScrollReveal>
                 </div>
 
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-[#e97f33] rounded-full flex items-center justify-center text-black font-bold text-xl racing">
+                  <div className="w-16 h-16 bg-[#dc2828] rounded-full flex items-center justify-center text-[#fffffd] font-bold text-xl racing">
                     {index + 1}
                   </div>
                 </div>
@@ -206,7 +206,7 @@ export default function Consulting() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-[#e97f33] text-black rounded-full hover:bg-[#f0883e] transition-all duration-300 racing text-lg font-bold"
+            className="px-10 py-4 bg-[#dc2828] text-[#fffffd] rounded-full hover:bg-[#b91c1c] transition-all duration-300 racing text-lg font-bold"
           >
             Schedule a Consultation
           </motion.button>

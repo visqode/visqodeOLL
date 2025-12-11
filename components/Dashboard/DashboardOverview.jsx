@@ -153,7 +153,7 @@ const DashboardOverview = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-gradient-to-r from-[#e97f33] to-[#f0883e] rounded-3xl p-8 text-black"
+        className="bg-gradient-to-r from-[#dc2828] to-[#b91c1c] rounded-3xl p-8 text-black"
       >
         <h1 className="text-3xl lg:text-4xl racing font-bold mb-2">
           Welcome back, John! 👋
@@ -240,7 +240,7 @@ const DashboardOverview = () => {
                   </div>
                 </div>
 
-                <button className="w-full py-3 bg-gray-50 hover:bg-[#e97f33] hover:text-black rounded-xl transition-all duration-300 openSans font-medium">
+                <button className="w-full py-3 bg-gray-50 hover:bg-[#dc2828] hover:text-black rounded-xl transition-all duration-300 openSans font-medium">
                   View Details
                 </button>
               </div>
@@ -261,7 +261,7 @@ const DashboardOverview = () => {
                   ref={(el) => (cardsRef.current[projects.length + index] = el)}
                   className="flex items-start space-x-4 p-4 hover:bg-gray-50 rounded-xl transition-colors"
                 >
-                  <div className="w-10 h-10 bg-[#e97f33] rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-[#dc2828] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="racing font-bold text-black text-sm">
                       {message.avatar}
                     </span>
@@ -285,7 +285,7 @@ const DashboardOverview = () => {
                 </div>
               ))}
             </div>
-            <button className="w-full mt-4 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
+            <button className="w-full mt-4 py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold">
               View All Messages
             </button>
           </div>
@@ -320,7 +320,7 @@ const DashboardOverview = () => {
               key={action.label}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex flex-col items-center p-6 bg-gray-50 hover:bg-[#e97f33]/10 rounded-xl transition-all duration-300 group"
+              className="flex flex-col items-center p-6 bg-gray-50 hover:bg-[#dc2828]/10 rounded-xl transition-all duration-300 group"
             >
               <div
                 className={`w-12 h-12 ${action.color} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}

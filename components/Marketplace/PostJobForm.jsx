@@ -90,7 +90,7 @@ const PostJobForm = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl lg:text-5xl racing font-bold text-gray-900 mb-4">
-            Post a <span className="text-[#e97f33]">Job</span>
+            Post a <span className="text-[#dc2828]">Job</span>
           </h1>
           <p className="text-xl openSans text-gray-600 max-w-2xl mx-auto">
             Find the perfect freelancer for your project. Describe your needs and get proposals from qualified professionals.
@@ -115,7 +115,7 @@ const PostJobForm = () => {
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 placeholder="e.g., Build a responsive e-commerce website"
-                className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans text-lg"
+                className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans text-lg"
                 required
               />
               <p className="openSans text-sm text-gray-500 mt-2">
@@ -132,7 +132,7 @@ const PostJobForm = () => {
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                  className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
                   required
                 >
                   <option value="">Select a category</option>
@@ -150,7 +150,7 @@ const PostJobForm = () => {
                 <select
                   value={formData.projectType}
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                  className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
                   required
                 >
                   <option value="">Select project type</option>
@@ -173,7 +173,7 @@ const PostJobForm = () => {
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 placeholder="Describe your project in detail. Include specific requirements, goals, and any important information freelancers should know..."
                 rows={6}
-                className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
                 required
               />
               <p className="openSans text-sm text-gray-500 mt-2">
@@ -193,12 +193,12 @@ const PostJobForm = () => {
                   onChange={(e) => setSkillInput(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && (e.preventDefault(), addSkill())}
                   placeholder="e.g., React, Node.js, UI Design"
-                  className="flex-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                  className="flex-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
                 />
                 <button
                   type="button"
                   onClick={addSkill}
-                  className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold"
+                  className="px-6 py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold"
                 >
                   Add
                 </button>
@@ -233,7 +233,7 @@ const PostJobForm = () => {
                 <select
                   value={formData.budget}
                   onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                  className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                  className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
                   required
                 >
                   <option value="">Select budget range</option>
@@ -251,7 +251,7 @@ const PostJobForm = () => {
                 <select
                   value={formData.timeline}
                   onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                  className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                  className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
                   required
                 >
                   <option value="">Select timeline</option>
@@ -275,7 +275,7 @@ const PostJobForm = () => {
                     key={level}
                     className={`flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all ${
                       formData.experience === level
-                        ? "border-[#e97f33] bg-[#e97f33]/10"
+                        ? "border-[#dc2828] bg-[#dc2828]/10"
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                   >
@@ -300,10 +300,10 @@ const PostJobForm = () => {
               <label className="block text-lg font-semibold text-gray-900 mb-3 racing">
                 Attachments (Optional)
               </label>
-              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-[#e97f33] transition-colors">
+              <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-[#dc2828] transition-colors">
                 <i className="bx bx-cloud-upload text-4xl text-gray-400 mb-4"></i>
                 <p className="openSans text-gray-600 mb-2">
-                  Drag and drop files here, or <span className="text-[#e97f33] font-semibold">browse</span>
+                  Drag and drop files here, or <span className="text-[#dc2828] font-semibold">browse</span>
                 </p>
                 <p className="openSans text-sm text-gray-500">
                   Upload project briefs, mockups, or reference materials (Max 10MB)
@@ -318,7 +318,7 @@ const PostJobForm = () => {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex-1 py-4 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold text-lg"
+                className="flex-1 py-4 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold text-lg"
               >
                 Post Job
               </motion.button>
@@ -344,7 +344,7 @@ const PostJobForm = () => {
           <h3 className="racing font-bold text-xl text-gray-900 mb-6">Tips for a Great Job Post</h3>
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-[#e97f33] rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 bg-[#dc2828] rounded-full flex items-center justify-center flex-shrink-0">
                 <i className="bx bx-check text-black"></i>
               </div>
               <div>
@@ -355,7 +355,7 @@ const PostJobForm = () => {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-[#e97f33] rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 bg-[#dc2828] rounded-full flex items-center justify-center flex-shrink-0">
                 <i className="bx bx-target-lock text-black"></i>
               </div>
               <div>
@@ -366,7 +366,7 @@ const PostJobForm = () => {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-[#e97f33] rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 bg-[#dc2828] rounded-full flex items-center justify-center flex-shrink-0">
                 <i className="bx bx-dollar text-black"></i>
               </div>
               <div>

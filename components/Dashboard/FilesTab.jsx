@@ -176,7 +176,7 @@ const FilesTab = () => {
               <i className="bx bx-list-ul text-gray-600"></i>
             </button>
           </div>
-          <button className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
+          <button className="px-6 py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold">
             <i className="bx bx-upload mr-2"></i>
             Upload Files
           </button>
@@ -196,7 +196,7 @@ const FilesTab = () => {
             initial={{ width: 0 }}
             animate={{ width: "21%" }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="h-3 bg-gradient-to-r from-[#e97f33] to-[#f0883e] rounded-full"
+            className="h-3 bg-gradient-to-r from-[#dc2828] to-[#b91c1c] rounded-full"
           ></motion.div>
         </div>
       </div>
@@ -232,7 +232,7 @@ const FilesTab = () => {
 
               {/* File Info */}
               <div className="space-y-2">
-                <h4 className="racing font-bold text-gray-900 truncate group-hover:text-[#e97f33] transition-colors">
+                <h4 className="racing font-bold text-gray-900 truncate group-hover:text-[#dc2828] transition-colors">
                   {file.name}
                 </h4>
                 <p className="openSans text-sm text-gray-600">{file.project}</p>
@@ -244,7 +244,7 @@ const FilesTab = () => {
 
               {/* Actions */}
               <div className="flex gap-2 mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="flex-1 py-2 bg-[#e97f33] text-black rounded-lg hover:bg-[#f0883e] transition-colors racing font-bold text-sm">
+                <button className="flex-1 py-2 bg-[#dc2828] text-black rounded-lg hover:bg-[#b91c1c] transition-colors racing font-bold text-sm">
                   Download
                 </button>
                 <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
@@ -282,7 +282,7 @@ const FilesTab = () => {
                       ></i>
                     </div>
                     <div>
-                      <h4 className="racing font-bold text-gray-900 group-hover:text-[#e97f33] transition-colors">
+                      <h4 className="racing font-bold text-gray-900 group-hover:text-[#dc2828] transition-colors">
                         {file.name}
                       </h4>
                     </div>

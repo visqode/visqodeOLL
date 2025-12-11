@@ -15,7 +15,7 @@ const ServicesHero = () => {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#e97f33]/10 to-transparent rounded-full"
+          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#dc2828]/10 to-transparent rounded-full"
         />
       </div>
 

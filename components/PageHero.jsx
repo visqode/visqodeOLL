@@ -1,6 +1,6 @@
-"use client"
-import { motion } from "framer-motion"
-import SplitText from "./Features/SplitText"
+"use client";
+import { motion } from "framer-motion";
+import SplitText from "./Features/SplitText";
 
 const PageHero = ({
   title,
@@ -36,7 +36,7 @@ const PageHero = ({
 
         {subtitle && (
           <motion.h2
-            className="text-xl md:text-2xl lg:text-3xl racing text-[#e97f33] mb-6"
+            className="text-xl md:text-2xl lg:text-3xl racing text-[#dc2828] mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -57,7 +57,7 @@ const PageHero = ({
         )}
       </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default PageHero
+export default PageHero;

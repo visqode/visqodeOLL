@@ -33,7 +33,7 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section className="py-20 lg:py-32 bg-[#161616]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -43,10 +43,10 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl lg:text-5xl racing font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl racing font-bold text-[#fffffd] mb-6">
             What Our Clients Say
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto openSans">
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto openSans">
             Don't just take our word for it. Here's what our clients have to say
             about working with us.
           </p>
@@ -62,17 +62,17 @@ const TestimonialsSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-[#1a1a1a] p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/10"
             >
               {/* Rating */}
               <div className="flex mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <i key={i} className="bx bxs-star text-[#e97f33] text-xl"></i>
+                  <i key={i} className="bx bxs-star text-[#dc2828] text-xl"></i>
                 ))}
               </div>
 
               {/* Content */}
-              <p className="text-gray-700 text-lg leading-relaxed mb-6 openSans">
+              <p className="text-gray-300 text-lg leading-relaxed mb-6 openSans">
                 "{testimonial.content}"
               </p>
 
@@ -84,10 +84,10 @@ const TestimonialsSection = () => {
                   className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-900 racing">
+                  <h4 className="font-semibold text-[#fffffd] racing">
                     {testimonial.name}
                   </h4>
-                  <p className="text-gray-600 text-sm openSans">
+                  <p className="text-gray-400 text-sm openSans">
                     {testimonial.role}
                   </p>
                 </div>

@@ -144,7 +144,7 @@ const FreelancerListing = () => {
         {/* Header */}
         <div ref={headerRef} className="text-center mb-12">
           <h1 className="text-4xl lg:text-5xl racing font-bold text-gray-900 mb-4">
-            Find Top <span className="text-[#e97f33]">Freelancers</span>
+            Find Top <span className="text-[#dc2828]">Freelancers</span>
           </h1>
           <p className="text-xl openSans text-gray-600 max-w-3xl mx-auto">
             Connect with skilled professionals ready to bring your projects to life. Quality guaranteed.
@@ -159,7 +159,7 @@ const FreelancerListing = () => {
               <select
                 value={filters.category}
                 onChange={(e) => setFilters({ ...filters, category: e.target.value })}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
               >
                 {categories.map((cat) => (
                   <option key={cat.value} value={cat.value}>
@@ -173,7 +173,7 @@ const FreelancerListing = () => {
               <select
                 value={filters.priceRange}
                 onChange={(e) => setFilters({ ...filters, priceRange: e.target.value })}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
               >
                 <option value="all">All Prices</option>
                 <option value="0-50">$0 - $50/hr</option>
@@ -186,7 +186,7 @@ const FreelancerListing = () => {
               <select
                 value={filters.rating}
                 onChange={(e) => setFilters({ ...filters, rating: e.target.value })}
-                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans"
+                className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans"
               >
                 <option value="all">All Ratings</option>
                 <option value="4.5+">4.5+ Stars</option>
@@ -195,7 +195,7 @@ const FreelancerListing = () => {
               </select>
             </div>
             <div className="flex items-end">
-              <button className="w-full py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
+              <button className="w-full py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold">
                 Apply Filters
               </button>
             </div>
@@ -209,7 +209,7 @@ const FreelancerListing = () => {
           </p>
           <div className="flex items-center gap-4">
             <span className="openSans text-sm text-gray-600">Sort by:</span>
-            <select className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans text-sm">
+            <select className="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans text-sm">
               <option>Relevance</option>
               <option>Rating</option>
               <option>Price: Low to High</option>
@@ -227,7 +227,7 @@ const FreelancerListing = () => {
 
         {/* Load More */}
         <div className="text-center mt-12">
-          <button className="px-8 py-4 bg-white border-2 border-[#e97f33] text-[#e97f33] rounded-xl hover:bg-[#e97f33] hover:text-black transition-all duration-300 racing font-bold">
+          <button className="px-8 py-4 bg-white border-2 border-[#dc2828] text-[#dc2828] rounded-xl hover:bg-[#dc2828] hover:text-black transition-all duration-300 racing font-bold">
             Load More Freelancers
           </button>
         </div>

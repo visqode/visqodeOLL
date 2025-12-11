@@ -9,6 +9,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // Theme update trigger
   return (
     <html lang="en">
       <head>

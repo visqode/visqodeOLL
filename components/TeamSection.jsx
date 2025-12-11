@@ -26,7 +26,7 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-gray-50">
+    <section className="py-20 lg:py-32 bg-[#161616]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 lg:mb-20">
@@ -36,7 +36,9 @@ const TeamSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl lg:text-5xl racing font-bold text-gray-900">OUR BEST DESIGNERS</h2>
+            <h2 className="text-4xl lg:text-5xl racing font-bold text-[#fffffd]">
+              OUR BEST DESIGNERS
+            </h2>
           </motion.div>
 
           <motion.div
@@ -48,7 +50,7 @@ const TeamSection = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-[#e97f33] text-black font-semibold rounded-full hover:bg-[#f0883e] transition-all duration-300"
+              className="px-8 py-4 bg-[#dc2828] text-[#fffffd] font-semibold rounded-full hover:bg-[#b91c1c] transition-all duration-300"
             >
               View More
             </motion.button>
@@ -67,7 +69,7 @@ const TeamSection = () => {
               whileHover={{ y: -10 }}
               className="group cursor-pointer"
             >
-              <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg">
+              <div className="relative overflow-hidden rounded-2xl bg-[#1a1a1a] shadow-lg">
                 <div className="aspect-square overflow-hidden">
                   <img
                     src={member.image || "/placeholder.svg"}
@@ -77,14 +79,18 @@ const TeamSection = () => {
                 </div>
 
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 racing">{member.name}</h3>
-                  <p className="text-gray-600 openSans">{member.role}</p>
+                  <h3 className="text-xl font-bold text-[#fffffd] mb-2 racing">
+                    {member.name}
+                  </h3>
+                  <p className="text-gray-400 openSans">{member.role}</p>
                 </div>
 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-[#e97f33]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-center text-black">
-                    <h3 className="text-xl font-bold mb-2 racing">{member.name}</h3>
+                <div className="absolute inset-0 bg-[#dc2828]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-center text-[#fffffd]">
+                    <h3 className="text-xl font-bold mb-2 racing">
+                      {member.name}
+                    </h3>
                     <p className="mb-4 openSans">{member.role}</p>
                     <div className="flex justify-center space-x-4">
                       <motion.a

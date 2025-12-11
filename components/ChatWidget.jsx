@@ -148,7 +148,7 @@ const ChatWidget = () => {
           onClick={toggleChat}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="w-16 h-16 bg-[#e97f33] rounded-full shadow-lg flex items-center justify-center text-black hover:bg-[#f0883e] transition-all duration-300 relative"
+          className="w-16 h-16 bg-[#dc2828] rounded-full shadow-lg flex items-center justify-center text-black hover:bg-[#b91c1c] transition-all duration-300 relative"
         >
           <AnimatePresence mode="wait">
             {isOpen ? (
@@ -194,10 +194,10 @@ const ChatWidget = () => {
             className="fixed bottom-24 right-6 w-96 h-[600px] bg-white rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-[#e97f33] to-[#f0883e] p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#dc2828] to-[#b91c1c] p-4 flex items-center justify-between">
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-3 relative">
-                  <span className="text-[#e97f33] racing font-bold">V</span>
+                  <span className="text-[#dc2828] racing font-bold">V</span>
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{
@@ -239,7 +239,7 @@ const ChatWidget = () => {
                     <div
                       className={`p-3 rounded-2xl ${
                         message.sender === "user"
-                          ? "bg-[#e97f33] text-black"
+                          ? "bg-[#dc2828] text-black"
                           : "bg-gradient-to-r from-gray-100 to-gray-50 text-gray-800 border border-gray-200"
                       }`}
                     >
@@ -257,7 +257,7 @@ const ChatWidget = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex justify-start"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-r from-[#e97f33] to-[#f0883e] rounded-full flex items-center justify-center mr-2 relative">
+                  <div className="w-8 h-8 bg-gradient-to-r from-[#dc2828] to-[#b91c1c] rounded-full flex items-center justify-center mr-2 relative">
                     <span className="text-black racing font-bold text-sm">V</span>
                   </div>
                   <div className="bg-gradient-to-r from-gray-100 to-gray-50 p-3 rounded-2xl border border-gray-200">
@@ -271,7 +271,7 @@ const ChatWidget = () => {
                             repeat: Number.POSITIVE_INFINITY,
                             delay,
                           }}
-                          className="w-2 h-2 bg-[#e97f33] rounded-full"
+                          className="w-2 h-2 bg-[#dc2828] rounded-full"
                         />
                       ))}
                     </div>
@@ -293,7 +293,7 @@ const ChatWidget = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handleQuickReply(reply)}
-                      className="p-3 bg-white hover:bg-[#e97f33]/10 hover:border-[#e97f33] border border-gray-200 rounded-xl text-xs openSans text-left transition-all duration-300 flex items-center"
+                      className="p-3 bg-white hover:bg-[#dc2828]/10 hover:border-[#dc2828] border border-gray-200 rounded-xl text-xs openSans text-left transition-all duration-300 flex items-center"
                     >
                       <span className="mr-2">{reply.charAt(0)}</span>
                       {reply.slice(2)}
@@ -313,14 +313,14 @@ const ChatWidget = () => {
                   onKeyPress={(e) => e.key === "Enter" && !isTyping && handleSendMessage()}
                   placeholder={isTyping ? "AI is thinking..." : "Ask me anything about VisQode..."}
                   disabled={isTyping}
-                  className="flex-1 p-3 border border-gray-200 rounded-xl focus:border-[#e97f33] focus:outline-none openSans text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
+                  className="flex-1 p-3 border border-gray-200 rounded-xl focus:border-[#dc2828] focus:outline-none openSans text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
                 />
                 <motion.button
                   whileHover={{ scale: isTyping ? 1 : 1.1 }}
                   whileTap={{ scale: isTyping ? 1 : 0.9 }}
                   onClick={() => handleSendMessage()}
                   disabled={!inputValue.trim() || isTyping}
-                  className="w-10 h-10 bg-[#e97f33] rounded-xl flex items-center justify-center text-black hover:bg-[#f0883e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-10 h-10 bg-[#dc2828] rounded-xl flex items-center justify-center text-black hover:bg-[#b91c1c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isTyping ? (
                     <motion.div

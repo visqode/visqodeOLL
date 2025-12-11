@@ -67,7 +67,7 @@ const AboutTeam = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {member.name}
                 </h3>
-                <p className="text-[#e97f33] font-semibold mb-4">
+                <p className="text-[#dc2828] font-semibold mb-4">
                   {member.role}
                 </p>
                 <p className="text-gray-600 leading-relaxed">{member.bio}</p>

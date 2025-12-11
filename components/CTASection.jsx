@@ -17,7 +17,7 @@ const CTASection = () => {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#e97f33]/10 to-transparent rounded-full"
+          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#dc2828]/10 to-transparent rounded-full"
         />
         <motion.div
           animate={{
@@ -29,7 +29,7 @@ const CTASection = () => {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-[#e97f33]/5 to-transparent rounded-full"
+          className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-[#dc2828]/5 to-transparent rounded-full"
         />
       </div>
 
@@ -61,7 +61,7 @@ const CTASection = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/consulting"
-                className="px-10 py-5 bg-[#e97f33] text-black text-lg font-semibold rounded-full hover:bg-[#f0883e] transition-all duration-300 btn-luxury inline-block"
+                className="px-10 py-5 bg-[#dc2828] text-black text-lg font-semibold rounded-full hover:bg-[#b91c1c] transition-all duration-300 btn-luxury inline-block"
               >
                 Get Started Today
               </Link>
@@ -82,7 +82,7 @@ const CTASection = () => {
             transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             className="absolute top-1/2 right-8 lg:right-16 transform -translate-y-1/2 hidden lg:block"
           >
-            <div className="w-24 h-24 bg-[#e97f33] rounded-full flex items-center justify-center shadow-lg">
+            <div className="w-24 h-24 bg-[#dc2828] rounded-full flex items-center justify-center shadow-lg">
               <i className="bx bx-arrow-up-right text-black text-2xl"></i>
             </div>
           </motion.div>

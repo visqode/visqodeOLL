@@ -130,7 +130,7 @@ const TestimonialsCarousel = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-20 lg:py-32 bg-white relative overflow-hidden"
+      className="py-20 lg:py-32 bg-transparent relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -144,7 +144,7 @@ const TestimonialsCarousel = () => {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#e97f33]/5 to-transparent rounded-full"
+          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-primary/5 to-transparent rounded-full"
         />
       </div>
 
@@ -157,10 +157,10 @@ const TestimonialsCarousel = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl racing font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl racing font-bold text-white mb-6">
             What Our Clients Say
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto openSans leading-relaxed">
+          <p className="text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto openSans leading-relaxed">
             Don't just take our word for it. Here's what our clients have to say
             about working with us.
           </p>
@@ -179,7 +179,7 @@ const TestimonialsCarousel = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="bg-gray-50 rounded-3xl p-8 lg:p-12 shadow-xl"
+              className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-xl border border-white/10"
             >
               {/* Rating Stars */}
               <div className="flex justify-center mb-6">
@@ -189,13 +189,13 @@ const TestimonialsCarousel = () => {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: i * 0.1, duration: 0.3 }}
-                    className="bx bxs-star text-[#e97f33] text-2xl mx-1"
+                    className="bx bxs-star text-primary text-2xl mx-1"
                   ></motion.i>
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="text-xl lg:text-2xl text-gray-800 text-center mb-8 openSans leading-relaxed italic">
+              <blockquote className="text-xl lg:text-2xl text-gray-200 text-center mb-8 openSans leading-relaxed italic">
                 "{testimonials[currentIndex].quote}"
               </blockquote>
 
@@ -205,17 +205,17 @@ const TestimonialsCarousel = () => {
                   whileHover={{ scale: 1.1 }}
                   src={testimonials[currentIndex].avatar}
                   alt={testimonials[currentIndex].name}
-                  className="w-16 h-16 rounded-full object-cover shadow-lg"
+                  className="w-16 h-16 rounded-full object-cover shadow-lg border-2 border-primary/20"
                 />
                 <div className="text-center sm:text-left">
-                  <h4 className="text-xl racing font-bold text-gray-900">
+                  <h4 className="text-xl racing font-bold text-white">
                     {testimonials[currentIndex].name}
                   </h4>
-                  <p className="text-[#e97f33] openSans font-semibold">
+                  <p className="text-primary openSans font-semibold">
                     {testimonials[currentIndex].role} at{" "}
                     {testimonials[currentIndex].company}
                   </p>
-                  <p className="text-gray-600 openSans text-sm mt-1">
+                  <p className="text-gray-400 openSans text-sm mt-1">
                     {testimonials[currentIndex].project}
                   </p>
                 </div>
@@ -228,7 +228,7 @@ const TestimonialsCarousel = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#e97f33] hover:text-black transition-all duration-300 z-10"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-primary hover:text-white text-white transition-all duration-300 z-10"
           >
             <i className="bx bx-chevron-left text-2xl"></i>
           </motion.button>
@@ -237,7 +237,7 @@ const TestimonialsCarousel = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#e97f33] hover:text-black transition-all duration-300 z-10"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-primary hover:text-white text-white transition-all duration-300 z-10"
           >
             <i className="bx bx-chevron-right text-2xl"></i>
           </motion.button>
@@ -253,8 +253,8 @@ const TestimonialsCarousel = () => {
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? "bg-[#e97f33] scale-125"
-                  : "bg-gray-300 hover:bg-gray-400"
+                  ? "bg-primary scale-125"
+                  : "bg-gray-700 hover:bg-gray-600"
               }`}
             />
           ))}
@@ -276,7 +276,7 @@ const TestimonialsCarousel = () => {
               <motion.div
                 key={testimonial.id}
                 whileHover={{ scale: 1.1, opacity: 1 }}
-                className="text-2xl font-bold text-gray-400 racing cursor-pointer"
+                className="text-2xl font-bold text-gray-600 racing cursor-pointer hover:text-white transition-colors"
               >
                 {testimonial.company}
               </motion.div>

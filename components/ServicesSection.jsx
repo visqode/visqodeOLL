@@ -35,8 +35,8 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-32 bg-transparent">
+      <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 lg:mb-20">
           <motion.div
@@ -47,11 +47,11 @@ const ServicesSection = () => {
             className="flex-1"
           >
             <div className="flex flex-col lg:flex-row items-start lg:items-end gap-6 lg:gap-12">
-              <h2 className="section-title text-4xl lg:text-5xl font-bold font-playfair text-gray-900">
+              <h2 className="section-title text-4xl lg:text-5xl font-bold font-playfair text-white">
                 OUR SERVICES
               </h2>
-              <div className="hidden lg:block w-px h-16 bg-gray-300"></div>
-              <p className="text-gray-600 text-lg max-w-md">
+              <div className="hidden lg:block w-px h-16 bg-gray-700"></div>
+              <p className="text-gray-400 font-bold text-lg max-w-md">
                 This part of our service that can give you satisfaction
               </p>
             </div>
@@ -67,7 +67,7 @@ const ServicesSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-[#e97f33] text-black font-semibold rounded-full hover:bg-[#f0883e] transition-all duration-300 btn-luxury"
+                className="px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary-hover transition-all duration-300 btn-luxury"
               >
                 View More
               </motion.button>
@@ -114,24 +114,24 @@ const ServicesSection = () => {
                 <div className="flex items-start gap-6">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="service-number text-5xl lg:text-6xl font-bold text-gray-300 group-hover:text-[#e97f33] transition-colors duration-300"
+                    className="service-number text-5xl lg:text-6xl font-bold text-gray-500 group-hover:text-primary transition-colors duration-300"
                   >
                     {service.number}
                   </motion.div>
 
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-2xl lg:text-3xl font-bold font-playfair text-gray-900 group-hover:text-[#e97f33] transition-colors duration-300">
+                      <h3 className="text-2xl lg:text-3xl font-bold font-playfair text-gray-200 group-hover:text-primary transition-colors duration-300">
                         {service.title}
                       </h3>
                       <motion.div
                         whileHover={{ scale: 1.2, rotate: 45 }}
-                        className="w-12 h-12 bg-[#e97f33] rounded-full flex items-center justify-center group-hover:bg-[#f0883e] transition-colors duration-300"
+                        className="w-12 h-12 bg-primary rounded-full flex items-center justify-center group-hover:bg-primary-hover transition-colors duration-300"
                       >
-                        <i className="bx bx-arrow-up-right text-black text-xl"></i>
+                        <i className="bx bx-arrow-up-right text-white text-xl"></i>
                       </motion.div>
                     </div>
-                    <p className="text-gray-600 text-lg leading-relaxed">
+                    <p className="text-gray-400 text-lg leading-relaxed">
                       {service.description}
                     </p>
                   </div>

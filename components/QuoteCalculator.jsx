@@ -113,7 +113,7 @@ const QuoteCalculator = () => {
   }
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white">
+    <section ref={sectionRef} className="py-20 lg:py-32 bg-transparent">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -123,10 +123,10 @@ const QuoteCalculator = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl racing font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl racing font-bold text-white mb-6">
             Get an Instant Project Estimate
           </h2>
-          <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto openSans leading-relaxed">
+          <p className="text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto openSans leading-relaxed">
             Answer a few quick questions and get a personalized quote for your project in seconds.
           </p>
         </motion.div>
@@ -139,8 +139,8 @@ const QuoteCalculator = () => {
                 <div key={step} className="flex items-center">
                   <motion.div
                     animate={{
-                      backgroundColor: currentStep >= step ? "#e97f33" : "#e5e7eb",
-                      color: currentStep >= step ? "#000" : "#9ca3af",
+                      backgroundColor: currentStep >= step ? "var(--primary)" : "#374151", // #374151 is gray-700
+                      color: currentStep >= step ? "#fff" : "#9ca3af",
                     }}
                     className="w-10 h-10 rounded-full flex items-center justify-center racing font-bold"
                   >
@@ -149,7 +149,7 @@ const QuoteCalculator = () => {
                   {step < 3 && (
                     <motion.div
                       animate={{
-                        backgroundColor: currentStep > step ? "#e97f33" : "#e5e7eb",
+                        backgroundColor: currentStep > step ? "var(--primary)" : "#374151",
                       }}
                       className="w-16 h-1 mx-4"
                     />
@@ -157,7 +157,7 @@ const QuoteCalculator = () => {
                 </div>
               ))}
             </div>
-            <div className="flex justify-between text-sm openSans text-gray-600">
+            <div className="flex justify-between text-sm openSans text-gray-400">
               <span>Services</span>
               <span>Details</span>
               <span>Calculate</span>
@@ -167,7 +167,7 @@ const QuoteCalculator = () => {
           {/* Form Container */}
           <motion.div
             ref={formRef}
-            className="bg-white rounded-3xl shadow-xl p-8 lg:p-12"
+            className="bg-[#1a1a1a] rounded-3xl shadow-xl p-8 lg:p-12 border border-gray-800"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -182,7 +182,7 @@ const QuoteCalculator = () => {
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <h3 className="text-2xl lg:text-3xl racing font-bold mb-8">What services do you need?</h3>
+                  <h3 className="text-2xl lg:text-3xl racing font-bold mb-8 text-white">What services do you need?</h3>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                     {services.map((service) => (
                       <motion.div
@@ -192,28 +192,28 @@ const QuoteCalculator = () => {
                         onClick={() => toggleService(service.id)}
                         className={`p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 ${
                           selectedServices.includes(service.id)
-                            ? "border-[#e97f33] bg-[#e97f33]/10"
-                            : "border-gray-200 hover:border-gray-300"
+                            ? "border-primary bg-primary/10"
+                            : "border-gray-700 hover:border-gray-500 bg-black/20"
                         }`}
                       >
                         <div className="flex items-center mb-4">
                           <i
                             className={`bx ${service.icon} text-2xl ${
-                              selectedServices.includes(service.id) ? "text-[#e97f33]" : "text-gray-600"
+                              selectedServices.includes(service.id) ? "text-primary" : "text-gray-400"
                             }`}
                           ></i>
                           <div className="ml-4">
-                            <h4 className="racing font-bold text-gray-900">{service.name}</h4>
-                            <p className="text-sm text-gray-600 openSans">From ${service.price.toLocaleString()}</p>
+                            <h4 className="racing font-bold text-white">{service.name}</h4>
+                            <p className="text-sm text-gray-400 openSans">From ${service.price.toLocaleString()}</p>
                           </div>
                         </div>
                         {selectedServices.includes(service.id) && (
                           <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
-                            className="w-6 h-6 bg-[#e97f33] rounded-full flex items-center justify-center ml-auto"
+                            className="w-6 h-6 bg-primary rounded-full flex items-center justify-center ml-auto"
                           >
-                            <i className="bx bx-check text-black text-sm"></i>
+                            <i className="bx bx-check text-white text-sm"></i>
                           </motion.div>
                         )}
                       </motion.div>
@@ -231,12 +231,12 @@ const QuoteCalculator = () => {
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.4 }}
                 >
-                  <h3 className="text-2xl lg:text-3xl racing font-bold mb-8">Project Details</h3>
+                  <h3 className="text-2xl lg:text-3xl racing font-bold mb-8 text-white">Project Details</h3>
 
                   <div className="grid lg:grid-cols-2 gap-8 mb-8">
                     {/* Budget Range */}
                     <div>
-                      <label className="block text-lg racing font-bold mb-4">Budget Range</label>
+                      <label className="block text-lg racing font-bold mb-4 text-gray-200">Budget Range</label>
                       <div className="space-y-3">
                         {budgetRanges.map((budget) => (
                           <motion.label
@@ -244,8 +244,8 @@ const QuoteCalculator = () => {
                             whileHover={{ scale: 1.02 }}
                             className={`flex items-center p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
                               budgetRange === budget.value
-                                ? "border-[#e97f33] bg-[#e97f33]/10"
-                                : "border-gray-200 hover:border-gray-300"
+                                ? "border-primary bg-primary/10"
+                                : "border-gray-700 hover:border-gray-500 bg-black/20"
                             }`}
                           >
                             <input
@@ -258,20 +258,20 @@ const QuoteCalculator = () => {
                             />
                             <div
                               className={`w-5 h-5 rounded-full border-2 mr-3 ${
-                                budgetRange === budget.value ? "border-[#e97f33] bg-[#e97f33]" : "border-gray-300"
+                                budgetRange === budget.value ? "border-primary bg-primary" : "border-gray-500"
                               }`}
                             >
                               {budgetRange === budget.value && (
                                 <motion.div
                                   initial={{ scale: 0 }}
                                   animate={{ scale: 1 }}
-                                  className="w-full h-full rounded-full bg-[#e97f33] flex items-center justify-center"
+                                  className="w-full h-full rounded-full bg-primary flex items-center justify-center"
                                 >
                                   <div className="w-2 h-2 bg-black rounded-full"></div>
                                 </motion.div>
                               )}
                             </div>
-                            <span className="openSans font-medium">{budget.label}</span>
+                            <span className="openSans font-medium text-gray-200">{budget.label}</span>
                           </motion.label>
                         ))}
                       </div>
@@ -279,7 +279,7 @@ const QuoteCalculator = () => {
 
                     {/* Timeline */}
                     <div>
-                      <label className="block text-lg racing font-bold mb-4">Timeline</label>
+                      <label className="block text-lg racing font-bold mb-4 text-gray-200">Timeline</label>
                       <div className="space-y-3">
                         {timelines.map((time) => (
                           <motion.label
@@ -287,8 +287,8 @@ const QuoteCalculator = () => {
                             whileHover={{ scale: 1.02 }}
                             className={`flex items-center p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
                               timeline === time.value
-                                ? "border-[#e97f33] bg-[#e97f33]/10"
-                                : "border-gray-200 hover:border-gray-300"
+                                ? "border-primary bg-primary/10"
+                                : "border-gray-700 hover:border-gray-500 bg-black/20"
                             }`}
                           >
                             <input
@@ -301,20 +301,20 @@ const QuoteCalculator = () => {
                             />
                             <div
                               className={`w-5 h-5 rounded-full border-2 mr-3 ${
-                                timeline === time.value ? "border-[#e97f33] bg-[#e97f33]" : "border-gray-300"
+                                timeline === time.value ? "border-primary bg-primary" : "border-gray-500"
                               }`}
                             >
                               {timeline === time.value && (
                                 <motion.div
                                   initial={{ scale: 0 }}
                                   animate={{ scale: 1 }}
-                                  className="w-full h-full rounded-full bg-[#e97f33] flex items-center justify-center"
+                                  className="w-full h-full rounded-full bg-primary flex items-center justify-center"
                                 >
                                   <div className="w-2 h-2 bg-black rounded-full"></div>
                                 </motion.div>
                               )}
                             </div>
-                            <span className="openSans font-medium">{time.label}</span>
+                            <span className="openSans font-medium text-gray-200">{time.label}</span>
                           </motion.label>
                         ))}
                       </div>
@@ -325,7 +325,7 @@ const QuoteCalculator = () => {
                   <motion.label
                     whileHover={{ scale: 1.01 }}
                     className={`flex items-center p-6 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
-                      ongoingSupport ? "border-[#e97f33] bg-[#e97f33]/10" : "border-gray-200 hover:border-gray-300"
+                      ongoingSupport ? "border-primary bg-primary/10" : "border-gray-700 hover:border-gray-500 bg-black/20"
                     }`}
                   >
                     <input
@@ -336,20 +336,20 @@ const QuoteCalculator = () => {
                     />
                     <div
                       className={`w-6 h-6 rounded border-2 mr-4 flex items-center justify-center ${
-                        ongoingSupport ? "border-[#e97f33] bg-[#e97f33]" : "border-gray-300"
+                        ongoingSupport ? "border-primary bg-primary" : "border-gray-500"
                       }`}
                     >
                       {ongoingSupport && (
                         <motion.i
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          className="bx bx-check text-black text-lg"
+                          className="bx bx-check text-white text-lg"
                         ></motion.i>
                       )}
                     </div>
                     <div>
-                      <span className="racing font-bold text-lg">Need ongoing support?</span>
-                      <p className="text-gray-600 openSans text-sm">
+                      <span className="racing font-bold text-lg text-white">Need ongoing support?</span>
+                      <p className="text-gray-400 openSans text-sm">
                         Includes maintenance, updates, and priority support
                       </p>
                     </div>
@@ -367,25 +367,25 @@ const QuoteCalculator = () => {
                   transition={{ duration: 0.4 }}
                   className="text-center"
                 >
-                  <h3 className="text-2xl lg:text-3xl racing font-bold mb-8">Ready for Your Estimate?</h3>
+                  <h3 className="text-2xl lg:text-3xl racing font-bold mb-8 text-white">Ready for Your Estimate?</h3>
 
                   {/* Summary */}
-                  <div className="bg-gray-50 rounded-2xl p-6 mb-8 text-left">
-                    <h4 className="racing font-bold text-lg mb-4">Project Summary:</h4>
-                    <div className="space-y-2 openSans">
+                  <div className="bg-white/5 rounded-2xl p-6 mb-8 text-left border border-white/10">
+                    <h4 className="racing font-bold text-lg mb-4 text-white">Project Summary:</h4>
+                    <div className="space-y-2 openSans text-gray-300">
                       <p>
-                        <strong>Services:</strong> {selectedServices.length} selected
+                        <strong className="text-white">Services:</strong> {selectedServices.length} selected
                       </p>
                       <p>
-                        <strong>Budget:</strong>{" "}
+                        <strong className="text-white">Budget:</strong>{" "}
                         {budgetRanges.find((b) => b.value === budgetRange)?.label || "Not selected"}
                       </p>
                       <p>
-                        <strong>Timeline:</strong>{" "}
+                        <strong className="text-white">Timeline:</strong>{" "}
                         {timelines.find((t) => t.value === timeline)?.label || "Not selected"}
                       </p>
                       <p>
-                        <strong>Ongoing Support:</strong> {ongoingSupport ? "Yes" : "No"}
+                        <strong className="text-white">Ongoing Support:</strong> {ongoingSupport ? "Yes" : "No"}
                       </p>
                     </div>
                   </div>
@@ -395,7 +395,7 @@ const QuoteCalculator = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={calculateEstimate}
-                      className="px-12 py-6 bg-[#e97f33] text-black rounded-2xl hover:bg-[#f0883e] transition-all duration-300 racing font-bold text-xl shadow-lg"
+                      className="px-12 py-6 bg-primary text-white rounded-2xl hover:bg-primary-hover transition-all duration-300 racing font-bold text-xl shadow-lg"
                     >
                       Calculate My Estimate
                       <i className="bx bx-calculator ml-3 text-2xl"></i>
@@ -403,19 +403,19 @@ const QuoteCalculator = () => {
                   ) : (
                     <motion.div
                       ref={resultRef}
-                      className="bg-gradient-to-br from-[#e97f33] to-[#f0883e] rounded-3xl p-8 text-black"
+                      className="bg-gradient-to-br from-primary to-primary-hover rounded-3xl p-8 text-white"
                     >
                       <h4 className="racing font-bold text-2xl mb-4">Your Estimated Quote</h4>
                       <div className="text-5xl lg:text-6xl racing font-bold mb-4">
                         ${estimatedQuote.toLocaleString()}
                       </div>
-                      <p className="openSans text-lg mb-6">
+                      <p className="openSans text-lg mb-6 text-white/90">
                         This is a preliminary estimate. Final pricing may vary based on specific requirements.
                       </p>
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-8 py-4 bg-black text-white rounded-xl hover:bg-gray-800 transition-all duration-300 racing font-bold"
+                        className="px-8 py-4 bg-black text-white rounded-xl hover:bg-gray-900 transition-all duration-300 racing font-bold"
                       >
                         Get Detailed Quote
                         <i className="bx bx-arrow-right ml-2"></i>
@@ -434,7 +434,7 @@ const QuoteCalculator = () => {
                   whileTap={{ scale: 0.95 }}
                   onClick={prevStep}
                   disabled={currentStep === 1}
-                  className="px-6 py-3 border-2 border-gray-300 text-gray-600 rounded-xl hover:border-gray-400 transition-all duration-300 racing font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 border-2 border-gray-700 text-gray-400 rounded-xl hover:border-gray-500 transition-all duration-300 racing font-bold disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <i className="bx bx-arrow-left mr-2"></i>
                   Previous
@@ -445,7 +445,7 @@ const QuoteCalculator = () => {
                   whileTap={{ scale: 0.95 }}
                   onClick={nextStep}
                   disabled={currentStep === 3}
-                  className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-all duration-300 racing font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-hover transition-all duration-300 racing font-bold disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next
                   <i className="bx bx-arrow-right ml-2"></i>

@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const ServicesCTA = () => {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+    <section className="py-20 lg:py-32 bg-transparent relative overflow-hidden">
       <div className="absolute inset-0">
         <motion.div
           animate={{
@@ -16,7 +16,7 @@ const ServicesCTA = () => {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#e97f33]/10 to-transparent rounded-full"
+          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-primary/10 to-transparent rounded-full"
         />
       </div>
 
@@ -36,7 +36,7 @@ const ServicesCTA = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/consulting"
-                className="px-10 py-5 bg-[#e97f33] text-black text-lg font-semibold rounded-full hover:bg-[#f0883e] transition-all duration-300 btn-luxury inline-block"
+                className="px-10 py-5 bg-primary text-white text-lg font-semibold rounded-full hover:bg-primary-hover transition-all duration-300 btn-luxury inline-block"
               >
                 Get Started Today
               </Link>

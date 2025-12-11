@@ -137,7 +137,7 @@ const InvoicesTab = () => {
             Track your project invoices and payment history
           </p>
         </div>
-        <button className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold">
+        <button className="px-6 py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold">
           <i className="bx bx-download mr-2"></i>
           Download All
         </button>
@@ -271,7 +271,7 @@ const InvoicesTab = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold"
+                  className="w-full py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold"
                 >
                   <i className="bx bx-download mr-2"></i>
                   Download PDF
@@ -332,7 +332,7 @@ const InvoicesTab = () => {
               key={method.name}
               className="flex items-center p-4 border border-gray-200 rounded-xl"
             >
-              <div className="w-10 h-10 bg-[#e97f33] rounded-lg flex items-center justify-center mr-4">
+              <div className="w-10 h-10 bg-[#dc2828] rounded-lg flex items-center justify-center mr-4">
                 <i className={`bx ${method.icon} text-black text-xl`}></i>
               </div>
               <div>

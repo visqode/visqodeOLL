@@ -60,7 +60,7 @@ const ConsultingServices = () => {
               className="bg-gray-50 p-8 rounded-2xl hover:shadow-xl transition-all duration-300"
             >
               <div className="flex items-start mb-6">
-                <div className="w-16 h-16 bg-[#e97f33] rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                <div className="w-16 h-16 bg-[#dc2828] rounded-full flex items-center justify-center mr-6 flex-shrink-0">
                   <i className={`bx ${service.icon} text-2xl text-black`}></i>
                 </div>
                 <div>
@@ -72,7 +72,7 @@ const ConsultingServices = () => {
               <div className="grid grid-cols-2 gap-3">
                 {service.features.map((feature, idx) => (
                   <div key={feature} className="flex items-center">
-                    <i className="bx bx-check text-[#e97f33] text-lg mr-2"></i>
+                    <i className="bx bx-check text-[#dc2828] text-lg mr-2"></i>
                     <span className="text-sm text-gray-600">{feature}</span>
                   </div>
                 ))}

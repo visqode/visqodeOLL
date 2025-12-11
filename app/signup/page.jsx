@@ -38,7 +38,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0e0e0e]">
       <div className="bg-black text-white">
         <Navigation />
       </div>

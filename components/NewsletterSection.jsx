@@ -95,7 +95,7 @@ const NewsletterSection = () => {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#e97f33]/10 to-transparent rounded-full"
+          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#dc2828]/10 to-transparent rounded-full"
         />
         <motion.div
           animate={{
@@ -107,7 +107,7 @@ const NewsletterSection = () => {
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}
-          className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-[#e97f33]/5 to-transparent rounded-full"
+          className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-[#dc2828]/5 to-transparent rounded-full"
         />
       </div>
 
@@ -147,7 +147,7 @@ const NewsletterSection = () => {
                 whileHover={{ y: -5 }}
                 className="flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-[#e97f33] rounded-full flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#dc2828] rounded-full flex items-center justify-center mb-4">
                   <i className={`bx ${benefit.icon} text-black text-xl`}></i>
                 </div>
                 <p className="text-white openSans text-sm font-medium">{benefit.text}</p>
@@ -186,7 +186,7 @@ const NewsletterSection = () => {
                     disabled={isLoading}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-all duration-300 racing font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[140px]"
+                    className="px-8 py-4 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-all duration-300 racing font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[140px]"
                   >
                     {isLoading ? (
                       <motion.div
@@ -208,13 +208,13 @@ const NewsletterSection = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  className="p-8 bg-[#e97f33]/20 backdrop-blur-sm rounded-2xl border border-[#e97f33]/30"
+                  className="p-8 bg-[#dc2828]/20 backdrop-blur-sm rounded-2xl border border-[#dc2828]/30"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                    className="w-16 h-16 bg-[#e97f33] rounded-full flex items-center justify-center mx-auto mb-4"
+                    className="w-16 h-16 bg-[#dc2828] rounded-full flex items-center justify-center mx-auto mb-4"
                   >
                     <i className="bx bx-check text-black text-3xl"></i>
                   </motion.div>
@@ -235,7 +235,7 @@ const NewsletterSection = () => {
               className="text-gray-400 openSans text-sm mt-6"
             >
               No spam, ever. Unsubscribe anytime. By subscribing, you agree to our{" "}
-              <a href="#" className="text-[#e97f33] hover:underline">
+              <a href="#" className="text-[#dc2828] hover:underline">
                 Privacy Policy
               </a>
               .
@@ -251,15 +251,15 @@ const NewsletterSection = () => {
             className="mt-12 lg:mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-400"
           >
             <div className="flex items-center">
-              <i className="bx bx-user text-[#e97f33] text-xl mr-2"></i>
+              <i className="bx bx-user text-[#dc2828] text-xl mr-2"></i>
               <span className="openSans text-sm">5,000+ subscribers</span>
             </div>
             <div className="flex items-center">
-              <i className="bx bx-star text-[#e97f33] text-xl mr-2"></i>
+              <i className="bx bx-star text-[#dc2828] text-xl mr-2"></i>
               <span className="openSans text-sm">4.9/5 average rating</span>
             </div>
             <div className="flex items-center">
-              <i className="bx bx-shield-check text-[#e97f33] text-xl mr-2"></i>
+              <i className="bx bx-shield-check text-[#dc2828] text-xl mr-2"></i>
               <span className="openSans text-sm">GDPR compliant</span>
             </div>
           </motion.div>

@@ -64,7 +64,7 @@ const ConsultingProcess = () => {
             >
               <div className="flex-1 bg-white p-8 rounded-2xl shadow-lg">
                 <div className="flex items-center mb-4">
-                  <span className="text-[#e97f33] font-semibold text-lg mr-4">
+                  <span className="text-[#dc2828] font-semibold text-lg mr-4">
                     {phase.phase}
                   </span>
                   <span className="text-gray-500 text-sm">
@@ -80,7 +80,7 @@ const ConsultingProcess = () => {
               </div>
 
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-[#e97f33] rounded-full flex items-center justify-center text-black font-bold text-xl">
+                <div className="w-16 h-16 bg-[#dc2828] rounded-full flex items-center justify-center text-black font-bold text-xl">
                   {index + 1}
                 </div>
               </div>

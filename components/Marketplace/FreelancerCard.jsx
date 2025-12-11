@@ -19,7 +19,7 @@ const FreelancerCard = ({ freelancer, index }) => {
             className="w-16 h-16 rounded-full object-cover mr-4"
           />
           <div>
-            <h3 className="racing font-bold text-lg text-gray-900 group-hover:text-[#e97f33] transition-colors">
+            <h3 className="racing font-bold text-lg text-gray-900 group-hover:text-[#dc2828] transition-colors">
               {freelancer.name}
             </h3>
             <p className="openSans text-gray-600 text-sm">{freelancer.title}</p>
@@ -58,7 +58,7 @@ const FreelancerCard = ({ freelancer, index }) => {
             </span>
           ))}
           {freelancer.skills.length > 4 && (
-            <span className="px-3 py-1 bg-[#e97f33] text-black rounded-full text-xs openSans font-medium">
+            <span className="px-3 py-1 bg-[#dc2828] text-black rounded-full text-xs openSans font-medium">
               +{freelancer.skills.length - 4} more
             </span>
           )}
@@ -103,7 +103,7 @@ const FreelancerCard = ({ freelancer, index }) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-6 py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-colors racing font-bold"
+          className="px-6 py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-colors racing font-bold"
         >
           View Profile
         </motion.button>

@@ -28,51 +28,24 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 lg:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 lg:mb-20">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl lg:text-5xl racing font-bold text-gray-900 mb-4">
-              BEST PROJECTS
+    <section id="projects" className="py-20 lg:py-32 bg-transparent">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl lg:text-5xl font-bold font-playfair mb-6 text-white">
+              Featured <span className="text-primary">Projects</span>
             </h2>
-            <p className="text-gray-600 text-lg">
-              Explore some of our best projects
+            <p className="text-gray-400 text-lg">
+              Explore our portfolio of successful digital transformations and
+              custom solutions.
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-[#e97f33] text-black font-semibold rounded-full hover:bg-[#f0883e] transition-all duration-300 flex items-center gap-2"
-            >
-              View More
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </motion.button>
-          </motion.div>
+          </div>
+          <div className="flex gap-4">
+            <button className="px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary-hover transition-all duration-300 flex items-center gap-2">
+              All Projects <i className="bx bx-right-arrow-alt"></i>
+            </button>
+          </div>
         </div>
 
         {/* Projects Grid */}
@@ -103,7 +76,7 @@ const ProjectsSection = () => {
 
                 {/* Project Info - Always Visible at Bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                  <span className="text-[#e97f33] text-sm font-medium block mb-1">
+                  <span className="text-primary text-sm font-medium block mb-1">
                     {project.category}
                   </span>
                   <h3 className="text-xl font-bold racing mb-2">
@@ -115,7 +88,7 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Arrow Icon - Using SVG instead of Remix Icons */}
-                <div className="absolute top-4 right-4 w-10 h-10 bg-[#e97f33] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-90 z-20">
+                <div className="absolute top-4 right-4 w-10 h-10 bg-primary rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-90 z-20">
                   <svg
                     className="w-5 h-5"
                     fill="none"
