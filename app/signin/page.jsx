@@ -58,7 +58,7 @@ export default function SignIn() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans transition-all duration-300"
                   placeholder="Enter your email"
                   required
                 />
@@ -71,7 +71,7 @@ export default function SignIn() {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e97f33] focus:border-transparent openSans transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans transition-all duration-300"
                   placeholder="Enter your password"
                   required
                 />
@@ -84,11 +84,11 @@ export default function SignIn() {
                     name="remember"
                     checked={formData.remember}
                     onChange={handleChange}
-                    className="w-4 h-4 text-[#e97f33] border-gray-300 rounded focus:ring-[#e97f33]"
+                    className="w-4 h-4 text-[#dc2828] border-gray-300 rounded focus:ring-[#dc2828]"
                   />
                   <span className="ml-2 openSans text-sm text-gray-600">Remember me</span>
                 </label>
-                <Link href="#" className="openSans text-sm text-[#e97f33] hover:underline font-medium">
+                <Link href="#" className="openSans text-sm text-[#dc2828] hover:underline font-medium">
                   Forgot password?
                 </Link>
               </div>
@@ -97,7 +97,7 @@ export default function SignIn() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-3 bg-[#e97f33] text-black rounded-xl hover:bg-[#f0883e] transition-all duration-300 racing font-bold"
+                className="w-full py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-all duration-300 racing font-bold"
               >
                 Sign In
               </motion.button>
@@ -106,7 +106,7 @@ export default function SignIn() {
             <div className="text-center mt-8">
               <p className="openSans text-gray-600">
                 Don't have an account?{" "}
-                <Link href="/signup" className="text-[#e97f33] hover:underline font-semibold">
+                <Link href="/signup" className="text-[#dc2828] hover:underline font-semibold">
                   Sign up here
                 </Link>
               </p>
