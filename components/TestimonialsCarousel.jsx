@@ -259,7 +259,6 @@ const TestimonialsCarousel = () => {
             />
           ))}
         </div>
-
         {/* Client Logos */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -1,19 +1,7 @@
-"use client";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-
-/**
- * Navigation (Tailwind + CSS transitions)
- * - Removed GSAP to reduce bundle and avoid flicker.
- * - Desktop: glassmorphism applied (backdrop blur + translucent bg + subtle border)
- * - Mobile: centered frosted card with smooth CSS transitions and a dim/backdrop.
- * - Mobile menu simplified: only navigation links + Contact button (no Sign In / Sign Up)
- * - Body scroll locked when mobile menu is open.
- * - Smooth navbar scroll transition with rounded corners preserved to avoid sharp edges.
- * - Updated with Services dropdown menu and Freelance Hire link
- * - Adjusted positioning and colors to match approved palette
- */
+'use client';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,43 +12,43 @@ const Navigation = () => {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
     // lock scroll when menu open
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
     {
-      name: "Services",
-      href: "/services",
+      name: 'Services',
+      href: '/services',
       dropdown: [
-        { name: "Development", href: "/services/development" },
-        { name: "Brand Building", href: "/services/brand-building" },
-        { name: "Graphic Design", href: "/services/graphic-design" },
+        { name: 'Development', href: '/services/development' },
+        { name: 'Brand Building', href: '/services/brand-building' },
+        { name: 'Graphic Design', href: '/services/graphic-design' },
       ],
     },
-    { name: "Consulting", href: "/consulting" },
-    { name: "Freelance Hire", href: "/freelance-hire" },
+    { name: 'Consulting', href: '/consulting' },
+    { name: 'Freelance Hire', href: '/freelance-hire' },
   ];
 
   const handleContactClick = (e) => {
     e?.preventDefault?.();
     setIsOpen(false);
-    if (pathname === "/") {
-      const el = document.getElementById("contact");
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (pathname === '/') {
+      const el = document.getElementById('contact');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
     }
-    router.push("/#contact");
+    router.push('/#contact');
   };
 
   return (
@@ -68,10 +56,10 @@ const Navigation = () => {
       aria-label="Primary"
       className={`fixed left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-screen-xl transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${
         scrolled
-          ? "top-2 bg-white/6 backdrop-blur-md border border-white/10 shadow-lg"
-          : "top-8 bg-white/6 backdrop-blur-md border border-white/8"
-      } rounded-2xl`}
-      style={{ willChange: "transform, background-color, box-shadow" }}
+          ? 'top-2 bg-white/6 backdrop-blur-md border border-white/10 shadow-lg'
+          : 'top-8 bg-white/6 backdrop-blur-md border border-white/8'
+      } rounded-xl`}
+      style={{ willChange: 'transform, background-color, box-shadow' }}
     >
       <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4">
         {/* Logo */}
@@ -86,7 +74,7 @@ const Navigation = () => {
               <li key={item.name} className="relative group">
                 {item.dropdown ? (
                   <div className="relative">
-                    <button className="text-white text-sm lg:text-base px-3 py-2 rounded-md hover:bg-white/10 transition-colors duration-200 font-semibold flex items-center gap-1">
+                    <button className="text-white text-sm lg:text-base px-3 py-2 rounded-xl hover:bg-white/10 transition-colors duration-200 font-semibold flex items-center gap-1">
                       {item.name}
                       <svg
                         className="w-4 h-4 transition-transform group-hover:rotate-180"
@@ -120,7 +108,7 @@ const Navigation = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-white text-sm lg:text-base px-3 py-2 rounded-md hover:bg-white/10 transition-colors duration-200 font-semibold"
+                    className="text-white text-sm lg:text-base px-3 py-2 rounded-xl hover:bg-white/10 hover:backdrop-blur-md hover:border hover:border-white/10 transition-colors duration-200 font-semibold"
                   >
                     {item.name}
                   </Link>
@@ -134,7 +122,7 @@ const Navigation = () => {
         <div className="hidden md:flex items-center">
           <button
             onClick={handleContactClick}
-            className="bg-[#dc2828] text-[#fffffd] px-4 py-2 rounded-full hover:scale-[1.03] hover:bg-[#b91c1c] transition-all duration-200 font-semibold"
+            className="bg-[#dc2828] text-[#fffffd] px-4 py-2 rounded-xl hover:scale-[1.03] hover:bg-[#b91c1c] transition-all duration-200 font-semibold"
           >
             Contact Us
           </button>
@@ -143,7 +131,7 @@ const Navigation = () => {
         {/* Mobile hamburger */}
         <button
           onClick={() => setIsOpen((p) => !p)}
-          className="md:hidden p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
+          className="md:hidden p-2 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
         >
@@ -178,9 +166,7 @@ const Navigation = () => {
       <div
         id="mobile-menu"
         className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${
-          isOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         aria-hidden={!isOpen}
       >
@@ -193,10 +179,8 @@ const Navigation = () => {
         {/* Centered frosted card */}
         <div className="absolute inset-0 flex items-start justify-center pt-20 px-4">
           <div
-            className={`w-full max-w-sm rounded-2xl border border-white/10 bg-white/6 backdrop-blur-lg shadow-2xl transform transition-all duration-300 ease-out ${
-              isOpen
-                ? "opacity-100 translate-y-0 scale-100"
-                : "opacity-0 translate-y-4 scale-95"
+            className={`w-full max-w-sm rounded-xl border border-white/10 bg-white/6 backdrop-blur-lg shadow-2xl transform transition-all duration-300 ease-out ${
+              isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
             }`}
             role="dialog"
             aria-modal="true"
@@ -205,7 +189,7 @@ const Navigation = () => {
               <div className="font-semibold text-white">VisQode</div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-md text-white focus:outline-none"
+                className="p-2 rounded-xl text-white focus:outline-none"
               >
                 <svg
                   className="w-6 h-6"
@@ -232,12 +216,12 @@ const Navigation = () => {
                       <div>
                         <button
                           onClick={() => setServicesOpen(!servicesOpen)}
-                          className="w-full py-3 text-base text-gray-100 flex items-center justify-between rounded-md hover:bg-white/6 px-3 font-semibold"
+                          className="w-full py-3 text-base text-gray-100 hover:bg-white/10 hover:backdrop-blur-md hover:border hover:border-white/10 flex items-center justify-between rounded-xl px-3 font-semibold"
                         >
                           {item.name}
                           <svg
                             className={`w-4 h-4 transition-transform ${
-                              servicesOpen ? "rotate-180" : ""
+                              servicesOpen ? 'rotate-180' : ''
                             }`}
                             fill="none"
                             stroke="currentColor"
@@ -261,7 +245,7 @@ const Navigation = () => {
                                   setIsOpen(false);
                                   setServicesOpen(false);
                                 }}
-                                className="block py-2 text-sm text-gray-300 hover:text-[#dc2828] px-3 rounded-md hover:bg-white/6"
+                                className="block py-2 text-sm text-gray-300 hover:text-[#dc2828] px-3 rounded-xl hover:bg-white/6"
                               >
                                 {subItem.name}
                               </Link>
@@ -273,7 +257,7 @@ const Navigation = () => {
                       <Link
                         href={item.href}
                         onClick={() => setIsOpen(false)}
-                        className="py-3 text-base text-gray-100 block rounded-md hover:bg-white/6 px-3 font-semibold"
+                        className="py-3 text-base text-gray-100 block rounded-xl hover:bg-white/6 px-3 font-semibold"
                       >
                         {item.name}
                       </Link>
@@ -284,7 +268,7 @@ const Navigation = () => {
                 {/* Contact button on mobile */}
                 <button
                   onClick={handleContactClick}
-                  className="mt-2 py-3 w-full text-left rounded-md text-base text-gray-100 hover:bg-white/6 px-3 font-semibold"
+                  className="mt-2 py-3 w-full text-left rounded-xl text-base text-gray-100 hover:bg-white/6 px-3 font-semibold"
                 >
                   Contact
                 </button>

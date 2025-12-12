@@ -1,16 +1,16 @@
-"use client";
-import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { AnimatePresence } from "framer-motion";
+'use client';
+import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { AnimatePresence } from 'framer-motion';
 
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const NewsletterSection = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const sectionRef = useRef(null);
@@ -24,12 +24,12 @@ const NewsletterSection = () => {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: "power3.out",
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 85%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
+            start: 'top 85%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
           },
         }
       );
@@ -50,7 +50,7 @@ const NewsletterSection = () => {
     setTimeout(() => {
       setIsLoading(false);
       setIsSubmitted(true);
-      setEmail("");
+      setEmail('');
 
       // Reset after 3 seconds
       setTimeout(() => {
@@ -61,20 +61,20 @@ const NewsletterSection = () => {
 
   const benefits = [
     {
-      icon: "bx-bulb",
-      text: "Weekly design & development tips",
+      icon: 'bx-bulb',
+      text: 'Weekly design & development tips',
     },
     {
-      icon: "bx-rocket",
-      text: "Early access to new features",
+      icon: 'bx-rocket',
+      text: 'Early access to new features',
     },
     {
-      icon: "bx-gift",
-      text: "Exclusive resources & templates",
+      icon: 'bx-gift',
+      text: 'Exclusive resources & templates',
     },
     {
-      icon: "bx-trending-up",
-      text: "Industry insights & trends",
+      icon: 'bx-trending-up',
+      text: 'Industry insights & trends',
     },
   ];
 
@@ -93,7 +93,7 @@ const NewsletterSection = () => {
           transition={{
             duration: 25,
             repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
+            ease: 'linear',
           }}
           className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#dc2828]/10 to-transparent rounded-full"
         />
@@ -105,7 +105,7 @@ const NewsletterSection = () => {
           transition={{
             duration: 30,
             repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
+            ease: 'linear',
           }}
           className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-[#dc2828]/5 to-transparent rounded-full"
         />
@@ -125,8 +125,8 @@ const NewsletterSection = () => {
               Stay Ahead with VisQode
             </h2>
             <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto openSans leading-relaxed mb-8">
-              Get branding tips, resources & early access to features. Join
-              5,000+ professionals who trust our insights.
+              Get branding tips, resources & early access to features. Join 5,000+ professionals who
+              trust our insights.
             </p>
           </motion.div>
 
@@ -148,12 +148,10 @@ const NewsletterSection = () => {
                 whileHover={{ y: -5 }}
                 className="flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-[#dc2828] rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#dc2828] flex items-center justify-center mb-4 rounded-xl">
                   <i className={`bx ${benefit.icon} text-black text-xl`}></i>
                 </div>
-                <p className="text-white openSans text-sm font-medium">
-                  {benefit.text}
-                </p>
+                <p className="text-white openSans text-sm font-medium">{benefit.text}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -197,7 +195,7 @@ const NewsletterSection = () => {
                         transition={{
                           duration: 1,
                           repeat: Number.POSITIVE_INFINITY,
-                          ease: "linear",
+                          ease: 'linear',
                         }}
                         className="w-6 h-6 border-2 border-black border-t-transparent rounded-lg"
                       />
@@ -220,17 +218,15 @@ const NewsletterSection = () => {
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
                     className="w-16 h-16 bg-[#dc2828] rounded-lg flex items-center justify-center mx-auto mb-4"
                   >
                     <i className="bx bx-check text-black text-3xl"></i>
                   </motion.div>
-                  <h3 className="text-2xl racing font-bold text-white mb-2">
-                    Welcome to VisQode!
-                  </h3>
+                  <h3 className="text-2xl racing font-bold text-white mb-2">Welcome to VisQode!</h3>
                   <p className="text-gray-300 openSans">
-                    Thank you for subscribing. Check your inbox for a welcome
-                    email with exclusive resources.
+                    Thank you for subscribing. Check your inbox for a welcome email with exclusive
+                    resources.
                   </p>
                 </motion.div>
               )}
@@ -244,8 +240,7 @@ const NewsletterSection = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-gray-400 openSans text-sm mt-6"
             >
-              No spam, ever. Unsubscribe anytime. By subscribing, you agree to
-              our{" "}
+              No spam, ever. Unsubscribe anytime. By subscribing, you agree to our{' '}
               <a href="#" className="text-[#dc2828] hover:underline">
                 Privacy Policy
               </a>
