@@ -1,10 +1,10 @@
-"use client";
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+'use client';
+import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
@@ -19,11 +19,11 @@ const ServicesDown = () => {
         { opacity: 0 }, // Minimal animation: only opacity
         {
           opacity: 1,
-          ease: "power4.out",
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: imageRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
+            start: 'top 80%',
+            end: 'bottom 20%',
             scrub: 0.1,
             once: true,
           },
@@ -38,11 +38,11 @@ const ServicesDown = () => {
           { opacity: 0 }, // Minimal animation: only opacity
           {
             opacity: 1,
-            ease: "power4.out",
+            ease: 'power4.out',
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
-              end: "bottom 20%",
+              start: 'top 80%',
+              end: 'bottom 20%',
               scrub: 0.1,
               once: true,
             },
@@ -58,28 +58,26 @@ const ServicesDown = () => {
 
   const services = [
     {
-      id: "01",
-      title: "Web Design",
+      id: '01',
+      title: 'Web Design',
       description:
-        "Make the appearance of website pages so that they look so beautiful and pleasing to the eye.",
+        'Make the appearance of website pages so that they look so beautiful and pleasing to the eye.',
     },
     {
-      id: "02",
-      title: "UI/UX Design",
+      id: '02',
+      title: 'UI/UX Design',
       description:
-        "Create intuitive and engaging user experiences that convert visitors into customers.",
+        'Create intuitive and engaging user experiences that convert visitors into customers.',
     },
     {
-      id: "03",
-      title: "Brand Design",
-      description:
-        "Develop compelling brand identities that resonate with your target audience.",
+      id: '03',
+      title: 'Brand Design',
+      description: 'Develop compelling brand identities that resonate with your target audience.',
     },
     {
-      id: "04",
-      title: "Graphic Design",
-      description:
-        "Design stunning visual content that communicates your message effectively.",
+      id: '04',
+      title: 'Graphic Design',
+      description: 'Design stunning visual content that communicates your message effectively.',
     },
   ];
 
@@ -89,12 +87,12 @@ const ServicesDown = () => {
         className="w-full lg:w-auto flex justify-center order-2 lg:order-1"
         ref={imageRef}
         whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
       >
         <img
           src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
           alt="Modern office workspace"
-          className="w-full max-w-[400px] lg:max-w-[500px] h-auto lg:h-[500px] object-cover rounded-3xl shadow-black shadow-md"
+          className="w-full max-w-[400px] lg:max-w-[500px] h-auto lg:h-[500px] object-cover rounded-xl shadow-black shadow-md"
           loading="lazy"
         />
       </motion.div>
@@ -107,14 +105,14 @@ const ServicesDown = () => {
                 <motion.div
                   className="service-number openSans text-white/50 font-extrabold transition-all cursor-default"
                   whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
                 >
                   {service.id}
                 </motion.div>
                 <motion.div
                   className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-5 w-full"
                   whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
                 >
                   <h3 className="text-2xl md:text-3xl lg:text-4xl racing font-bold text-white">
                     {service.title}

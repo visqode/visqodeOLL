@@ -1,32 +1,32 @@
-"use client";
-import { motion } from "framer-motion";
+'use client';
+import { motion } from 'framer-motion';
 
 const TeamSection = () => {
   const team = [
     {
-      name: "Abdulla Al mahin",
-      role: "Founder & CEO",
-      image: "/ibwmahin.jpg",
+      name: 'Abdulla Al mahin',
+      role: 'Founder & CEO',
+      image: '/ibwmahin.jpg',
     },
     {
-      name: "Abdul Rehman",
-      role: "Web Developer",
-      image: "/Ab.jpeg",
+      name: 'Abdul Rehman',
+      role: 'Web Developer',
+      image: '/Ab.jpeg',
     },
     {
-      name: "Yousuf Mollah",
-      role: "UI/UX Designer",
-      image: "/yousuf.png",
+      name: 'Yousuf Mollah',
+      role: 'UI/UX Designer',
+      image: '/yousuf.png',
     },
     {
-      name: "Mohammad Bin Salim",
-      role: "AI Automation",
-      image: "/mohammad.jpg",
+      name: 'Mohammad Bin Salim',
+      role: 'AI Automation',
+      image: '/mohammad.jpg',
     },
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-[#161616]">
+    <section className="py-20 lg:py-32 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 lg:mb-20">
@@ -57,25 +57,21 @@ const TeamSection = () => {
               <div className="relative overflow-hidden rounded-2xl bg-[#1a1a1a] shadow-lg">
                 <div className="aspect-square overflow-hidden">
                   <img
-                    src={member.image || "/placeholder.svg"}
+                    src={member.image || '/placeholder.svg'}
                     alt={member.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
 
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-[#fffffd] mb-2 racing">
-                    {member.name}
-                  </h3>
+                  <h3 className="text-xl font-bold text-[#fffffd] mb-2 racing">{member.name}</h3>
                   <p className="text-white/70 openSans">{member.role}</p>
                 </div>
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-[#dc2828]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center text-[#fffffd]">
-                    <h3 className="text-xl font-bold mb-2 racing">
-                      {member.name}
-                    </h3>
+                    <h3 className="text-xl font-bold mb-2 racing">{member.name}</h3>
                     <p className="mb-4 openSans">{member.role}</p>
                     <div className="flex justify-center space-x-4">
                       <motion.a

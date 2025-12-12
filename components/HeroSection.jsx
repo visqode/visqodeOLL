@@ -1,20 +1,20 @@
-"use client";
-import Navigation from "./Navigation";
-import SplitText from "./Features/SplitText";
-import ShinyText from "./Features/ShinyText";
-import CircularText from "./Features/CircularText";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+'use client';
+import Navigation from './Navigation';
+import SplitText from './Features/SplitText';
+import ShinyText from './Features/ShinyText';
+import CircularText from './Features/CircularText';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 const HeroSection = () => {
   const pathname = usePathname();
   const router = useRouter();
 
   const scrollToSection = (sectionId) => {
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
     const el = document.getElementById(sectionId);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -23,7 +23,7 @@ const HeroSection = () => {
     if (e && e.preventDefault) e.preventDefault();
 
     // If already on home page, just smooth-scroll
-    if (pathname === "/") {
+    if (pathname === '/') {
       scrollToSection(sectionId);
       return;
     }
@@ -35,9 +35,9 @@ const HeroSection = () => {
   return (
     <section
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/hero-bg.jpeg')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/secHero.jpg')`,
       }}
-      className="min-h-[85vh] max-w-[85vw] mx-auto my-2 md:my-4  bg-center bg-cover bg-no-repeat flex flex-col   rounded-xl md:rounded-2xl px-4 md:px-8"
+      className="min-h-[75vh] max-w-[67vw] mx-auto md:my-32  bg-center bg-cover bg-no-repeat flex flex-col rounded-xl md:rounded-2xl px-4 md:px-8"
     >
       <Navigation />
 
@@ -80,20 +80,29 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mt-8 w-full max-w-md">
           {/* Start Your Project Button - goes to contact section */}
           <button
-            onClick={(e) => handleSectionClick(e, "contact")}
-            className="w-full font-semibold sm:w-auto px-6 py-3 text-[#fffffd] border border-[#fffffd]/60 rounded-xl text-center hover:bg-[#fffffd]/10 hover:border-[#fffffd] transition-all duration-300"
+            onClick={(e) => handleSectionClick(e, 'contact')}
+            className="w-full font-semibold sm:w-auto px-4 py-2 text-[#fffffd] border border-[#fffffd]/60 rounded-xl text-center hover:bg-[#fffffd]/10 hover:border-[#fffffd] hover:shadow-lg hover:shadow-red-500/50 transition-all duration-300"
           >
             Start Your Project <i className="ri-arrow-right-long-line"></i>
           </button>
 
           {/* View Our Work Button - goes to work section */}
-          <button
-            onClick={(e) => handleSectionClick(e, "projects")}
-            className="w-full font-semibold sm:w-auto px-6 py-3 bg-[#dc2828] text-[#fffffd] rounded-xl hover:bg-[#b91c1c] text-center transition-all duration-300"
+          {/* <button
+            onClick={(e) => handleSectionClick(e, 'projects')}
+            className="w-full font-semibold sm:w-auto px-4 py-2 bg-[#dc2828] text-[#fffffd] rounded-xl hover:bg-[#b91c1c] text-center transition-all duration-300"
           >
             <i className="ri-folder-open-line"></i> &nbsp; View Our Work
-          </button>
+          </button> */}
         </div>
+      </div>
+      {/* scroll bar indicator */}
+      <div className="absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center ">
+        {/* Mouse outline */}
+        <div className="w-6 h-10 border-2 border-[#e0d1d1] rounded-full relative flex items-start justify-center overflow-hidden bg-white/10 backdrop-blur-sm">
+          {/* Bouncing dot */}
+          <div className="w-1.5 h-1.5 bg-[#ff0000] rounded-full mt-2 animate-bounce [animation-duration:1.5s] [animation-iteration-count:infinite]"></div>
+        </div>
+        <p className="mt-2 text-xs text-white opacity-70">Scroll</p>
       </div>
     </section>
   );

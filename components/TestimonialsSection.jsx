@@ -1,39 +1,39 @@
-"use client";
-import { motion } from "framer-motion";
+'use client';
+import { motion } from 'framer-motion';
 
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "CEO, TechStart",
+      name: 'Sarah Johnson',
+      role: 'CEO, TechStart',
       content:
-        "VisQode transformed our digital presence completely. Their attention to detail and innovative approach exceeded our expectations.",
+        'VisQode transformed our digital presence completely. Their attention to detail and innovative approach exceeded our expectations.',
       rating: 5,
       avatar:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+        'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
     },
     {
-      name: "Michael Chen",
-      role: "Founder, InnovateLab",
+      name: 'Michael Chen',
+      role: 'Founder, InnovateLab',
       content:
-        "Working with VisQode was a game-changer. They delivered a stunning website that perfectly captures our brand essence.",
+        'Working with VisQode was a game-changer. They delivered a stunning website that perfectly captures our brand essence.',
       rating: 5,
       avatar:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
     },
     {
-      name: "Emily Rodriguez",
-      role: "Marketing Director, GrowthCo",
+      name: 'Emily Rodriguez',
+      role: 'Marketing Director, GrowthCo',
       content:
-        "The team at VisQode is incredibly talented. They created a digital experience that our customers absolutely love.",
+        'The team at VisQode is incredibly talented. They created a digital experience that our customers absolutely love.',
       rating: 5,
       avatar:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
     },
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-[#161616]">
+    <section className="py-20 lg:py-32 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -47,8 +47,8 @@ const TestimonialsSection = () => {
             What Our Clients Say
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto openSans">
-            Don't just take our word for it. Here's what our clients have to say
-            about working with us.
+            Don't just take our word for it. Here's what our clients have to say about working with
+            us.
           </p>
         </motion.div>
 
@@ -79,17 +79,13 @@ const TestimonialsSection = () => {
               {/* Author */}
               <div className="flex items-center rounded-xl">
                 <img
-                  src={testimonial.avatar || "/placeholder.svg"}
+                  src={testimonial.avatar || '/placeholder.svg'}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-xl object-cover mr-4"
                 />
                 <div>
-                  <h4 className="font-semibold text-[#fffffd] racing">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-gray-400 text-sm openSans">
-                    {testimonial.role}
-                  </p>
+                  <h4 className="font-semibold text-[#fffffd] racing">{testimonial.name}</h4>
+                  <p className="text-gray-400 text-sm openSans">{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>

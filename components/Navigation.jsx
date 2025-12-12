@@ -54,14 +54,14 @@ const Navigation = () => {
   return (
     <nav
       aria-label="Primary"
-      className={`fixed left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-screen-xl transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${
+      className={`fixed left-1/2 -translate-x-1/2   z-50 w-[92%] max-w-screen-xl transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${
         scrolled
           ? 'top-2 bg-white/6 backdrop-blur-md border border-white/10 shadow-lg'
           : 'top-8 bg-white/6 backdrop-blur-md border border-white/8'
       } rounded-xl`}
       style={{ willChange: 'transform, background-color, box-shadow' }}
     >
-      <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4">
+      <div className="flex items-center justify-between px-4 md:px-6 py-1 md:py-2">
         {/* Logo */}
         <div className="text-lg md:text-2xl font-bold text-white select-none">
           <Link href="/">VisQode</Link>
@@ -122,7 +122,7 @@ const Navigation = () => {
         <div className="hidden md:flex items-center">
           <button
             onClick={handleContactClick}
-            className="bg-[#dc2828] text-[#fffffd] px-4 py-2 rounded-xl hover:scale-[1.03] hover:bg-[#b91c1c] transition-all duration-200 font-semibold"
+            className="bg-[#dc2828] text-[#fffffd] px-4 py-1 rounded-lg hover:scale-[1.03] hover:bg-[#b91c1c] transition-all duration-200 font-semibold"
           >
             Contact Us
           </button>

@@ -79,38 +79,7 @@ const NewsletterSection = () => {
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-20 lg:py-32 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden"
-    >
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 10, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: 'linear',
-          }}
-          className="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-[#dc2828]/10 to-transparent rounded-full"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [0, -10, 0],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: 'linear',
-          }}
-          className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-[#dc2828]/5 to-transparent rounded-full"
-        />
-      </div>
-
+    <section ref={sectionRef} className="py-20 lg:py-32  relative overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           {/* Header */}
