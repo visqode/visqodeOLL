@@ -104,7 +104,7 @@ const TestimonialsCarousel = () => {
             end: "bottom 20%",
             toggleActions: "play none none reverse",
           },
-        },
+        }
       );
     }
 
@@ -119,7 +119,7 @@ const TestimonialsCarousel = () => {
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
   };
 
@@ -200,12 +200,12 @@ const TestimonialsCarousel = () => {
               </blockquote>
 
               {/* Client Info */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 rounded-xl">
                 <motion.img
                   whileHover={{ scale: 1.1 }}
                   src={testimonials[currentIndex].avatar}
                   alt={testimonials[currentIndex].name}
-                  className="w-16 h-16 rounded-full object-cover shadow-lg border-2 border-primary/20"
+                  className="w-16 h-16 rounded-xl object-cover shadow-lg border-2 border-primary/20"
                 />
                 <div className="text-center sm:text-left">
                   <h4 className="text-xl racing font-bold text-white">

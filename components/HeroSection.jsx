@@ -37,7 +37,7 @@ const HeroSection = () => {
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/hero-bg.jpeg')`,
       }}
-      className="min-h-[85vh] bg-center bg-cover bg-no-repeat flex flex-col m-2 md:m-4 rounded-xl md:rounded-2xl px-4 md:px-8"
+      className="min-h-[85vh] max-w-[85vw] mx-auto my-2 md:my-4  bg-center bg-cover bg-no-repeat flex flex-col   rounded-xl md:rounded-2xl px-4 md:px-8"
     >
       <Navigation />
 
@@ -81,7 +81,7 @@ const HeroSection = () => {
           {/* Start Your Project Button - goes to contact section */}
           <button
             onClick={(e) => handleSectionClick(e, "contact")}
-            className="w-full font-semibold sm:w-auto px-6 py-3 text-[#fffffd] border border-[#fffffd]/60 rounded-lg text-center hover:bg-[#fffffd]/10 hover:border-[#fffffd] transition-all duration-300"
+            className="w-full font-semibold sm:w-auto px-6 py-3 text-[#fffffd] border border-[#fffffd]/60 rounded-xl text-center hover:bg-[#fffffd]/10 hover:border-[#fffffd] transition-all duration-300"
           >
             Start Your Project <i className="ri-arrow-right-long-line"></i>
           </button>
@@ -89,7 +89,7 @@ const HeroSection = () => {
           {/* View Our Work Button - goes to work section */}
           <button
             onClick={(e) => handleSectionClick(e, "projects")}
-            className="w-full font-semibold sm:w-auto px-6 py-3 bg-[#dc2828] text-[#fffffd] rounded-lg hover:bg-[#b91c1c] text-center transition-all duration-300"
+            className="w-full font-semibold sm:w-auto px-6 py-3 bg-[#dc2828] text-[#fffffd] rounded-xl hover:bg-[#b91c1c] text-center transition-all duration-300"
           >
             <i className="ri-folder-open-line"></i> &nbsp; View Our Work
           </button>

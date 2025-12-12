@@ -81,14 +81,14 @@ const TeamSection = () => {
                       <motion.a
                         whileHover={{ scale: 1.1 }}
                         href="#"
-                        className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center hover:bg-black/30 transition-colors"
+                        className="w-10 h-10 bg-black/20 rounded-xl flex items-center justify-center hover:bg-black/30 transition-colors"
                       >
                         <i className="ri-linkedin-fill text-white"></i>
                       </motion.a>
                       <motion.a
                         whileHover={{ scale: 1.1 }}
                         href="#"
-                        className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center hover:bg-black/30 transition-colors"
+                        className="w-10 h-10 bg-black/20 rounded-xl flex items-center justify-center hover:bg-black/30 transition-colors"
                       >
                         <i className="ri-twitter-fill text-white"></i>
                       </motion.a>
