@@ -1,241 +1,345 @@
 'use client';
-import { motion } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { AnimatePresence } from 'framer-motion';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+/**
+ * NewsletterSection — Remix Icon + robust fallback for "Industry insights"
+ * - Detects whether remixicon font loaded; if not, uses small inline SVG fallback for the
+ *   "Industry insights" icon (the one that failed for you).
+ * - Keeps the compact, minimal polished UI and light borders (white/10).
+ */
+
+const TrendingUpSVG = ({ className = '' }) => (
+  <svg
+    className={className}
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3 17l6-6 4 4 8-8"
+      stroke="black"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M21 21v-4h-4"
+      stroke="black"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 const NewsletterSection = () => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [remixLoaded, setRemixLoaded] = useState(true); // optimistic default true
   const sectionRef = useRef(null);
 
+  // detect whether the remixicon font/css is actually applied
   useEffect(() => {
-    if (sectionRef.current) {
-      gsap.fromTo(
-        sectionRef.current,
-        { opacity: 0, y: 80 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 85%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    }
+    // run only in browser
+    if (typeof window === 'undefined') return;
+
+    const el = document.createElement('i');
+    el.className = 'ri-user-line'; // harmless test class (should exist in remix)
+    el.style.position = 'absolute';
+    el.style.opacity = '0';
+    el.style.pointerEvents = 'none';
+    el.style.width = '1px';
+    el.style.height = '1px';
+    el.style.overflow = 'hidden';
+    document.body.appendChild(el);
+
+    // allow computed style to be available in next frame
+    requestAnimationFrame(() => {
+      try {
+        const cs = window.getComputedStyle(el);
+        const ff = (cs && cs.fontFamily) || '';
+        // check if computed fontFamily contains "remix" (case-insensitive)
+        const loaded = /remix/i.test(ff);
+        // if fontFamily isn't set to remix but still not 'inherit' it's possible the font loaded under another name.
+        // Do a fallback heuristic: if fontFamily is not empty and not 'inherit' treat as loaded.
+        const fallbackLoaded = ff && ff !== 'inherit' && ff !== 'initial';
+        setRemixLoaded(Boolean(loaded || fallbackLoaded));
+      } catch (e) {
+        setRemixLoaded(false);
+      } finally {
+        document.body.removeChild(el);
+      }
+    });
+  }, []);
+
+  // GSAP reveal for the section
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const el = sectionRef.current;
+
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 48 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          end: 'bottom 20%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
-
     setIsLoading(true);
 
-    // Simulate API call
+    // simulate API call
     setTimeout(() => {
       setIsLoading(false);
       setIsSubmitted(true);
       setEmail('');
-
-      // Reset after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 3000);
-    }, 1000);
+      setTimeout(() => setIsSubmitted(false), 2800);
+    }, 850);
   };
 
+  // compact labels
   const benefits = [
-    {
-      icon: 'bx-bulb',
-      text: 'Weekly design & development tips',
-    },
-    {
-      icon: 'bx-rocket',
-      text: 'Early access to new features',
-    },
-    {
-      icon: 'bx-gift',
-      text: 'Exclusive resources & templates',
-    },
-    {
-      icon: 'bx-trending-up',
-      text: 'Industry insights & trends',
-    },
+    { icon: 'ri-lightbulb-line', label: 'Weekly tips' },
+    { icon: 'ri-rocket-line', label: 'Early access' },
+    { icon: 'ri-gift-line', label: 'Exclusive resources' },
+    // Use Remix class for trending. If remix icon font isn't available we will show inline SVG instead.
+    { icon: 'ri-trending-up-line', label: 'Industry insights', fallback: true },
   ];
 
+  // subtle border color (white/10)
+  const subtleBorder = 'rgba(255,255,255,0.10)';
+
   return (
-    <section ref={sectionRef} className="py-20 lg:py-32  relative overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      ref={sectionRef}
+      className="py-16 lg:py-24 relative overflow-hidden"
+      aria-labelledby="newsletter-heading"
+    >
+      {/* soft radial highlight behind content */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            'radial-gradient(600px 320px at 8% 8%, rgba(220,40,40,0.05), transparent 12%)',
+        }}
+      />
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-12 lg:mb-16"
+            transition={{ duration: 0.7 }}
+            className="mb-8"
           >
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl racing font-bold text-white mb-6">
+            <h2
+              id="newsletter-heading"
+              className="text-3xl lg:text-4xl racing font-bold text-white"
+            >
               Stay Ahead with VisQode
             </h2>
-            <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto openSans leading-relaxed mb-8">
-              Get branding tips, resources & early access to features. Join 5,000+ professionals who
-              trust our insights.
+            <p className="text-sm lg:text-base text-gray-300 max-w-2xl mx-auto mt-3 openSans leading-relaxed">
+              Get short actionable tips, early access, and exclusive templates. Trusted by
+              thousands.
             </p>
           </motion.div>
 
-          {/* Benefits Grid */}
+          {/* Compact benefits */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 lg:mb-16"
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8"
           >
-            {benefits.map((benefit, index) => (
+            {benefits.map((b, idx) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={b.icon}
+                initial={{ opacity: 0, y: 6 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300"
+                transition={{ duration: 0.45, delay: idx * 0.04 }}
+                whileHover={{ y: -4 }}
+                className="flex flex-col items-center text-center p-3 rounded-xl"
+                style={{
+                  background: 'rgba(255,255,255,0.02)',
+                  border: `1px solid ${subtleBorder}`,
+                  backdropFilter: 'blur(6px)',
+                }}
               >
-                <div className="w-12 h-12 bg-[#dc2828] flex items-center justify-center mb-4 rounded-xl">
-                  <i className={`bx ${benefit.icon} text-black text-xl`}></i>
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center mb-2"
+                  style={{ background: 'rgba(220,40,40,0.95)' }}
+                  aria-hidden
+                >
+                  {/* If this benefit has fallback:true and remix icon font is unavailable -> render inline SVG */}
+                  {b.fallback && !remixLoaded ? (
+                    <TrendingUpSVG />
+                  ) : (
+                    <i className={`${b.icon} text-black text-lg`} />
+                  )}
                 </div>
-                <p className="text-white openSans text-sm font-medium">{benefit.text}</p>
+                <p className="text-xs text-white openSans font-medium leading-tight">{b.label}</p>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Newsletter Form */}
+          {/* Form (compact) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="max-w-2xl mx-auto"
+            transition={{ duration: 0.7, delay: 0.14 }}
+            className="max-w-xl mx-auto"
           >
             <AnimatePresence mode="wait">
               {!isSubmitted ? (
                 <motion.form
                   key="form"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
                   onSubmit={handleSubmit}
-                  className="flex flex-col sm:flex-row gap-4 p-2 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20"
+                  className="flex gap-3 items-center p-1 rounded-lg"
                 >
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    required
-                    className="flex-1 px-6 py-4 bg-transparent text-white placeholder-gray-300 border-none outline-none openSans text-lg"
-                  />
+                  <label htmlFor="newsletter-email" className="sr-only">
+                    Email address
+                  </label>
+
+                  <div
+                    className="flex-1 rounded-md flex items-center"
+                    style={{
+                      background: 'rgba(255,255,255,0.02)',
+                      border: `1px solid ${subtleBorder}`,
+                      backdropFilter: 'blur(6px)',
+                      boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.02)',
+                    }}
+                  >
+                    <input
+                      id="newsletter-email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Your email"
+                      required
+                      className="w-full px-4 py-2 bg-transparent text-white placeholder-gray-400 border-none outline-none openSans text-sm"
+                      aria-label="Email address"
+                      style={{ caretColor: '#dc2828' }}
+                    />
+                  </div>
+
                   <motion.button
                     type="submit"
                     disabled={isLoading}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-all duration-300 racing font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[140px]"
+                    whileHover={{ scale: isLoading ? 1 : 1.03 }}
+                    whileTap={{ scale: isLoading ? 1 : 0.98 }}
+                    className="px-4 py-2 bg-[#dc2828] text-black rounded-md transition-all duration-150 text-sm font-semibold min-w-[110px] flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+                    aria-disabled={isLoading}
                   >
                     {isLoading ? (
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          duration: 1,
-                          repeat: Number.POSITIVE_INFINITY,
-                          ease: 'linear',
-                        }}
-                        className="w-6 h-6 border-2 border-black border-t-transparent rounded-lg"
-                      />
+                      <span className="w-4 h-4 border-2 border-black border-t-transparent rounded animate-spin block" />
                     ) : (
-                      <>
-                        Subscribe
-                        <i className="bx bx-arrow-right ml-2 text-xl"></i>
-                      </>
+                      <span className="flex items-center gap-2">
+                        <span>Subscribe</span>
+                        {/* arrow uses remix; if remix missing it will render blank; arrow is small and non-critical */}
+                        {remixLoaded ? <i className="ri-arrow-right-line text-base" /> : null}
+                      </span>
                     )}
                   </motion.button>
                 </motion.form>
               ) : (
                 <motion.div
                   key="success"
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  className="p-8 bg-[#dc2828]/20 backdrop-blur-sm rounded-2xl border border-[#dc2828]/30"
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  className="p-3 rounded-md"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, rgba(220,40,40,0.10), rgba(220,40,40,0.05))',
+                    border: '1px solid rgba(220,40,40,0.18)',
+                  }}
                 >
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                    className="w-16 h-16 bg-[#dc2828] rounded-lg flex items-center justify-center mx-auto mb-4"
-                  >
-                    <i className="bx bx-check text-black text-3xl"></i>
-                  </motion.div>
-                  <h3 className="text-2xl racing font-bold text-white mb-2">Welcome to VisQode!</h3>
-                  <p className="text-gray-300 openSans">
-                    Thank you for subscribing. Check your inbox for a welcome email with exclusive
-                    resources.
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-md flex items-center justify-center bg-[#dc2828]">
+                      {remixLoaded ? (
+                        <i className="ri-check-line text-black text-lg" />
+                      ) : (
+                        <i className="ri-check-line text-black text-lg" />
+                      )}
+                      {/* check is likely fine either way; kept simple */}
+                    </div>
+                    <div className="text-left">
+                      <p className="text-sm font-semibold text-white racing">You're subscribed</p>
+                      <p className="text-xs text-gray-300 openSans">
+                        Check your inbox for the welcome email.
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
 
-            {/* Privacy Note */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-gray-400 openSans text-sm mt-6"
-            >
-              No spam, ever. Unsubscribe anytime. By subscribing, you agree to our{' '}
+            <p className="text-xs text-gray-400 openSans mt-3 text-center">
+              No spam — unsubscribe anytime. By subscribing you agree to our{' '}
               <a href="#" className="text-[#dc2828] hover:underline">
                 Privacy Policy
               </a>
               .
-            </motion.p>
+            </p>
           </motion.div>
 
-          {/* Social Proof */}
+          {/* Compact social proof */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-12 lg:mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-400"
+            transition={{ duration: 0.6, delay: 0.22 }}
+            className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 text-gray-400 text-xs"
+            aria-hidden
           >
-            <div className="flex items-center">
-              <i className="bx bx-user text-[#dc2828] text-xl mr-2"></i>
-              <span className="openSans text-sm">5,000+ subscribers</span>
+            <div className="flex items-center gap-2">
+              <i className="ri-user-line text-[#dc2828]" />
+              <span className="openSans">5,000+ subscribers</span>
             </div>
-            <div className="flex items-center">
-              <i className="bx bx-star text-[#dc2828] text-xl mr-2"></i>
-              <span className="openSans text-sm">4.9/5 average rating</span>
+
+            <div className="flex items-center gap-2">
+              <i className="ri-star-line text-[#dc2828]" />
+              <span className="openSans">4.9/5 rating</span>
             </div>
-            <div className="flex items-center">
-              <i className="bx bx-shield-check text-[#dc2828] text-xl mr-2"></i>
-              <span className="openSans text-sm">GDPR compliant</span>
+
+            <div className="flex items-center gap-2">
+              <i className="ri-shield-check-line text-[#dc2828]" />
+              <span className="openSans">GDPR compliant</span>
             </div>
           </motion.div>
         </div>

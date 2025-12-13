@@ -12,49 +12,51 @@ const ServicesDown = () => {
   const imageRef = useRef(null);
   const cardRefs = useRef([]);
 
-  useEffect(() => {
-    if (imageRef.current) {
-      gsap.fromTo(
-        imageRef.current,
-        { opacity: 0 }, // Minimal animation: only opacity
-        {
-          opacity: 1,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: imageRef.current,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            scrub: 0.1,
-            once: true,
-          },
-        }
-      );
-    }
+  // /* !Scroll Animation making problem while loading the screen*/
 
-    cardRefs.current.forEach((card) => {
-      if (card) {
-        gsap.fromTo(
-          card,
-          { opacity: 0 }, // Minimal animation: only opacity
-          {
-            opacity: 1,
-            ease: 'power4.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 80%',
-              end: 'bottom 20%',
-              scrub: 0.1,
-              once: true,
-            },
-          }
-        );
-      }
-    });
+  // useEffect(() => {
+  //   if (imageRef.current) {
+  //     gsap.fromTo(
+  //       imageRef.current,
+  //       { opacity: 0 }, // Minimal animation: only opacity
+  //       {
+  //         opacity: 1,
+  //         ease: 'power4.out',
+  //         scrollTrigger: {
+  //           trigger: imageRef.current,
+  //           start: 'top 100%',
+  //           end: 'bottom 5%',
+  //           scrub: 0.1,
+  //           once: true,
+  //         },
+  //       }
+  //     );
+  //   }
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
+  //   cardRefs.current.forEach((card) => {
+  //     if (card) {
+  //       gsap.fromTo(
+  //         card,
+  //         { opacity: 0 }, // Minimal animation: only opacity
+  //         {
+  //           opacity: 1,
+  //           ease: 'power4.out',
+  //           scrollTrigger: {
+  //             trigger: card,
+  //             start: 'top 100%',
+  //             end: 'bottom 5%',
+  //             scrub: 0.1,
+  //             once: true,
+  //           },
+  //         }
+  //       );
+  //     }
+  //   });
+
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
 
   const services = [
     {
@@ -101,7 +103,7 @@ const ServicesDown = () => {
         {services.map((service, index) => (
           <div key={service.id} ref={(el) => (cardRefs.current[index] = el)}>
             <div className="mt-6 lg:mt-10 transition-all cursor-default">
-              <div className="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-4 sm:gap-6">
+              <div className="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-2 sm:gap-6">
                 <motion.div
                   className="service-number openSans text-white/50 font-extrabold transition-all cursor-default"
                   whileHover={{ scale: 1.1 }}
@@ -110,16 +112,16 @@ const ServicesDown = () => {
                   {service.id}
                 </motion.div>
                 <motion.div
-                  className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-5 w-full"
+                  className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-2 w-full"
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
                 >
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl racing font-bold text-white">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl racing font-bold text-white">
                     {service.title}
                   </h3>
                 </motion.div>
               </div>
-              <div className="text-base md:text-lg lg:text-xl mt-2 md:mt-4 openSans text-white/80 max-w-lg">
+              <div className="text-base md:text-lg lg:text-lg mt-2 md:mt-4 openSans text-white/80 max-w-lg">
                 {service.description}
               </div>
             </div>

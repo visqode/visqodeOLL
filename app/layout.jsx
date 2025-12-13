@@ -1,11 +1,11 @@
-import "./globals.css";
-import "remixicon/fonts/remixicon.css";
+import './globals.css';
+import 'remixicon/fonts/remixicon.css';
 
 export const metadata = {
-  title: "VisQode - We Build & Scale Digital Products",
+  title: 'VisQode - We Build & Scale Digital Products',
   description:
-    "Founding successful companies by combining ideas with business expertise, capital and Technical execution.",
-  generator: "Abdulla Al Mahin",
+    'Founding successful companies by combining ideas with business expertise, capital and Technical execution.',
+  generator: 'Abdulla Al Mahin',
 };
 
 export default function RootLayout({ children }) {
@@ -18,10 +18,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         ></link>
 
-        <link
-          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-          rel="stylesheet"
-        />
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
       </head>
       <body>{children}</body>
     </html>

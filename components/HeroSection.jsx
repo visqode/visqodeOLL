@@ -96,7 +96,7 @@ const HeroSection = () => {
         </div>
       </div>
       {/* scroll bar indicator */}
-      <div className="absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center ">
+      <div className="absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce [animation-duration:1.5s] [animation-iteration-count:infinite] ">
         {/* Mouse outline */}
         <div className="w-6 h-10 border-2 border-[#e0d1d1] rounded-full relative flex items-start justify-center overflow-hidden bg-white/10 backdrop-blur-sm">
           {/* Bouncing dot */}
