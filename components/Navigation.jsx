@@ -1,3 +1,13 @@
+/**
+ * @file Navigation.jsx
+ * @description Main navigation component with responsive mobile menu.
+ * Features:
+ * - Scroll awareness (transparency effect)
+ * - Mobile slide-out menu
+ * - Smooth scrolling to contact section
+ * - Active state tracking
+ */
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -5,6 +15,10 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
+/**
+ * Navigation Component
+ * @returns {JSX.Element} Fixed navbar
+ */
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredService, setHoveredService] = useState(false);

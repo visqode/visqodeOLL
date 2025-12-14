@@ -1,3 +1,9 @@
+/**
+ * @file ContactForm.jsx
+ * @description Multi-step contact form with validation and EmailJS integration.
+ * Collects user details, project type, budget, and description.
+ */
+
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
@@ -10,6 +16,10 @@ if (typeof window !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 const subtleBorder = 'var(--border-subtle)';
 const accent = 'var(--primary)';
 
+/**
+ * ContactForm Component
+ * @returns {JSX.Element} The contact form section
+ */
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -65,6 +75,10 @@ const ContactForm = () => {
     return () => ctx.revert();
   }, []);
 
+  /**
+   * Handles text input changes and clears validation errors.
+   * @param {Event} e - Input change event
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((p) => ({ ...p, [name]: value }));
@@ -81,6 +95,11 @@ const ContactForm = () => {
     if (validationErrors.length) setValidationErrors([]);
   };
 
+  /**
+   * Handles form submission.
+   * Validates data, sends email via EmailService, and manages loading state.
+   * @param {Event} e - Form submit event
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setValidationErrors([]);

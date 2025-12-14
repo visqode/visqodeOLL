@@ -1,7 +1,17 @@
+/**
+ * @file Footer.jsx
+ * @description Site-wide footer component.
+ * Contains navigation links, social media icons, and newsletter signup.
+ */
+
 'use client';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
+/**
+ * Footer Component
+ * @returns {JSX.Element} Footer section with links and branding
+ */
 const Footer = () => {
   const socialIcons = [
     { icon: 'github-fill', url: '#' },

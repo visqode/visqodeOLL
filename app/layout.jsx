@@ -1,3 +1,9 @@
+/**
+ * @file layout.jsx
+ * @description Root application layout.
+ * Defines global styles, fonts, and metadata.
+ */
+
 import './globals.css';
 import 'remixicon/fonts/remixicon.css';
 
@@ -8,6 +14,12 @@ export const metadata = {
   generator: 'Abdulla Al Mahin',
 };
 
+/**
+ * Root Layout Component
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Child components
+ * @returns {JSX.Element} The HTML wrapper
+ */
 export default function RootLayout({ children }) {
   // Theme update trigger
   return (

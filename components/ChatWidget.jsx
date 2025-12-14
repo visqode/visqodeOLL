@@ -1,8 +1,23 @@
+/**
+ * @file ChatWidget.jsx
+ * @description Floating AI Chat Assistant component.
+ * Integration with Google Gemini AI to provide automated responses about VisQode services.
+ * Features:
+ * - Urgent matter detection
+ * - Typing indicators
+ * - Auto-scroll to bottom of chat
+ * - Persistent chat state (in-memory for session)
+ */
+
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import GeminiService from '@/lib/gemini';
 
+/**
+ * ChatWidget Component
+ * @returns {JSX.Element} The floating chat widget interface
+ */
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -47,6 +62,13 @@ const ChatWidget = () => {
     setMessages((prev) => [...prev, newMessage]);
   };
 
+  /**
+   * Handles user message submission
+   * - Validates input
+   * - Updates local state
+   * - Triggers AI response generation
+   * @param {string} messageText - The text to send (defaults to input value)
+   */
   const handleSendMessage = async (messageText = inputValue) => {
     if (!messageText.trim()) return;
 
