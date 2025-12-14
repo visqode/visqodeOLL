@@ -1,30 +1,30 @@
-"use client"
-import { useState } from "react"
-import Navigation from "@/components/Navigation"
-import PageHero from "@/components/PageHero"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import Footer from "@/components/Footer" // Import Footer component
+'use client';
+import { useState } from 'react';
+import Navigation from '@/components/Navigation';
+import PageHero from '@/components/PageHero';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import Footer from '@/components/Footer'; // Import Footer component
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
     remember: false,
-  })
+  });
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target
+    const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    })
-  }
+      [name]: type === 'checkbox' ? checked : value,
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log("Sign in attempt:", formData)
-  }
+    e.preventDefault();
+    console.log('Sign in attempt:', formData);
+  };
 
   return (
     <div className="min-h-screen bg-[#0e0e0e]">
@@ -47,18 +47,22 @@ export default function SignIn() {
           >
             <div className="text-center mb-8">
               <h1 className="text-3xl racing font-bold mb-2">Sign In</h1>
-              <p className="openSans text-gray-600">Enter your credentials to access your account</p>
+              <p className="openSans text-gray-600">
+                Enter your credentials to access your account
+              </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block openSans font-semibold mb-2 text-gray-700">Email Address</label>
+                <label className="block openSans font-semibold mb-2 text-gray-700">
+                  Email Address
+                </label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6363] focus:border-transparent openSans transition-all duration-300"
                   placeholder="Enter your email"
                   required
                 />
@@ -71,7 +75,7 @@ export default function SignIn() {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6363] focus:border-transparent openSans transition-all duration-300"
                   placeholder="Enter your password"
                   required
                 />
@@ -84,11 +88,14 @@ export default function SignIn() {
                     name="remember"
                     checked={formData.remember}
                     onChange={handleChange}
-                    className="w-4 h-4 text-[#dc2828] border-gray-300 rounded focus:ring-[#dc2828]"
+                    className="w-4 h-4 text-[#FF6363] border-gray-300 rounded focus:ring-[#FF6363]"
                   />
                   <span className="ml-2 openSans text-sm text-gray-600">Remember me</span>
                 </label>
-                <Link href="#" className="openSans text-sm text-[#dc2828] hover:underline font-medium">
+                <Link
+                  href="#"
+                  className="openSans text-sm text-[#FF6363] hover:underline font-medium"
+                >
                   Forgot password?
                 </Link>
               </div>
@@ -97,7 +104,7 @@ export default function SignIn() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-all duration-300 racing font-bold"
+                className="w-full py-3 bg-[#FF6363] text-black rounded-xl hover:bg-[#b91c1c] transition-all duration-300 racing font-bold"
               >
                 Sign In
               </motion.button>
@@ -105,8 +112,8 @@ export default function SignIn() {
 
             <div className="text-center mt-8">
               <p className="openSans text-gray-600">
-                Don't have an account?{" "}
-                <Link href="/signup" className="text-[#dc2828] hover:underline font-semibold">
+                Don't have an account?{' '}
+                <Link href="/signup" className="text-[#FF6363] hover:underline font-semibold">
                   Sign up here
                 </Link>
               </p>
@@ -145,5 +152,5 @@ export default function SignIn() {
       </main>
       <Footer /> {/* Use Footer component */}
     </div>
-  )
+  );
 }

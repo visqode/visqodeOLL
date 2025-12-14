@@ -187,7 +187,7 @@ const TestimonialsSection = () => {
                 width="14"
                 height="14"
                 viewBox="0 0 24 24"
-                fill="#dc2828"
+                fill="#FF6363"
                 className="inline-block mr-1"
                 aria-hidden="true"
               >

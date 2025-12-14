@@ -1,22 +1,22 @@
-"use client";
-import { motion } from "framer-motion";
+'use client';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   const socialIcons = [
-    "facebook-fill",
-    "twitter-fill",
-    "linkedin-fill",
-    "instagram-fill",
-    "youtube-fill",
+    'facebook-fill',
+    'twitter-fill',
+    'linkedin-fill',
+    'instagram-fill',
+    'youtube-fill',
   ];
 
   return (
-    <div className="flex items-center m-2 md:m-5 justify-center">
+    <div className="max-w-7xl mx-auto flex items-center justify-center m-2 md:m-5 md:mx-auto">
       <motion.div
         className="bg-black rounded-2xl md:rounded-3xl p-6 md:p-10 w-full"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-6">
           <div className="max-w-xl text-center lg:text-left">
@@ -24,8 +24,7 @@ const Footer = () => {
               READY TO WORK WITH US?
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-[#B0B0B0] openSans">
-              PARTNER WITH OUR DESIGN AGENCY FOR YOUR BUSINESS WITH AMAZING
-              RESULTS.
+              PARTNER WITH OUR DESIGN AGENCY FOR YOUR BUSINESS WITH AMAZING RESULTS.
             </p>
           </div>
 
@@ -45,12 +44,9 @@ const Footer = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           <div className="text-center sm:text-left">
-            <h2 className="text-lg font-bold text-[#E5E5E5] mb-3 racing">
-              VisQode
-            </h2>
+            <h2 className="text-lg font-bold text-[#E5E5E5] mb-3 racing">VisQode</h2>
             <p className="text-sm text-[#B0B0B0] leading-relaxed mb-4 openSans">
-              We know how important customer experience is for a business and
-              therefore, we strive.
+              We know how important customer experience is for a business and therefore, we strive.
             </p>
             <div className="flex justify-center sm:justify-start space-x-2">
               {socialIcons.map((icon) => (
@@ -59,19 +55,14 @@ const Footer = () => {
                   whileHover={{ scale: 1.2 }}
                   className="bg-[#333333] rounded-lg w-9 h-9 flex items-center justify-center cursor-pointer"
                 >
-                  <i
-                    className={`ri-${icon}`}
-                    style={{ color: "white", fontSize: "1rem" }}
-                  ></i>
+                  <i className={`ri-${icon}`} style={{ color: 'white', fontSize: '1rem' }}></i>
                 </motion.div>
               ))}
             </div>
           </div>
 
           <div className="text-center sm:text-left">
-            <h2 className="text-lg font-bold text-[#E5E5E5] mb-3 racing">
-              Data Science
-            </h2>
+            <h2 className="text-lg font-bold text-[#E5E5E5] mb-3 racing">Data Science</h2>
             <ul className="text-sm text-[#B0B0B0] space-y-2 openSans">
               <li>Business Use-Case</li>
               <li>Data Roles</li>
@@ -82,9 +73,7 @@ const Footer = () => {
           </div>
 
           <div className="text-center sm:text-left">
-            <h2 className="text-lg font-bold text-[#E5E5E5] mb-3 racing">
-              About
-            </h2>
+            <h2 className="text-lg font-bold text-[#E5E5E5] mb-3 racing">About</h2>
             <ul className="text-sm text-[#B0B0B0] space-y-2 openSans">
               <li>Contact Us</li>
               <li>Support Us</li>
@@ -94,9 +83,7 @@ const Footer = () => {
           </div>
 
           <div className="text-center sm:text-left">
-            <h2 className="text-lg font-bold text-[#E5E5E5] mb-3 racing">
-              Programs
-            </h2>
+            <h2 className="text-lg font-bold text-[#E5E5E5] mb-3 racing">Programs</h2>
             <ul className="text-sm text-[#B0B0B0] space-y-2 openSans">
               <li>Learning Modules</li>
               <li>Partnership</li>

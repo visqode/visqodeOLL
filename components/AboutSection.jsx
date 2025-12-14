@@ -15,7 +15,7 @@ const AboutSection = () => {
           transition={{ duration: 0.6, ease: [0.33, 0, 0, 1] }}
         >
           <div className="text-4xl md:text-6xl racing font-bold mb-8 md:mb-16 text-center lg:text-left">
-            About Us
+            <div className="text-[var(--primary)]">About</div> Us
           </div>
           <div className="text-xl mb-10">
             We are a dynamic web development and brand-building company dedicated to crafting

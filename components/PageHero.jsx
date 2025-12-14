@@ -1,12 +1,12 @@
-"use client";
-import { motion } from "framer-motion";
-import SplitText from "./Features/SplitText";
+'use client';
+import { motion } from 'framer-motion';
+import SplitText from './Features/SplitText';
 
 const PageHero = ({
   title,
   subtitle,
   description,
-  backgroundImage = "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+  backgroundImage = 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
 }) => {
   return (
     <section
@@ -36,7 +36,7 @@ const PageHero = ({
 
         {subtitle && (
           <motion.h2
-            className="text-xl md:text-2xl lg:text-3xl racing text-[#dc2828] mb-6"
+            className="text-xl md:text-2xl lg:text-3xl racing text-[#FF6363] mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}

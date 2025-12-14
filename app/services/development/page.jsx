@@ -1,58 +1,53 @@
-"use client";
+'use client';
 
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import PageHero from "@/components/PageHero";
-import ScrollReveal from "@/components/Features/ScrollReveal";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
+import ScrollReveal from '@/components/Features/ScrollReveal';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Development() {
   const features = [
     {
-      icon: "bx-code-alt",
-      title: "Modern Tech Stack",
-      description:
-        "React, Next.js, Node.js, and cutting-edge technologies for robust applications",
+      icon: 'bx-code-alt',
+      title: 'Modern Tech Stack',
+      description: 'React, Next.js, Node.js, and cutting-edge technologies for robust applications',
     },
     {
-      icon: "bx-mobile",
-      title: "Responsive Design",
-      description:
-        "Pixel-perfect interfaces that work flawlessly across all devices",
+      icon: 'bx-mobile',
+      title: 'Responsive Design',
+      description: 'Pixel-perfect interfaces that work flawlessly across all devices',
     },
     {
-      icon: "bx-rocket",
-      title: "Performance Optimized",
-      description: "Lightning-fast load times and optimized user experience",
+      icon: 'bx-rocket',
+      title: 'Performance Optimized',
+      description: 'Lightning-fast load times and optimized user experience',
     },
     {
-      icon: "bx-search-alt",
-      title: "SEO Friendly",
-      description:
-        "Built with search engine optimization best practices from the ground up",
+      icon: 'bx-search-alt',
+      title: 'SEO Friendly',
+      description: 'Built with search engine optimization best practices from the ground up',
     },
     {
-      icon: "bx-shield-quarter",
-      title: "Secure & Scalable",
-      description:
-        "Enterprise-grade security and infrastructure that grows with your business",
+      icon: 'bx-shield-quarter',
+      title: 'Secure & Scalable',
+      description: 'Enterprise-grade security and infrastructure that grows with your business',
     },
     {
-      icon: "bx-support",
-      title: "Ongoing Support",
-      description:
-        "Continuous maintenance and updates to keep your site running smoothly",
+      icon: 'bx-support',
+      title: 'Ongoing Support',
+      description: 'Continuous maintenance and updates to keep your site running smoothly',
     },
   ];
 
   const technologies = [
-    "React & Next.js",
-    "TypeScript",
-    "Node.js & Express",
-    "TailwindCSS",
-    "MongoDB & PostgreSQL",
-    "AWS & Vercel",
+    'React & Next.js',
+    'TypeScript',
+    'Node.js & Express',
+    'TailwindCSS',
+    'MongoDB & PostgreSQL',
+    'AWS & Vercel',
   ];
 
   return (
@@ -84,9 +79,9 @@ export default function Development() {
             blurStrength={10}
             textClassName="text-lg md:text-xl openSans text-gray-400 leading-relaxed"
           >
-            Our development team specializes in creating custom web applications
-            that are not only beautiful but also powerful and user-friendly. We
-            use the latest technologies to ensure your project is built to last.
+            Our development team specializes in creating custom web applications that are not only
+            beautiful but also powerful and user-friendly. We use the latest technologies to ensure
+            your project is built to last.
           </ScrollReveal>
         </div>
 
@@ -103,19 +98,13 @@ export default function Development() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#1a1a1a] p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-white/5 hover:border-[#dc2828]/30"
+                className="bg-[#1a1a1a] p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-white/5 hover:border-[#FF6363]/30"
               >
-                <div className="w-16 h-16 bg-[#dc2828] rounded-full flex items-center justify-center mb-6">
-                  <i
-                    className={`bx ${feature.icon} text-3xl text-[#fffffd]`}
-                  ></i>
+                <div className="w-16 h-16 bg-[#FF6363] rounded-full flex items-center justify-center mb-6">
+                  <i className={`bx ${feature.icon} text-3xl text-[#fffffd]`}></i>
                 </div>
-                <h4 className="text-xl racing font-bold mb-3">
-                  {feature.title}
-                </h4>
-                <p className="openSans text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
+                <h4 className="text-xl racing font-bold mb-3">{feature.title}</h4>
+                <p className="openSans text-gray-400 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -139,7 +128,7 @@ export default function Development() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="bg-[#1a1a1a] px-6 py-4 rounded-xl text-center border border-white/5 hover:border-[#dc2828]/30 transition-all duration-300"
+                className="bg-[#1a1a1a] px-6 py-4 rounded-xl text-center border border-white/5 hover:border-[#FF6363]/30 transition-all duration-300"
               >
                 <span className="openSans font-semibold">{tech}</span>
               </motion.div>
@@ -152,23 +141,23 @@ export default function Development() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center bg-gradient-to-r from-[#dc2828]/10 to-transparent p-12 rounded-3xl border border-[#dc2828]/20"
+          className="max-w-3xl mx-auto text-center bg-gradient-to-r from-[#FF6363]/10 to-transparent p-12 rounded-3xl border border-[#FF6363]/20"
         >
           <h3 className="text-3xl md:text-4xl racing font-bold mb-6">
             Ready to Start Your Project?
           </h3>
           <p className="text-lg openSans text-gray-400 mb-8">
-            Let's discuss how we can bring your vision to life with cutting-edge
-            development solutions.
+            Let's discuss how we can bring your vision to life with cutting-edge development
+            solutions.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/#contact">
-              <button className="px-8 py-4 bg-[#dc2828] text-[#fffffd] rounded-full hover:bg-[#b91c1c] transition-all duration-300 racing font-bold">
+              <button className="px-8 py-4 bg-[#FF6363] text-[#fffffd] rounded-full hover:bg-[#b91c1c] transition-all duration-300 racing font-bold">
                 Get Started
               </button>
             </Link>
             <Link href="/services">
-              <button className="px-8 py-4 border-2 border-[#dc2828] text-[#dc2828] rounded-full hover:bg-[#dc2828] hover:text-[#fffffd] transition-all duration-300 racing font-bold">
+              <button className="px-8 py-4 border-2 border-[#FF6363] text-[#FF6363] rounded-full hover:bg-[#FF6363] hover:text-[#fffffd] transition-all duration-300 racing font-bold">
                 View All Services
               </button>
             </Link>

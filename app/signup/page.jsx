@@ -1,18 +1,18 @@
-"use client";
-import { useState } from "react";
-import Navigation from "@/components/Navigation";
-import PageHero from "@/components/PageHero";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import Footer from "@/components/Footer"; // Declare the Footer variable
+'use client';
+import { useState } from 'react';
+import Navigation from '@/components/Navigation';
+import PageHero from '@/components/PageHero';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import Footer from '@/components/Footer'; // Declare the Footer variable
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
     terms: false,
   });
 
@@ -20,21 +20,21 @@ export default function SignUp() {
     const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === 'checkbox' ? checked : value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
+      alert('Passwords do not match');
       return;
     }
     if (!formData.terms) {
-      alert("Please accept the terms and conditions");
+      alert('Please accept the terms and conditions');
       return;
     }
-    console.log("Sign up attempt:", formData);
+    console.log('Sign up attempt:', formData);
   };
 
   return (
@@ -76,7 +76,7 @@ export default function SignUp() {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6363] focus:border-transparent openSans transition-all duration-300"
                     placeholder="First name"
                     required
                   />
@@ -90,7 +90,7 @@ export default function SignUp() {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6363] focus:border-transparent openSans transition-all duration-300"
                     placeholder="Last name"
                     required
                   />
@@ -106,22 +106,20 @@ export default function SignUp() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6363] focus:border-transparent openSans transition-all duration-300"
                   placeholder="Enter your email"
                   required
                 />
               </div>
 
               <div>
-                <label className="block openSans font-semibold mb-2 text-gray-700">
-                  Password
-                </label>
+                <label className="block openSans font-semibold mb-2 text-gray-700">Password</label>
                 <input
                   type="password"
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6363] focus:border-transparent openSans transition-all duration-300"
                   placeholder="Create a password"
                   required
                 />
@@ -136,7 +134,7 @@ export default function SignUp() {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#dc2828] focus:border-transparent openSans transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6363] focus:border-transparent openSans transition-all duration-300"
                   placeholder="Confirm your password"
                   required
                 />
@@ -148,22 +146,16 @@ export default function SignUp() {
                   name="terms"
                   checked={formData.terms}
                   onChange={handleChange}
-                  className="w-4 h-4 text-[#dc2828] border-gray-300 rounded focus:ring-[#dc2828] mt-1"
+                  className="w-4 h-4 text-[#FF6363] border-gray-300 rounded focus:ring-[#FF6363] mt-1"
                   required
                 />
                 <span className="ml-3 openSans text-sm text-gray-600">
-                  I agree to the{" "}
-                  <Link
-                    href="#"
-                    className="text-[#dc2828] hover:underline font-medium"
-                  >
+                  I agree to the{' '}
+                  <Link href="#" className="text-[#FF6363] hover:underline font-medium">
                     Terms of Service
-                  </Link>{" "}
-                  and{" "}
-                  <Link
-                    href="#"
-                    className="text-[#dc2828] hover:underline font-medium"
-                  >
+                  </Link>{' '}
+                  and{' '}
+                  <Link href="#" className="text-[#FF6363] hover:underline font-medium">
                     Privacy Policy
                   </Link>
                 </span>
@@ -173,7 +165,7 @@ export default function SignUp() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-3 bg-[#dc2828] text-black rounded-xl hover:bg-[#b91c1c] transition-all duration-300 racing font-bold"
+                className="w-full py-3 bg-[#FF6363] text-black rounded-xl hover:bg-[#b91c1c] transition-all duration-300 racing font-bold"
               >
                 Create Account
               </motion.button>
@@ -181,11 +173,8 @@ export default function SignUp() {
 
             <div className="text-center mt-8">
               <p className="openSans text-gray-600">
-                Already have an account?{" "}
-                <Link
-                  href="/signin"
-                  className="text-[#dc2828] hover:underline font-semibold"
-                >
+                Already have an account?{' '}
+                <Link href="/signin" className="text-[#FF6363] hover:underline font-semibold">
                   Sign in here
                 </Link>
               </p>
@@ -198,9 +187,7 @@ export default function SignUp() {
                   <div className="w-full border-t border-gray-300"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500 openSans">
-                    Or continue with
-                  </span>
+                  <span className="px-2 bg-white text-gray-500 openSans">Or continue with</span>
                 </div>
               </div>
 

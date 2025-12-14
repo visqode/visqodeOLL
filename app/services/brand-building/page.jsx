@@ -1,52 +1,49 @@
-"use client";
+'use client';
 
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import PageHero from "@/components/PageHero";
-import ScrollReveal from "@/components/Features/ScrollReveal";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
+import ScrollReveal from '@/components/Features/ScrollReveal';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function BrandBuilding() {
   const stages = [
     {
-      number: "01",
-      title: "Discovery & Strategy",
-      description:
-        "Understanding your vision, target audience, and competitive landscape",
-      icon: "bx-bulb",
+      number: '01',
+      title: 'Discovery & Strategy',
+      description: 'Understanding your vision, target audience, and competitive landscape',
+      icon: 'bx-bulb',
     },
     {
-      number: "02",
-      title: "Brand Identity",
-      description:
-        "Creating your logo, color palette, typography, and visual guidelines",
-      icon: "bx-palette",
+      number: '02',
+      title: 'Brand Identity',
+      description: 'Creating your logo, color palette, typography, and visual guidelines',
+      icon: 'bx-palette',
     },
     {
-      number: "03",
-      title: "Digital Presence",
-      description: "Domain setup, website design, and social media branding",
-      icon: "bx-globe",
+      number: '03',
+      title: 'Digital Presence',
+      description: 'Domain setup, website design, and social media branding',
+      icon: 'bx-globe',
     },
     {
-      number: "04",
-      title: "Launch & Deploy",
-      description:
-        "Going live with your complete brand presence and marketing materials",
-      icon: "bx-rocket",
+      number: '04',
+      title: 'Launch & Deploy',
+      description: 'Going live with your complete brand presence and marketing materials',
+      icon: 'bx-rocket',
     },
   ];
 
   const deliverables = [
-    "Custom Logo Design",
-    "Brand Style Guide",
-    "Domain & Hosting Setup",
-    "Professional Website",
-    "Social Media Kit",
-    "Business Cards & Stationery",
-    "Email Templates",
-    "Marketing Collateral",
+    'Custom Logo Design',
+    'Brand Style Guide',
+    'Domain & Hosting Setup',
+    'Professional Website',
+    'Social Media Kit',
+    'Business Cards & Stationery',
+    'Email Templates',
+    'Marketing Collateral',
   ];
 
   return (
@@ -78,17 +75,15 @@ export default function BrandBuilding() {
             blurStrength={10}
             textClassName="text-lg md:text-xl openSans text-gray-400 leading-relaxed"
           >
-            We don't just create logos — we build complete brand ecosystems.
-            From your initial concept to a fully launched digital presence, we
-            handle every aspect of bringing your brand to life.
+            We don't just create logos — we build complete brand ecosystems. From your initial
+            concept to a fully launched digital presence, we handle every aspect of bringing your
+            brand to life.
           </ScrollReveal>
         </div>
 
         {/* Process Steps */}
         <div className="max-w-5xl mx-auto mb-20">
-          <h3 className="text-2xl md:text-3xl racing font-bold text-center mb-12">
-            Our Process
-          </h3>
+          <h3 className="text-2xl md:text-3xl racing font-bold text-center mb-12">Our Process</h3>
           <div className="space-y-8">
             {stages.map((stage, index) => (
               <motion.div
@@ -97,22 +92,18 @@ export default function BrandBuilding() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex flex-col md:flex-row items-start gap-6 bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#dc2828]/30 transition-all duration-300"
+                className="flex flex-col md:flex-row items-start gap-6 bg-[#1a1a1a] p-8 rounded-2xl border border-white/5 hover:border-[#FF6363]/30 transition-all duration-300"
               >
                 <div className="flex items-center gap-6">
-                  <div className="w-16 h-16 bg-[#dc2828] rounded-full flex items-center justify-center flex-shrink-0">
-                    <i
-                      className={`bx ${stage.icon} text-3xl text-[#fffffd]`}
-                    ></i>
+                  <div className="w-16 h-16 bg-[#FF6363] rounded-full flex items-center justify-center flex-shrink-0">
+                    <i className={`bx ${stage.icon} text-3xl text-[#fffffd]`}></i>
                   </div>
-                  <span className="text-5xl md:text-6xl racing text-[#dc2828]/30 font-bold">
+                  <span className="text-5xl md:text-6xl racing text-[#FF6363]/30 font-bold">
                     {stage.number}
                   </span>
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-2xl racing font-bold mb-3">
-                    {stage.title}
-                  </h4>
+                  <h4 className="text-2xl racing font-bold mb-3">{stage.title}</h4>
                   <p className="openSans text-gray-400 leading-relaxed text-lg">
                     {stage.description}
                   </p>
@@ -142,7 +133,7 @@ export default function BrandBuilding() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="flex items-center gap-3 bg-[#1a1a1a] px-6 py-4 rounded-xl border border-white/5"
               >
-                <i className="bx bx-check text-[#dc2828] text-2xl flex-shrink-0"></i>
+                <i className="bx bx-check text-[#FF6363] text-2xl flex-shrink-0"></i>
                 <span className="openSans font-semibold">{item}</span>
               </motion.div>
             ))}
@@ -154,23 +145,21 @@ export default function BrandBuilding() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center bg-gradient-to-r from-[#dc2828]/10 to-transparent p-12 rounded-3xl border border-[#dc2828]/20"
+          className="max-w-3xl mx-auto text-center bg-gradient-to-r from-[#FF6363]/10 to-transparent p-12 rounded-3xl border border-[#FF6363]/20"
         >
-          <h3 className="text-3xl md:text-4xl racing font-bold mb-6">
-            Ready to Build Your Brand?
-          </h3>
+          <h3 className="text-3xl md:text-4xl racing font-bold mb-6">Ready to Build Your Brand?</h3>
           <p className="text-lg openSans text-gray-400 mb-8">
-            Let's create a powerful brand identity that resonates with your
-            audience and stands the test of time.
+            Let's create a powerful brand identity that resonates with your audience and stands the
+            test of time.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/#contact">
-              <button className="px-8 py-4 bg-[#dc2828] text-[#fffffd] rounded-full hover:bg-[#b91c1c] transition-all duration-300 racing font-bold">
+              <button className="px-8 py-4 bg-[#FF6363] text-[#fffffd] rounded-full hover:bg-[#b91c1c] transition-all duration-300 racing font-bold">
                 Start Building
               </button>
             </Link>
             <Link href="/services">
-              <button className="px-8 py-4 border-2 border-[#dc2828] text-[#dc2828] rounded-full hover:bg-[#dc2828] hover:text-[#fffffd] transition-all duration-300 racing font-bold">
+              <button className="px-8 py-4 border-2 border-[#FF6363] text-[#FF6363] rounded-full hover:bg-[#FF6363] hover:text-[#fffffd] transition-all duration-300 racing font-bold">
                 View All Services
               </button>
             </Link>

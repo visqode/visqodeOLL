@@ -37,7 +37,7 @@ const HeroSection = () => {
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('/secHero.jpg')`,
       }}
-      className="min-h-[75vh] max-w-[67vw] mx-auto md:my-32  bg-center bg-cover bg-no-repeat flex flex-col rounded-xl md:rounded-2xl px-4 md:px-8"
+      className="min-h-screen max-w-screen mx-auto   bg-center bg-cover bg-no-repeat flex flex-col rounded-xl md:rounded-2xl px-4 md:px-8"
     >
       <Navigation />
 
@@ -85,14 +85,6 @@ const HeroSection = () => {
           >
             Start Your Project <i className="ri-arrow-right-long-line"></i>
           </button>
-
-          {/* View Our Work Button - goes to work section */}
-          {/* <button
-            onClick={(e) => handleSectionClick(e, 'projects')}
-            className="w-full font-semibold sm:w-auto px-4 py-2 bg-[#dc2828] text-[#fffffd] rounded-xl hover:bg-[#b91c1c] text-center transition-all duration-300"
-          >
-            <i className="ri-folder-open-line"></i> &nbsp; View Our Work
-          </button> */}
         </div>
       </div>
       {/* scroll bar indicator */}

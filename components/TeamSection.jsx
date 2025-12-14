@@ -4,24 +4,24 @@ import { motion } from 'framer-motion';
 const TeamSection = () => {
   const team = [
     {
-      name: 'Abdulla Al mahin',
-      role: 'Founder & CEO',
-      image: '/ibwmahin.jpg',
+      name: 'A. Mahin',
+      role: 'Founder & Chief Executive Officer',
+      image: '/pfp.jpg',
     },
     {
       name: 'Abdul Rehman',
       role: 'Web Developer',
-      image: '/Ab.jpeg',
+      image: '/remPfp.jpg',
     },
     {
       name: 'Yousuf Mollah',
       role: 'UI/UX Designer',
-      image: '/yousuf.png',
+      image: '/yuPfp.jpg',
     },
     {
       name: 'Mohammad Bin Salim',
       role: 'AI Automation',
-      image: '/mohammad.jpg',
+      image: '/mdpfp.jpg',
     },
   ];
 
@@ -67,9 +67,8 @@ const TeamSection = () => {
                   <h3 className="text-xl font-bold text-[#fffffd] mb-2 racing">{member.name}</h3>
                   <p className="text-white/70 openSans">{member.role}</p>
                 </div>
-
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-[#dc2828]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-[#FF6363]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center text-[#fffffd]">
                     <h3 className="text-xl font-bold mb-2 racing">{member.name}</h3>
                     <p className="mb-4 openSans">{member.role}</p>

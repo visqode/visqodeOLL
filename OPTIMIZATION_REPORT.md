@@ -117,7 +117,7 @@ Replace `<img>` tags with `<Image>` from `next/image` in:
 
 ### 1. Fix Color Inconsistency
 
-Update old color `#e97f33` to `#dc2828` in:
+Update old color `#e97f33` to `#FF6363` in:
 
 - `app/signin/page.jsx`
 - `app/signup/page.jsx`

@@ -455,7 +455,7 @@ export function cn(...inputs: ClassValue[]) {
 
 ```css
 :root {
-  --primary: #dc2828; /* Brand red */
+  --primary: #ff6363; /* Brand red */
   --primary-dark: #b91c1c; /* Darker red */
   --dark: #161616; /* Background dark */
   --white: #fffffd; /* Off-white text */
@@ -530,7 +530,7 @@ Currently loading fonts from:
 3. **Performance:** Render-blocking font loading
 4. **Maintenance:** 60%+ of components are unused
 5. **Maintenance:** Duplicate CSS files
-6. **Consistency:** Mixed color schemes (#e97f33 vs #dc2828)
+6. **Consistency:** Mixed color schemes (#e97f33 vs #FF6363)
 7. **Accessibility:** Missing ARIA labels on some interactive elements
 8. **SEO:** Pages missing meta descriptions
 9. **Authentication:** Signin/signup pages have no backend

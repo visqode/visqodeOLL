@@ -17,7 +17,7 @@ if (typeof window !== 'undefined') gsap.registerPlugin(ScrollTrigger);
  */
 
 const subtleBorder = 'rgba(255,255,255,0.10)';
-const accent = '#dc2828';
+const accent = '#FF6363';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -232,7 +232,7 @@ const ContactForm = () => {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.45, ease: 'back.out(1.2)' }}
-            className="bg-gradient-to-br from-[#dc2828] to-[#b91c1c] rounded-2xl p-8 md:p-12"
+            className="bg-gradient-to-br from-[#FF6363] to-[#b91c1c] rounded-2xl p-8 md:p-12"
           >
             <motion.div
               initial={{ scale: 0 }}
@@ -240,7 +240,7 @@ const ContactForm = () => {
               transition={{ delay: 0.15, type: 'spring', stiffness: 200 }}
               className="w-16 h-16 rounded-lg bg-white flex items-center justify-center mx-auto mb-4"
             >
-              <i className="ri-checkbox-circle-line text-[#dc2828] text-2xl" />
+              <i className="ri-checkbox-circle-line text-[#FF6363] text-2xl" />
             </motion.div>
 
             <h3 className="text-2xl md:text-3xl racing font-bold text-white text-center mb-2">
@@ -254,17 +254,17 @@ const ContactForm = () => {
               <h4 className="text-sm font-semibold text-white mb-3">What happens next</h4>
               <div className="grid grid-cols-3 gap-3 text-xs text-white/80">
                 <div className="flex flex-col items-center">
-                  <i className="ri-time-line text-xl mb-2 text-[#dc2828]" />
+                  <i className="ri-time-line text-xl mb-2 text-[#FF6363]" />
                   <span className="font-semibold">Within 2 hours</span>
                   <span className="text-white/70">Email confirmation</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <i className="ri-phone-line text-xl mb-2 text-[#dc2828]" />
+                  <i className="ri-phone-line text-xl mb-2 text-[#FF6363]" />
                   <span className="font-semibold">Within 24 hours</span>
                   <span className="text-white/70">Personal response</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <i className="ri-calendar-line text-xl mb-2 text-[#dc2828]" />
+                  <i className="ri-calendar-line text-xl mb-2 text-[#FF6363]" />
                   <span className="font-semibold">Within 48 hours</span>
                   <span className="text-white/70">Project discussion</span>
                 </div>
@@ -326,8 +326,8 @@ const ContactForm = () => {
         />
       </div>
 
-      <div className="absolute top-0 left-1/4 w-80 h-80 bg-[#dc2828]/6 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#dc2828]/6 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-80 h-80 bg-[#FF6363]/6 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-[#FF6363]/6 rounded-full blur-3xl" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -338,11 +338,11 @@ const ContactForm = () => {
           className="text-center mb-12"
         >
           <div
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#dc2828]/12 border"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-[#FF6363]/12 border"
             style={{ borderColor: 'rgba(220,40,40,0.12)' }}
           >
-            <span className="w-1.5 h-1.5 bg-[#dc2828] rounded-sm animate-pulse" />
-            <span className="text-xs text-[#dc2828] font-medium tracking-wide">READY TO START</span>
+            <span className="w-1.5 h-1.5 bg-[#FF6363] rounded-sm animate-pulse" />
+            <span className="text-xs text-[#FF6363] font-medium tracking-wide">READY TO START</span>
           </div>
 
           <h2 className="text-3xl lg:text-4xl racing font-bold text-white mt-4 mb-3">
@@ -377,13 +377,13 @@ const ContactForm = () => {
                       border: `1px solid rgba(220,40,40,0.12)`,
                     }}
                   >
-                    <i className="ri-phone-line text-[#dc2828]" />
+                    <i className="ri-phone-line text-[#FF6363]" />
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Phone</div>
                     <a
                       href="tel:+15551234567"
-                      className="text-sm text-white/70 hover:text-[#dc2828]"
+                      className="text-sm text-white/70 hover:text-[#FF6363]"
                     >
                       +1 (555) 123-4567
                     </a>
@@ -398,13 +398,13 @@ const ContactForm = () => {
                       border: `1px solid rgba(220,40,40,0.12)`,
                     }}
                   >
-                    <i className="ri-mail-line text-[#dc2828]" />
+                    <i className="ri-mail-line text-[#FF6363]" />
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Email</div>
                     <a
                       href="mailto:visqode@gmail.com"
-                      className="text-sm text-white/70 hover:text-[#dc2828]"
+                      className="text-sm text-white/70 hover:text-[#FF6363]"
                     >
                       visqode@gmail.com
                     </a>
@@ -417,11 +417,11 @@ const ContactForm = () => {
                 style={{ borderColor: 'rgba(255,255,255,0.04)' }}
               >
                 <div className="text-center">
-                  <div className="text-xl font-bold text-[#dc2828]">24h</div>
+                  <div className="text-xl font-bold text-[#FF6363]">24h</div>
                   <div className="text-xs text-white/60">Response time</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl font-bold text-[#dc2828]">100+</div>
+                  <div className="text-xl font-bold text-[#FF6363]">100+</div>
                   <div className="text-xs text-white/60">Projects done</div>
                 </div>
               </div>
@@ -536,7 +536,7 @@ const ContactForm = () => {
                               checked={checked}
                               onChange={() => handleServiceToggle(s.id)}
                             />
-                            <i className={`${s.icon} text-[#dc2828]`} />
+                            <i className={`${s.icon} text-[#FF6363]`} />
                             <span className="text-xs text-white/80">{s.name}</span>
                           </motion.label>
                         );
@@ -596,7 +596,7 @@ const ContactForm = () => {
                     disabled={isSubmitting}
                     whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                    className="px-5 py-2 bg-[#dc2828] text-black rounded-lg font-semibold flex items-center gap-2 disabled:opacity-60"
+                    className="px-5 py-2 bg-[#FF6363] text-black rounded-lg font-semibold flex items-center gap-2 disabled:opacity-60"
                   >
                     {isSubmitting ? (
                       <span className="w-4 h-4 border-2 border-black border-t-transparent rounded animate-spin inline-block" />
