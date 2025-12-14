@@ -6,31 +6,58 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       name: 'Sarah Johnson',
-      role: 'CEO, TechStart',
+      role: 'CEO, TechStart (San Francisco)',
       content:
-        'VisQode transformed our digital presence. Their attention to detail exceeded expectations.',
+        'VisQode transformed our digital presence. Their attention to detail exceeded expectations. We saw a 200% increase in leads within the first month.',
       rating: 5,
       avatar:
         'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
     },
     {
       name: 'Michael Chen',
-      role: 'Founder, InnovateLab',
+      role: 'Founder, InnovateLab (Singapore)',
       content:
-        'Working with VisQode was a game-changer — a stunning website that captures our brand.',
+        "Working with VisQode was a game-changer. They didn't just build a website; they built a brand that commands authority in our niche.",
       rating: 5,
       avatar:
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
     },
     {
       name: 'Emily Rodriguez',
-      role: 'Marketing Director, GrowthCo',
-      content: 'Incredibly talented team — they created a digital experience our customers love.',
+      role: 'Marketing Director, GrowthCo (London)',
+      content:
+        'Incredibly talents team. The level of engineering precision is unmatched. Our platform load times dropped by 60%.',
       rating: 5,
       avatar:
         'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
     },
-    // add more testimonials if you want a longer scroll
+    {
+      name: 'David Okafor',
+      role: 'CTO, FinStream (Lagos)',
+      content:
+        'We hired VisQode for staff augmentation. The developers they provided were top-tier senior talent who hit the ground running.',
+      rating: 5,
+      avatar:
+        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+    },
+    {
+      name: 'Aisha Gupta',
+      role: 'Product Lead, ZenSpace (Mumbai)',
+      content:
+        'Their design team is world-class. They took our vague ideas and turned them into a stunning, intuitive user interface.',
+      rating: 5,
+      avatar:
+        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+    },
+    {
+      name: 'James Wilson',
+      role: 'Director, GreenEnergy (Sydney)',
+      content:
+        'True partners. They challenged our assumptions and helped us pivot to a much more scalable architecture. Highly recommended.',
+      rating: 5,
+      avatar:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+    },
   ];
 
   // Configuration (tweak to taste)

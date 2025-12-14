@@ -48,7 +48,7 @@ const Footer = () => {
             className="flex-shrink-0"
           >
             <Link
-              href="/#contact"
+              href="/contact"
               className="group relative inline-flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-[var(--primary)] rounded-full blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300" />
@@ -113,7 +113,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/consulting"
+                  href="/services/consulting"
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] openSans transition-colors"
                 >
                   Consulting
@@ -137,7 +137,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/freelance-hire"
+                  href="/services/hire-talent"
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] openSans transition-colors"
                 >
                   Hire Talent
@@ -145,7 +145,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] openSans transition-colors"
                 >
                   Contact
@@ -191,7 +191,7 @@ const Footer = () => {
           </p>
           <div className="flex gap-6">
             <Link
-              href="/privacy"
+              href="/privacy-policy"
               className="text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors openSans"
             >
               Privacy Policy

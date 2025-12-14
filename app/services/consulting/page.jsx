@@ -5,49 +5,53 @@ import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-export default function Development() {
-  const engineeringProcess = [
+export default function Consulting() {
+  const process = [
     {
       phase: '01',
-      title: 'Architecture & System Design',
+      title: 'Technical Audit',
       description:
-        'We don’t just code; we architect. We analyze requirements to select the right stack, ensuring scalability, security, and maintainability from day one.',
-      points: [
-        'Microservices vs Monolith selection',
-        'Database schema design',
-        'Cloud infrastructure planning',
-      ],
+        'We look under the hood. Our seniors analyze your codebase, infrastructure, and team velocity to identify bottlenecks and debt.',
+      points: ['Code Quality Assessment', 'Security Vulnerability Scan', 'Architecture Review'],
     },
     {
       phase: '02',
-      title: 'Agile Development',
+      title: 'Digital Transformation',
       description:
-        'Iterative development sprints allow for flexibility and transparency. You see progress every two weeks, ensuring the product aligns with the vision.',
-      points: ['CI/CD Pipeline integration', 'Automated testing suites', 'Bi-weekly code reviews'],
+        "Moving from legacy to modern shouldn't be painful. We map out a step-by-step migration strategy that minimizes downtime and risk.",
+      points: ['Legacy Migration Plans', 'Cloud Adoption Strategy', 'Process Automation'],
     },
     {
       phase: '03',
-      title: 'Performance Engineering',
+      title: 'Interim CTO',
       description:
-        'Speed is a feature. We optimize every layer of the application, from database queries to frontend asset delivery, for sub-second load times.',
-      points: ['Core Web Vitals optimization', 'Server-side rendering (SSR)', 'CDN edge caching'],
+        'Need leadership? We step in to lead your engineering team, set technical direction, and hire your permanent replacement.',
+      points: ['Team Mentorship', 'Hiring Frameworks', 'Technical Roadmap'],
     },
   ];
 
-  const techStack = [
+  const benefits = [
     {
-      category: 'Frontend',
-      items: ['Next.js 14', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+      title: 'Expertise on Demand',
+      description:
+        'Access C-suite level technical knowledge without the full-time salary commitment.',
     },
-    { category: 'Backend', items: ['Node.js', 'Python', 'Go', 'GraphQL', 'PostgreSQL'] },
-    { category: 'DevOps', items: ['AWS', 'Docker', 'Kubernetes', 'Vercel', 'GitHub Actions'] },
+    {
+      title: 'Unbiased Perspective',
+      description:
+        'We have no politics. We only care about what works best for your business goals.',
+    },
+    {
+      title: 'Risk Mitigation',
+      description: 'Avoid costly architectural mistakes that could haunt your product for years.',
+    },
   ];
 
   return (
     <div className="min-h-screen bg-[var(--bg-body)] text-[var(--text-primary)] selection:bg-[var(--primary)] selection:text-white">
       <Navigation />
 
-      {/* Editorial Header - No Generic Hero */}
+      {/* Hero */}
       <header className="pt-32 pb-20 px-4 md:pt-48 md:pb-32">
         <div className="container mx-auto max-w-7xl">
           <motion.div
@@ -56,16 +60,16 @@ export default function Development() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black racing mb-8 leading-[0.9] tracking-tighter">
-              ENGINEERING <br />
+              CLARITY AMIDST <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-white/50">
-                EXCELLENCE.
+                CHAOS.
               </span>
             </h1>
             <div className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-4xl">
               <div className="w-20 h-1 bg-[var(--primary)] rounded-full"></div>
               <p className="text-xl md:text-2xl text-[var(--text-secondary)] openSans font-light leading-relaxed max-w-2xl">
-                We build robust, scalable digital infrastructure. From high-frequency trading
-                platforms to immersive consumer applications, we write code that drives revenue.
+                Technical decisions make or break companies. We provide the strategic guidance
+                needed to navigate complex digital landscapes with confidence.
               </p>
             </div>
           </motion.div>
@@ -73,17 +77,17 @@ export default function Development() {
       </header>
 
       <main>
-        {/* The Methodology Section */}
+        {/* Process Section */}
         <section className="py-20 border-t border-[var(--border-subtle)]">
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="flex flex-col lg:flex-row gap-16">
               <div className="lg:w-1/3">
                 <h2 className="text-3xl font-bold racing mb-4 sticky top-32">
-                  OUR <br /> METHODOLOGY
+                  OUR <br /> APPROACH
                 </h2>
               </div>
               <div className="lg:w-2/3 space-y-20">
-                {engineeringProcess.map((item, idx) => (
+                {process.map((item, idx) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 30 }}
@@ -106,7 +110,7 @@ export default function Development() {
                           key={pIdx}
                           className="flex items-center gap-3 text-sm text-[var(--text-muted)] font-mono uppercase tracking-wide"
                         >
-                          <i className="ri-check-line text-[var(--primary)]"></i>
+                          <i className="ri-lightbulb-flash-line text-[var(--primary)]"></i>
                           {point}
                         </li>
                       ))}
@@ -118,19 +122,18 @@ export default function Development() {
           </div>
         </section>
 
-        {/* Tech Stack Grid */}
+        {/* Benefits Grid */}
         <section className="py-20 bg-[var(--bg-darker)] border-y border-[var(--border-subtle)]">
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold racing mb-6">TECHNOLOGY STACK</h2>
+              <h2 className="text-3xl md:text-4xl font-bold racing mb-6">WHY CONSULTING?</h2>
               <p className="text-[var(--text-secondary)] openSans max-w-2xl">
-                We don't follow trends; we choose the right tools for the job. Our stack is curated
-                for performance, security, and developer velocity.
+                Sometimes you don't need code; you need a roadmap. We help you see around corners.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {techStack.map((stack, idx) => (
+              {benefits.map((benefit, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
@@ -139,36 +142,28 @@ export default function Development() {
                   transition={{ delay: idx * 0.1 }}
                   className="bg-[var(--bg-card)] p-8 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--primary)]/30 transition-colors"
                 >
-                  <h3 className="text-xl font-bold racing mb-6 text-[var(--primary)]">
-                    {stack.category}
+                  <h3 className="text-xl font-bold racing mb-4 text-[var(--primary)]">
+                    {benefit.title}
                   </h3>
-                  <ul className="space-y-3">
-                    {stack.items.map((tech, tIdx) => (
-                      <li
-                        key={tIdx}
-                        className="text-[var(--text-secondary)] font-medium flex items-center justify-between border-b border-[var(--border-subtle)] pb-2 last:border-0"
-                      >
-                        <span>{tech}</span>
-                        <i className="ri-arrow-right-up-line text-[var(--text-muted)]"></i>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-[var(--text-secondary)] leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA - Minimal */}
+        {/* CTA */}
         <section className="py-32 px-4">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl md:text-5xl font-bold racing mb-8">BUILD FOR THE FUTURE</h2>
+            <h2 className="text-3xl md:text-5xl font-bold racing mb-8">GET UNSTUCK.</h2>
             <div className="flex justify-center gap-6">
               <Link
                 href="/contact"
                 className="px-10 py-4 bg-[var(--primary)] text-white racing font-bold rounded-full hover:bg-[var(--primary-hover)] transition-all transform hover:-translate-y-1 shadow-xl shadow-[var(--primary)]/20"
               >
-                Initiate Project
+                Book a Strategy Call
               </Link>
             </div>
           </div>

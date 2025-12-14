@@ -167,7 +167,7 @@ export default function BrandBuilding() {
             <h2 className="text-3xl md:text-5xl font-bold racing mb-8">DEFINE YOUR FUTURE</h2>
             <div className="flex justify-center gap-6">
               <Link
-                href="/#contact"
+                href="/contact"
                 className="px-10 py-4 bg-[var(--primary)] text-white racing font-bold rounded-full hover:bg-[var(--primary-hover)] transition-all transform hover:-translate-y-1 shadow-xl shadow-[var(--primary)]/20"
               >
                 Audit My Brand

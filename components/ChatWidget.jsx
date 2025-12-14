@@ -226,18 +226,24 @@ const ChatWidget = () => {
 
             {/* Quick Replies */}
             {messages.length < 4 && (
-              <div className="p-2 bg-[var(--bg-card)] border-t border-[var(--border-subtle)] overflow-x-auto whitespace-nowrap">
-                <div className="flex gap-2 px-2">
+              <div className="p-2 bg-[var(--bg-card)] border-t border-[var(--border-subtle)] overflow-hidden">
+                <motion.div
+                  className="flex gap-2 px-2 cursor-grab active:cursor-grabbing"
+                  drag="x"
+                  dragConstraints={{ left: -200, right: 0 }}
+                >
                   {quickReplies.map((qr, i) => (
-                    <button
+                    <motion.button
                       key={i}
                       onClick={() => handleQuickReply(qr)}
-                      className="px-3 py-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-body)] text-xs text-[var(--text-secondary)] hover:border-[var(--primary)] hover:text-[var(--primary)] transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-3 py-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-body)] text-xs text-[var(--text-secondary)] whitespace-nowrap hover:border-[var(--primary)] hover:text-[var(--primary)] transition-colors"
                     >
                       {qr}
-                    </button>
+                    </motion.button>
                   ))}
-                </div>
+                </motion.div>
               </div>
             )}
 

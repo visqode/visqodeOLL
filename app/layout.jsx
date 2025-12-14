@@ -6,6 +6,7 @@
 
 import './globals.css';
 import 'remixicon/fonts/remixicon.css';
+import ChatWidget from '@/components/ChatWidget';
 
 export const metadata = {
   title: 'VisQode - We Build & Scale Digital Products',
@@ -18,6 +19,7 @@ export const metadata = {
  * Root Layout Component
  * @param {Object} props - Component props
  * @param {React.ReactNode} props.children - Child components
+ *
  * @returns {JSX.Element} The HTML wrapper
  */
 export default function RootLayout({ children }) {
@@ -32,7 +34,10 @@ export default function RootLayout({ children }) {
 
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ChatWidget />
+      </body>
     </html>
   );
 }

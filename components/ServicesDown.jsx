@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -58,28 +59,42 @@ const ServicesDown = () => {
   //   };
   // }, []);
 
+  /* Updated Services List to match Site Structure */
   const services = [
     {
       id: '01',
-      title: 'Web Design',
+      title: 'Development',
+      slug: 'development',
       description:
-        'Make the appearance of website pages so that they look so beautiful and pleasing to the eye.',
+        'Scalable, secure, and high-performance digital infrastructure built with modern tech stacks.',
     },
     {
       id: '02',
-      title: 'UI/UX Design',
+      title: 'Brand Building',
+      slug: 'brand-building',
       description:
-        'Create intuitive and engaging user experiences that convert visitors into customers.',
+        'Strategic identities that resonate. We define your voice, visuals, and market positioning.',
     },
     {
       id: '03',
-      title: 'Brand Design',
-      description: 'Develop compelling brand identities that resonate with your target audience.',
+      title: 'Creative Design',
+      slug: 'creative-design',
+      description:
+        'UI/UX that converts. We blend aesthetics with psychology to create immersive experiences.',
     },
     {
       id: '04',
-      title: 'Graphic Design',
-      description: 'Design stunning visual content that communicates your message effectively.',
+      title: 'Consulting',
+      slug: 'consulting',
+      description:
+        'Technical leadership and roadmap strategy to navigate complex digital transformations.',
+    },
+    {
+      id: '05',
+      title: 'Hire Talent',
+      slug: 'hire-talent',
+      description:
+        'Day-one ready senior engineers and designers to augment your team and accelerate delivery.',
     },
   ];
 
@@ -102,28 +117,30 @@ const ServicesDown = () => {
       <div className="w-full lg:w-auto order-1 lg:order-2">
         {services.map((service, index) => (
           <div key={service.id} ref={(el) => (cardRefs.current[index] = el)}>
-            <div className="mt-6 lg:mt-10 transition-all cursor-default">
-              <div className="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-2 sm:gap-6">
-                <motion.div
-                  className="service-number openSans text-white/50 font-extrabold transition-all cursor-default"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
-                >
-                  {service.id}
-                </motion.div>
-                <motion.div
-                  className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-2 w-full"
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
-                >
-                  <h3 className="text-xl md:text-2xl lg:text-3xl racing font-bold text-white">
-                    {service.title}
-                  </h3>
-                </motion.div>
-              </div>
-              <div className="text-base md:text-lg lg:text-lg mt-2 md:mt-4 openSans text-white/80 max-w-lg">
-                {service.description}
-              </div>
+            <div className="mt-6 lg:mt-10 transition-all cursor-pointer group">
+              <Link href={`/services/${service.slug}`} className="block">
+                <div className="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-2 sm:gap-6">
+                  <motion.div
+                    className="service-number openSans text-white/50 font-extrabold transition-all group-hover:text-[var(--primary)]"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                  >
+                    {service.id}
+                  </motion.div>
+                  <motion.div
+                    className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-2 w-full"
+                    whileHover={{ x: 10 }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                  >
+                    <h3 className="text-xl md:text-2xl lg:text-3xl racing font-bold text-white group-hover:text-[var(--primary)] transition-colors">
+                      {service.title}
+                    </h3>
+                  </motion.div>
+                </div>
+                <div className="text-base md:text-lg lg:text-lg mt-2 md:mt-4 openSans text-white/80 max-w-lg group-hover:text-white transition-colors">
+                  {service.description}
+                </div>
+              </Link>
             </div>
           </div>
         ))}
