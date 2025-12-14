@@ -2,217 +2,222 @@
 
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import PageHero from '@/components/PageHero';
-import ScrollReveal from '@/components/Features/ScrollReveal';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function FreelanceHire() {
-  const benefits = [
-    {
-      icon: 'bx-user-check',
-      title: 'Vetted Professionals',
-      description: 'All freelancers are carefully screened and verified for quality and expertise',
-    },
-    {
-      icon: 'bx-time-five',
-      title: 'Flexible Engagement',
-      description: 'Hire for projects, part-time, or full-time based on your needs',
-    },
-    {
-      icon: 'bx-shield-check',
-      title: 'Quality Guaranteed',
-      description: 'We ensure high-quality deliverables with our satisfaction guarantee',
-    },
-    {
-      icon: 'bx-dollar-circle',
-      title: 'Transparent Pricing',
-      description: 'No hidden fees – clear, upfront pricing for all services',
-    },
-    {
-      icon: 'bx-support',
-      title: 'Dedicated Support',
-      description: 'Our team is here to help throughout the entire project lifecycle',
-    },
-    {
-      icon: 'bx-rocket',
-      title: 'Fast Turnaround',
-      description: 'Get matched with the right talent quickly and start your project',
-    },
-  ];
-
-  const skillCategories = [
-    'Web Development',
-    'Mobile Development',
-    'UI/UX Design',
-    'Graphic Design',
-    'Content Writing',
-    'Digital Marketing',
-    'SEO Specialist',
-    'Video Editing',
-  ];
-
-  const howItWorks = [
+  const vettingSteps = [
     {
       step: '01',
-      title: 'Tell Us Your Needs',
-      description: "Share your project requirements and the skills you're looking for",
+      title: 'Global Sourcing',
+      description:
+        'We don’t wait for applications. Our headhunters actively recruit top contributors from open source projects and leading tech firms.',
     },
     {
       step: '02',
-      title: 'Get Matched',
-      description: "We'll connect you with pre-vetted freelancers that fit your criteria",
+      title: 'Algorithmic + Human Screen',
+      description:
+        'Candidates pass automated coding challenges before a 60-minute technical interview with a senior engineer in their stack.',
     },
     {
       step: '03',
-      title: 'Review & Select',
-      description: 'Review profiles, portfolios, and ratings to choose your freelancer',
+      title: 'Communication Audit',
+      description:
+        'Technical skill is baseline. We verify English fluency, time-zone overlap, and remote work emotional intelligence.',
     },
     {
       step: '04',
-      title: 'Start Working',
-      description: 'Begin your project with clear milestones and deliverables',
+      title: 'The "First Week" Guarantee',
+      description:
+        'We track performance intensely during the first sprint. If they don’t ship code, you don’t pay.',
     },
   ];
 
+  const benefits = [
+    {
+      icon: 'ri-shield-check-line',
+      title: 'Zero Compliance Risk',
+      description:
+        'We manage all contractor agreements, IP transfers, and tax forms globally. Your legal team rests easy.',
+    },
+    {
+      icon: 'ri-time-line',
+      title: '48-Hour Deployment',
+      description:
+        'Skip the 60-day hiring cycle. Our bench is pre-vetted and ready to spin up environments immediately.',
+    },
+    {
+      icon: 'ri-team-line',
+      title: 'Embedded Culture',
+      description:
+        'Our talent integrates into your Slack and Jira. They attend standups and feel like core team members.',
+    },
+  ];
+
+  const talentPools = [
+    {
+      role: 'Senior React Engineers',
+      rate: 'From $60/hr',
+      skills: ['Next.js', 'Redux', 'Performance'],
+    },
+    { role: 'Backend Architects', rate: 'From $70/hr', skills: ['Node.js', 'Go', 'Microservices'] },
+    {
+      role: 'Product Designers',
+      rate: 'From $65/hr',
+      skills: ['Figma', 'User Research', 'Systems'],
+    },
+    { role: 'DevOps Specialists', rate: 'From $80/hr', skills: ['AWS', 'K8s', 'Terraform'] },
+  ];
+
   return (
-    <div className="min-h-screen bg-[#161616] text-[#fffffd]">
+    <div className="min-h-screen bg-[var(--bg-body)] text-[var(--text-primary)] selection:bg-[var(--primary)] selection:text-white">
       <Navigation />
 
-      <PageHero
-        title="Hire Freelance Talent"
-        subtitle="Your Project, Our Experts"
-        description="Connect with top-tier freelance professionals who can bring your projects to life. Vetted, reliable, and ready to work."
-        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-      />
-
-      <main className="container mx-auto px-4 py-16 md:py-24">
-        {/* Introduction */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl racing font-bold mb-6"
+      {/* Trust Header */}
+      <header className="pt-32 pb-20 px-4 md:pt-48 md:pb-32">
+        <div className="container mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            Access Top Freelance Talent
-          </motion.h2>
-          <ScrollReveal
-            baseOpacity={0}
-            enableBlur={true}
-            baseRotation={5}
-            blurStrength={10}
-            textClassName="text-lg md:text-xl openSans text-gray-400 leading-relaxed"
-          >
-            Whether you need a developer, designer, marketer, or content creator, our platform
-            connects you with skilled freelancers who can deliver exceptional results for your
-            business.
-          </ScrollReveal>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="px-3 py-1 bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-bold uppercase tracking-wider rounded-full border border-[var(--primary)]/20">
+                Enterprise Ready
+              </span>
+              <span className="px-3 py-1 bg-[var(--bg-card)] text-[var(--text-muted)] text-xs font-bold uppercase tracking-wider rounded-full border border-[var(--border-subtle)]">
+                Top 1% Talent
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black racing mb-8 leading-[0.9] tracking-tighter">
+              SCALE WITH <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-white/50">
+                CERTAINTY.
+              </span>
+            </h1>
+            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-4xl">
+              <div className="w-20 h-1 bg-[var(--primary)] rounded-full"></div>
+              <p className="text-xl md:text-2xl text-[var(--text-secondary)] openSans font-light leading-relaxed max-w-2xl">
+                Deploy senior pre-vetted engineers into your team in 48 hours. No recruiters. No
+                fluff. Just code.
+              </p>
+            </div>
+          </motion.div>
         </div>
+      </header>
 
-        {/* Benefits Grid */}
-        <div className="max-w-6xl mx-auto mb-20">
-          <h3 className="text-2xl md:text-3xl racing font-bold text-center mb-12">
-            Why Choose Our Platform
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#1a1a1a] p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-white/5 hover:border-[#FF6363]/30"
+      <main>
+        {/* Value Props Grid */}
+        <section className="py-20 border-t border-[var(--border-subtle)]">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="grid md:grid-cols-3 gap-8">
+              {benefits.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  className="bg-[var(--bg-card)] p-8 rounded-2xl border border-[var(--border-subtle)]"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                >
+                  <i className={`${item.icon} text-4xl text-[var(--primary)] mb-6 block`}></i>
+                  <h3 className="text-xl font-bold racing mb-3">{item.title}</h3>
+                  <p className="text-[var(--text-secondary)] openSans leading-relaxed text-sm">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Vetting Process */}
+        <section className="py-20 bg-[var(--bg-darker)] border-y border-[var(--border-subtle)]">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="flex flex-col lg:flex-row gap-16">
+              <div className="lg:w-1/3">
+                <h2 className="text-3xl font-bold racing mb-4 sticky top-32">
+                  THE 1% <br /> STANDARD
+                </h2>
+              </div>
+              <div className="lg:w-2/3 space-y-12">
+                {vettingSteps.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex gap-6 border-b border-[var(--border-subtle)] pb-12 last:border-0 last:pb-0"
+                  >
+                    <span className="text-2xl font-bold text-[var(--text-muted)] font-mono">
+                      {item.step}
+                    </span>
+                    <div>
+                      <h3 className="text-xl font-bold racing mb-2">{item.title}</h3>
+                      <p className="text-[var(--text-secondary)] openSans">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Talent Pools Table */}
+        <section className="py-20">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold racing mb-6">AVAILABLE ROLES</h2>
+              <p className="text-[var(--text-secondary)]">Live availability. Instant impact.</p>
+            </div>
+
+            <div className="bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl overflow-hidden">
+              <div className="grid grid-cols-12 gap-4 p-4 border-b border-[var(--border-subtle)] bg-[var(--bg-darker)] text-xs font-bold uppercase tracking-widest text-[var(--text-muted)]">
+                <div className="col-span-6 md:col-span-4">Role</div>
+                <div className="hidden md:block col-span-4">Core Skills</div>
+                <div className="col-span-6 md:col-span-4 text-right">Starts From</div>
+              </div>
+              {talentPools.map((pool, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.05 }}
+                  className="grid grid-cols-12 gap-4 p-6 border-b border-[var(--border-subtle)] last:border-0 items-center hover:bg-[var(--bg-darker)] transition-colors"
+                >
+                  <div className="col-span-6 md:col-span-4 font-bold racing text-lg">
+                    {pool.role}
+                  </div>
+                  <div className="hidden md:block col-span-4 text-sm text-[var(--text-secondary)]">
+                    {pool.skills.join(', ')}
+                  </div>
+                  <div className="col-span-6 md:col-span-4 text-right font-mono text-[var(--primary)] font-medium">
+                    {pool.rate}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-24 px-4 border-t border-[var(--border-subtle)]">
+          <div className="container mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl md:text-5xl font-bold racing mb-6">STOP HIRING BLINDLY</h2>
+            <div className="flex flex-col sm:flex-row justify-center gap-6 mt-10">
+              <Link
+                href="/#contact"
+                className="px-10 py-4 bg-[var(--primary)] text-white racing font-bold rounded-full hover:bg-[var(--primary-hover)] transition-all shadow-xl shadow-[var(--primary)]/20"
               >
-                <div className="w-16 h-16 bg-[#FF6363] rounded-full flex items-center justify-center mb-6">
-                  <i className={`bx ${benefit.icon} text-3xl text-[#fffffd]`}></i>
-                </div>
-                <h4 className="text-xl racing font-bold mb-3">{benefit.title}</h4>
-                <p className="openSans text-gray-400 leading-relaxed">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Skill Categories */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <motion.h3
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-2xl md:text-3xl racing font-bold text-center mb-12"
-          >
-            Available Skill Sets
-          </motion.h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {skillCategories.map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="bg-[#1a1a1a] px-6 py-4 rounded-xl text-center border border-white/5 hover:border-[#FF6363]/30 transition-all duration-300"
+                Match Me with Talent
+              </Link>
+              <Link
+                href="/services"
+                className="px-10 py-4 border border-[var(--border-subtle)] text-[var(--text-primary)] racing font-bold rounded-full hover:bg-[var(--bg-card)] transition-all"
               >
-                <span className="openSans font-semibold">{skill}</span>
-              </motion.div>
-            ))}
+                View Case Studies
+              </Link>
+            </div>
           </div>
-        </div>
-
-        {/* How It Works */}
-        <div className="max-w-5xl mx-auto mb-20">
-          <h3 className="text-2xl md:text-3xl racing font-bold text-center mb-12">How It Works</h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            {howItWorks.map((item, index) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex gap-6 items-start bg-[#1a1a1a] p-8 rounded-2xl border border-white/5"
-              >
-                <div className="w-16 h-16 bg-[#FF6363] rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl racing font-bold text-[#fffffd]">{item.step}</span>
-                </div>
-                <div>
-                  <h4 className="text-xl racing font-bold mb-3">{item.title}</h4>
-                  <p className="openSans text-gray-400 leading-relaxed">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center bg-gradient-to-r from-[#FF6363]/10 to-transparent p-12 rounded-3xl border border-[#FF6363]/20"
-        >
-          <h3 className="text-3xl md:text-4xl racing font-bold mb-6">
-            Ready to Find Your Perfect Freelancer?
-          </h3>
-          <p className="text-lg openSans text-gray-400 mb-8">
-            Tell us about your project and we'll connect you with vetted professionals who can
-            deliver exceptional results.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/#contact">
-              <button className="px-8 py-4 bg-[#FF6363] text-[#fffffd] rounded-full hover:bg-[#b91c1c] transition-all duration-300 racing font-bold">
-                Get Started
-              </button>
-            </Link>
-            <Link href="/services">
-              <button className="px-8 py-4 border-2 border-[#FF6363] text-[#FF6363] rounded-full hover:bg-[#FF6363] hover:text-[#fffffd] transition-all duration-300 racing font-bold">
-                View Our Services
-              </button>
-            </Link>
-          </div>
-        </motion.div>
+        </section>
       </main>
 
       <Footer />

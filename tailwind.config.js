@@ -9,10 +9,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#FF6363',
-        'primary-hover': '#b91c1c',
-        dark: '#161616',
-        white: '#fffffd',
+        primary: 'var(--primary)',
+        'primary-hover': 'var(--primary-hover)',
+        dark: 'var(--dark)',
+        white: 'var(--white)',
+        'gray-light': 'var(--gray-light)',
+        'gray-medium': 'var(--gray-medium)',
+        'bg-body': 'var(--bg-body)',
+        'bg-card': 'var(--bg-card)',
+        'bg-darker': 'var(--bg-darker)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-muted': 'var(--text-muted)',
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
@@ -9,12 +11,22 @@
 
 :root {
   /* Brand colors */
-  --primary: #fc5252 !important;
-  --primary-dark: #b91c1c !important;
+  --primary: #ff6363;
+  --primary-hover: #b91c1c;
   --dark: #161616;
   --white: #fffffd;
   --gray-light: #f8f9fa;
   --gray-medium: #6c757d;
+
+  /* New centralized colors */
+  --bg-body: #0e0e0e;
+  --bg-card: #0f0f0f;
+  --bg-darker: #070707;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  /* Updated closer to white for better contrast */
+  --text-primary: #ffffff;
+  --text-secondary: #c0c0c0;
+  --text-muted: rgba(255, 255, 255, 0.6);
 
   /* shadcn/ui CSS variables */
   --background: 0 0% 100%;
@@ -50,11 +62,11 @@ body {
   /* font-family: "Raleway", sans-serif !important; */
   font-family: 'Rajdhani', sans-serif !important;
   line-height: 1.6;
-  color: #fff;
+  color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0e0e0e;
+  background-color: var(--bg-body);
 }
 
 body::-webkit-scrollbar {

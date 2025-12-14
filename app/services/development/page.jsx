@@ -2,167 +2,177 @@
 
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import PageHero from '@/components/PageHero';
-import ScrollReveal from '@/components/Features/ScrollReveal';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Development() {
-  const features = [
+  const engineeringProcess = [
     {
-      icon: 'bx-code-alt',
-      title: 'Modern Tech Stack',
-      description: 'React, Next.js, Node.js, and cutting-edge technologies for robust applications',
+      phase: '01',
+      title: 'Architecture & System Design',
+      description:
+        'We don’t just code; we architect. We analyze requirements to select the right stack, ensuring scalability, security, and maintainability from day one.',
+      points: [
+        'Microservices vs Monolith selection',
+        'Database schema design',
+        'Cloud infrastructure planning',
+      ],
     },
     {
-      icon: 'bx-mobile',
-      title: 'Responsive Design',
-      description: 'Pixel-perfect interfaces that work flawlessly across all devices',
+      phase: '02',
+      title: 'Agile Development',
+      description:
+        'Iterative development sprints allow for flexibility and transparency. You see progress every two weeks, ensuring the product aligns with the vision.',
+      points: ['CI/CD Pipeline integration', 'Automated testing suites', 'Bi-weekly code reviews'],
     },
     {
-      icon: 'bx-rocket',
-      title: 'Performance Optimized',
-      description: 'Lightning-fast load times and optimized user experience',
-    },
-    {
-      icon: 'bx-search-alt',
-      title: 'SEO Friendly',
-      description: 'Built with search engine optimization best practices from the ground up',
-    },
-    {
-      icon: 'bx-shield-quarter',
-      title: 'Secure & Scalable',
-      description: 'Enterprise-grade security and infrastructure that grows with your business',
-    },
-    {
-      icon: 'bx-support',
-      title: 'Ongoing Support',
-      description: 'Continuous maintenance and updates to keep your site running smoothly',
+      phase: '03',
+      title: 'Performance Engineering',
+      description:
+        'Speed is a feature. We optimize every layer of the application, from database queries to frontend asset delivery, for sub-second load times.',
+      points: ['Core Web Vitals optimization', 'Server-side rendering (SSR)', 'CDN edge caching'],
     },
   ];
 
-  const technologies = [
-    'React & Next.js',
-    'TypeScript',
-    'Node.js & Express',
-    'TailwindCSS',
-    'MongoDB & PostgreSQL',
-    'AWS & Vercel',
+  const techStack = [
+    {
+      category: 'Frontend',
+      items: ['Next.js 14', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    },
+    { category: 'Backend', items: ['Node.js', 'Python', 'Go', 'GraphQL', 'PostgreSQL'] },
+    { category: 'DevOps', items: ['AWS', 'Docker', 'Kubernetes', 'Vercel', 'GitHub Actions'] },
   ];
 
   return (
-    <div className="min-h-screen bg-[#161616] text-[#fffffd]">
+    <div className="min-h-screen bg-[var(--bg-body)] text-[var(--text-primary)] selection:bg-[var(--primary)] selection:text-white">
       <Navigation />
 
-      <PageHero
-        title="Development Services"
-        subtitle="Building Digital Excellence"
-        description="We create fast, responsive, and visually stunning websites using modern technologies that help your business stand out in today's digital world."
-        backgroundImage="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-      />
-
-      <main className="container mx-auto px-4 py-16 md:py-24">
-        {/* Introduction */}
-        <div className="max-w-4xl mx-auto text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl racing font-bold mb-6"
+      {/* Editorial Header - No Generic Hero */}
+      <header className="pt-32 pb-20 px-4 md:pt-48 md:pb-32">
+        <div className="container mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            Transform Your Digital Presence
-          </motion.h2>
-          <ScrollReveal
-            baseOpacity={0}
-            enableBlur={true}
-            baseRotation={5}
-            blurStrength={10}
-            textClassName="text-lg md:text-xl openSans text-gray-400 leading-relaxed"
-          >
-            Our development team specializes in creating custom web applications that are not only
-            beautiful but also powerful and user-friendly. We use the latest technologies to ensure
-            your project is built to last.
-          </ScrollReveal>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black racing mb-8 leading-[0.9] tracking-tighter">
+              ENGINEERING <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-white/50">
+                EXCELLENCE.
+              </span>
+            </h1>
+            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-4xl">
+              <div className="w-20 h-1 bg-[var(--primary)] rounded-full"></div>
+              <p className="text-xl md:text-2xl text-[var(--text-secondary)] openSans font-light leading-relaxed max-w-2xl">
+                We build robust, scalable digital infrastructure. From high-frequency trading
+                platforms to immersive consumer applications, we write code that drives revenue.
+              </p>
+            </div>
+          </motion.div>
         </div>
+      </header>
 
-        {/* Features Grid */}
-        <div className="max-w-6xl mx-auto mb-20">
-          <h3 className="text-2xl md:text-3xl racing font-bold text-center mb-12">
-            What We Deliver
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#1a1a1a] p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-white/5 hover:border-[#FF6363]/30"
+      <main>
+        {/* The Methodology Section */}
+        <section className="py-20 border-t border-[var(--border-subtle)]">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="flex flex-col lg:flex-row gap-16">
+              <div className="lg:w-1/3">
+                <h2 className="text-3xl font-bold racing mb-4 sticky top-32">
+                  OUR <br /> METHODOLOGY
+                </h2>
+              </div>
+              <div className="lg:w-2/3 space-y-20">
+                {engineeringProcess.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    className="group"
+                  >
+                    <span className="text-6xl font-black text-[var(--border-subtle)] group-hover:text-[var(--primary)]/20 transition-colors racing font-outline">
+                      {item.phase}
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-bold mt-2 mb-4 racing">
+                      {item.title}
+                    </h3>
+                    <p className="text-lg text-[var(--text-secondary)] openSans mb-6 leading-relaxed">
+                      {item.description}
+                    </p>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {item.points.map((point, pIdx) => (
+                        <li
+                          key={pIdx}
+                          className="flex items-center gap-3 text-sm text-[var(--text-muted)] font-mono uppercase tracking-wide"
+                        >
+                          <i className="ri-check-line text-[var(--primary)]"></i>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Tech Stack Grid */}
+        <section className="py-20 bg-[var(--bg-darker)] border-y border-[var(--border-subtle)]">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold racing mb-6">TECHNOLOGY STACK</h2>
+              <p className="text-[var(--text-secondary)] openSans max-w-2xl">
+                We don't follow trends; we choose the right tools for the job. Our stack is curated
+                for performance, security, and developer velocity.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {techStack.map((stack, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-[var(--bg-card)] p-8 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--primary)]/30 transition-colors"
+                >
+                  <h3 className="text-xl font-bold racing mb-6 text-[var(--primary)]">
+                    {stack.category}
+                  </h3>
+                  <ul className="space-y-3">
+                    {stack.items.map((tech, tIdx) => (
+                      <li
+                        key={tIdx}
+                        className="text-[var(--text-secondary)] font-medium flex items-center justify-between border-b border-[var(--border-subtle)] pb-2 last:border-0"
+                      >
+                        <span>{tech}</span>
+                        <i className="ri-arrow-right-up-line text-[var(--text-muted)]"></i>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA - Minimal */}
+        <section className="py-32 px-4">
+          <div className="container mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl md:text-5xl font-bold racing mb-8">BUILD FOR THE FUTURE</h2>
+            <div className="flex justify-center gap-6">
+              <Link
+                href="/#contact"
+                className="px-10 py-4 bg-[var(--primary)] text-white racing font-bold rounded-full hover:bg-[var(--primary-hover)] transition-all transform hover:-translate-y-1 shadow-xl shadow-[var(--primary)]/20"
               >
-                <div className="w-16 h-16 bg-[#FF6363] rounded-full flex items-center justify-center mb-6">
-                  <i className={`bx ${feature.icon} text-3xl text-[#fffffd]`}></i>
-                </div>
-                <h4 className="text-xl racing font-bold mb-3">{feature.title}</h4>
-                <p className="openSans text-gray-400 leading-relaxed">{feature.description}</p>
-              </motion.div>
-            ))}
+                Initiate Project
+              </Link>
+            </div>
           </div>
-        </div>
-
-        {/* Technologies */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <motion.h3
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-2xl md:text-3xl racing font-bold text-center mb-12"
-          >
-            Technologies We Use
-          </motion.h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={tech}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="bg-[#1a1a1a] px-6 py-4 rounded-xl text-center border border-white/5 hover:border-[#FF6363]/30 transition-all duration-300"
-              >
-                <span className="openSans font-semibold">{tech}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center bg-gradient-to-r from-[#FF6363]/10 to-transparent p-12 rounded-3xl border border-[#FF6363]/20"
-        >
-          <h3 className="text-3xl md:text-4xl racing font-bold mb-6">
-            Ready to Start Your Project?
-          </h3>
-          <p className="text-lg openSans text-gray-400 mb-8">
-            Let's discuss how we can bring your vision to life with cutting-edge development
-            solutions.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/#contact">
-              <button className="px-8 py-4 bg-[#FF6363] text-[#fffffd] rounded-full hover:bg-[#b91c1c] transition-all duration-300 racing font-bold">
-                Get Started
-              </button>
-            </Link>
-            <Link href="/services">
-              <button className="px-8 py-4 border-2 border-[#FF6363] text-[#FF6363] rounded-full hover:bg-[#FF6363] hover:text-[#fffffd] transition-all duration-300 racing font-bold">
-                View All Services
-              </button>
-            </Link>
-          </div>
-        </motion.div>
+        </section>
       </main>
 
       <Footer />

@@ -5,44 +5,35 @@ import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-export default function BrandBuilding() {
-  const brandProcess = [
+export default function CreativeDesign() {
+  const designProcess = [
     {
       phase: '01',
-      title: 'Strategic Discovery',
+      title: 'User Experience (UX) Research',
       description:
-        'We dig deep to uncover the "why" behind your business. Through stakeholder interviews and market analysis, we define your core purpose, audience, and competitive edge.',
-      points: ['Competitor Analysis', 'Audience Personas', 'Brand Archetype Definition'],
+        'Great design starts with understanding. We map user journeys, conduct usability audits, and build wireframes that prioritize conversion and ease of use.',
+      points: ['Journey Mapping', 'Information Architecture', 'Wireframing & Prototyping'],
     },
     {
       phase: '02',
-      title: 'Visual Identity System',
+      title: 'High-Fidelity Interface (UI)',
       description:
-        'A logo is not a brand. We create comprehensive design systems that ensure your visual language is consistent, recognizable, and scalable across all touchpoints.',
-      points: ['Logo Design & Usage', 'Typography & Color Theory', 'Iconography & Texture'],
+        'We craft stunning, pixel-perfect interfaces. Using modern design principles, we create visuals that are not just beautiful, but intuitive and accessible.',
+      points: ['Visual Design', 'Interaction Design', 'Accessibility Compliance (WCAG)'],
     },
     {
       phase: '03',
-      title: 'Voice & Narrative',
+      title: 'Motion & Interaction',
       description:
-        'How you speak is as important as how you look. We craft your brand voice, tagline, and messaging framework to resonate emotionally with your target audience.',
-      points: ['Tone of Voice Guidelines', 'Messaging Hierarchy', 'Storytelling Framework'],
+        'Static is boring. We breathe life into interfaces with purposeful motion, micro-interactions, and 3D elements that delight users and guide behavior.',
+      points: ['Micro-interactions', 'Lottie Animations', 'WebGl / 3D Experiences'],
     },
   ];
 
-  const deliverables = [
-    {
-      title: 'Brand Strategy',
-      items: ['Market Positioning', 'Value Proposition', 'Mission & Vision'],
-    },
-    {
-      title: 'Visual Assets',
-      items: ['Logo Suite', 'Brand Guidelines (PDF)', 'Social Media Kit', 'Stationery Design'],
-    },
-    {
-      title: 'Experience',
-      items: ['Website Art Direction', 'Packaging Design', 'Environmental Graphics'],
-    },
+  const tools = [
+    { title: 'Core Design', items: ['Figma', 'Adobe Creative Cloud', 'Sketch'] },
+    { title: 'Motion / 3D', items: ['After Effects', 'Spline', 'Cinema 4D', 'Rive'] },
+    { title: 'Collaboration', items: ['Linear', 'Slack', 'Loom', 'Zeplin'] },
   ];
 
   return (
@@ -58,16 +49,16 @@ export default function BrandBuilding() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black racing mb-8 leading-[0.9] tracking-tighter">
-              FORGE YOUR <br />
+              DESIGN THAT <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-white/50">
-                LEGACY.
+                CONVERTS.
               </span>
             </h1>
             <div className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-4xl">
               <div className="w-20 h-1 bg-[var(--primary)] rounded-full"></div>
               <p className="text-xl md:text-2xl text-[var(--text-secondary)] openSans font-light leading-relaxed max-w-2xl">
-                We turn businesses into iconic brands. Through rigorous strategy and world-class
-                design, we craft identities that command attention and inspire loyalty.
+                We blend aesthetics with psychology to create digital products that users love. From
+                complex dashboards to immersive marketing sites, we design for impact.
               </p>
             </div>
           </motion.div>
@@ -81,11 +72,11 @@ export default function BrandBuilding() {
             <div className="flex flex-col lg:flex-row gap-16">
               <div className="lg:w-1/3">
                 <h2 className="text-3xl font-bold racing mb-4 sticky top-32">
-                  THE <br /> FRAMEWORK
+                  THE <br /> PROCESS
                 </h2>
               </div>
               <div className="lg:w-2/3 space-y-20">
-                {brandProcess.map((item, idx) => (
+                {designProcess.map((item, idx) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 30 }}
@@ -108,7 +99,7 @@ export default function BrandBuilding() {
                           key={pIdx}
                           className="flex items-center gap-3 text-sm text-[var(--text-muted)] font-mono uppercase tracking-wide"
                         >
-                          <i className="ri-checkbox-circle-line text-[var(--primary)]"></i>
+                          <i className="ri-pencil-ruler-2-line text-[var(--primary)]"></i>
                           {point}
                         </li>
                       ))}
@@ -120,19 +111,19 @@ export default function BrandBuilding() {
           </div>
         </section>
 
-        {/* Deliverables Grid */}
+        {/* Tools Grid */}
         <section className="py-20 bg-[var(--bg-darker)] border-y border-[var(--border-subtle)]">
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold racing mb-6">WHAT WE DELIVER</h2>
+              <h2 className="text-3xl md:text-4xl font-bold racing mb-6">OUR TOOLKIT</h2>
               <p className="text-[var(--text-secondary)] openSans max-w-2xl">
-                Strategies that work and assets that stun. Our deliverables are built to be used,
-                not just admired.
+                We utilize industry-standard tools to ensure seamless collaboration, version
+                control, and developer handoff.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {deliverables.map((group, idx) => (
+              {tools.map((group, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
@@ -164,13 +155,13 @@ export default function BrandBuilding() {
         {/* CTA */}
         <section className="py-32 px-4">
           <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl md:text-5xl font-bold racing mb-8">DEFINE YOUR FUTURE</h2>
+            <h2 className="text-3xl md:text-5xl font-bold racing mb-8">CAPTIVATE YOUR AUDIENCE</h2>
             <div className="flex justify-center gap-6">
               <Link
                 href="/#contact"
                 className="px-10 py-4 bg-[var(--primary)] text-white racing font-bold rounded-full hover:bg-[var(--primary-hover)] transition-all transform hover:-translate-y-1 shadow-xl shadow-[var(--primary)]/20"
               >
-                Audit My Brand
+                See Our Portfolio
               </Link>
             </div>
           </div>

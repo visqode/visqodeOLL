@@ -8,30 +8,19 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi there! 👋 Welcome to VisQode. I'm your AI assistant, here to help with any questions about our digital services.",
+      text: "Hi there! 👋 Welcome to VisQode. I'm your AI assistant. How can I help you today?",
       sender: 'bot',
-      timestamp: new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
-    },
-    {
-      id: 2,
-      text: 'I can help you with pricing, services, project timelines, or connect you with our team. What would you like to know?',
-      sender: 'bot',
-      timestamp: new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  // Simplify quick replies
   const [quickReplies, setQuickReplies] = useState([
-    '  What are your pricing options?',
-    '  How do I get started?',
-    '  Can we schedule a call?',
-    '  Show me your portfolio',
+    'What services do you offer?',
+    'How much does a website cost?',
+    'I need to hire a developer',
+    "Let's schedule a call",
   ]);
 
   const messagesEndRef = useRef(null);
@@ -53,10 +42,7 @@ const ChatWidget = () => {
       id: Date.now() + Math.random(),
       text,
       sender,
-      timestamp: new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
     setMessages((prev) => [...prev, newMessage]);
   };
@@ -68,84 +54,63 @@ const ChatWidget = () => {
       id: Date.now() + Math.random(),
       text: messageText,
       sender: 'user',
-      timestamp: new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
     setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
     setIsTyping(true);
 
-    // ✅ Detect “connect/contact” messages
+    // Keyword detection
     const lower = messageText.toLowerCase();
-    const contactKeywords = ['connect', 'contact', 'reach out', 'talk', 'team', 'call'];
-    const shouldShowContactInfo = contactKeywords.some((word) => lower.includes(word));
-
-    if (shouldShowContactInfo) {
+    const contactKeywords = ['connect', 'contact', 'talk', 'human', 'call', 'email'];
+    if (contactKeywords.some((k) => lower.includes(k))) {
       setTimeout(() => {
         setIsTyping(false);
         addMessage(
-          'You can connect with our team directly here:\n\n👉 [Contact Page](https://visqode.com/contact)\n📧 Email: hello@visqode.com',
+          'You can reach our team strictly via:\n\n👉 [Contact Page](/contact)\n📧 hello@visqode.com',
           'bot'
         );
       }, 1000);
       return;
     }
 
-    // 🤖 Normal AI flow
     try {
       const convo = [...messages, userMessage];
       const response = await geminiService.current.generateResponse(messageText, convo);
 
       setTimeout(() => {
         setIsTyping(false);
-
         if (response.success) {
           addMessage(response.message, 'bot');
-          const newQuickReplies = geminiService.current.getQuickReplies?.(messageText) ?? [];
-          if (newQuickReplies.length > 0) {
-            setQuickReplies(newQuickReplies.map((reply) => `💡 ${reply}`));
-          }
         } else {
-          addMessage(response.message, 'bot');
+          addMessage("I'm having trouble connecting right now. Please try again.", 'bot');
         }
-      }, 1000 + Math.random() * 1000);
-    } catch (error) {
+      }, 1000 + Math.random() * 500);
+    } catch (err) {
       setIsTyping(false);
-      addMessage(
-        "I'm experiencing some technical difficulties. Please try again later or contact our team at hello@visqode.com.",
-        'bot'
-      );
+      addMessage('System offline. Please contact us via email.', 'bot');
     }
   };
 
   const handleQuickReply = (reply) => {
-    const cleanReply = reply.replace(/[💰🚀📞💼💡]/gu, '').trim();
-    handleSendMessage(cleanReply);
-    setQuickReplies([]); // Clear quick replies after user clicks one
-  };
-
-  // ✅ Always show online
-  const connectionStatus = {
-    color: 'bg-green-500',
-    text: 'AI Assistant Online',
+    handleSendMessage(reply);
+    // Optional: Remove clicked reply or rotate them
   };
 
   return (
     <>
-      {/* Floating Chat Button */}
+      {/* Floating Button */}
       <motion.div
         className="fixed bottom-6 right-6 z-50"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        transition={{ delay: 2, type: 'spring', stiffness: 200 }}
+        transition={{ delay: 1, type: 'spring' }}
       >
         <motion.button
           onClick={toggleChat}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="w-16 h-16 bg-[#FF6363] rounded-full shadow-lg flex items-center justify-center text-black hover:bg-[#b91c1c] transition-all duration-300 relative"
+          className="w-14 h-14 md:w-16 md:h-16 bg-[var(--primary)] text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-[var(--primary-hover)] transition-all"
         >
           <AnimatePresence mode="wait">
             {isOpen ? (
@@ -154,7 +119,7 @@ const ChatWidget = () => {
                 initial={{ rotate: -90, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
                 exit={{ rotate: 90, opacity: 0 }}
-                className="bx bx-x text-2xl"
+                className="ri-close-line text-2xl md:text-3xl"
               />
             ) : (
               <motion.i
@@ -162,20 +127,10 @@ const ChatWidget = () => {
                 initial={{ rotate: 90, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
                 exit={{ rotate: -90, opacity: 0 }}
-                className="bx bx-bot text-2xl"
+                className="ri-chat-smile-2-line text-2xl md:text-3xl"
               />
             )}
           </AnimatePresence>
-
-          {!isOpen && (
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white text-xs racing font-bold"
-            >
-              AI
-            </motion.div>
-          )}
         </motion.button>
       </motion.div>
 
@@ -184,164 +139,104 @@ const ChatWidget = () => {
         {isOpen && (
           <motion.div
             ref={chatRef}
-            initial={{ opacity: 0, y: 100, scale: 0.8 }}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 100, scale: 0.8 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed bottom-24 right-6 w-96 h-[600px] bg-[var(--gray-medium)] rounded-3xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200"
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            className="fixed bottom-24 right-4 md:right-6 w-[90vw] md:w-96 h-[500px] md:h-[600px] bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-[#FF6363] to-[#b91c1c] p-4 flex items-center justify-between">
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center mr-3 relative">
-                  <span className="text-[#FF6363] racing font-bold">V</span>
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{
-                      duration: 2,
-                      repeat: Number.POSITIVE_INFINITY,
-                    }}
-                    className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"
-                  />
+            <div className="bg-[var(--bg-darker)] p-4 flex items-center justify-between border-b border-[var(--border-subtle)]">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[var(--primary)] flex items-center justify-center text-white font-bold racing">
+                  V
                 </div>
                 <div>
-                  <h4 className="racing font-bold text-black">VisQode AI Assistant</h4>
-                  <div className="flex items-center">
-                    <div className={`w-2 h-2 ${connectionStatus.color} rounded-full mr-2`}></div>
-                    <span className="text-black/70 openSans text-sm">{connectionStatus.text}</span>
+                  <h4 className="font-bold text-[var(--text-primary)] racing text-sm">
+                    VisQode AI
+                  </h4>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span className="text-[10px] uppercase tracking-wider text-[var(--text-muted)]">
+                      Online
+                    </span>
                   </div>
                 </div>
               </div>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+              <button
                 onClick={toggleChat}
-                className="w-8 h-8 bg-black/10 rounded-full flex items-center justify-center hover:bg-black/20 transition-colors"
+                className="text-[var(--text-secondary)] hover:text-[var(--primary)]"
               >
-                <i className="bx bx-x text-black"></i>
-              </motion.button>
+                <i className="ri-close-line text-2xl"></i>
+              </button>
             </div>
 
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto  p-4 space-y-4">
-              {messages.map((message, index) => (
+            {/* Messages Area */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[var(--bg-body)]">
+              {messages.map((msg) => (
                 <motion.div
-                  key={message.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  key={msg.id}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.03 }}
-                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                  className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[85%] ${message.sender === 'user' ? 'order-2' : 'order-1'}`}
+                    className={`max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed ${
+                      msg.sender === 'user'
+                        ? 'bg-[var(--primary)] text-white rounded-br-none'
+                        : 'bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-secondary)] rounded-bl-none'
+                    }`}
                   >
-                    <div
-                      className={`p-3 rounded-2xl ${
-                        message.sender === 'user'
-                          ? 'bg-[#FF6363] text-black'
-                          : 'bg-gradient-to-r from-slate-700 to-gray-50 text-gray-800 border border-gray-200'
-                      }`}
-                    >
-                      <p className="openSans text-sm leading-relaxed whitespace-pre-line">
-                        {message.text}
-                      </p>
-                    </div>
-                    <p className="text-xs text-gray-500 mt-1 openSans">{message.timestamp}</p>
+                    {msg.text}
                   </div>
                 </motion.div>
               ))}
-
-              {/* Typing */}
               {isTyping && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex justify-start"
-                >
-                  <div className="w-8 h-8 bg-gradient-to-r from-[#FF6363] to-[#b91c1c] rounded-full flex items-center justify-center mr-2 relative">
-                    <span className="text-black racing font-bold text-sm">V</span>
+                <div className="flex justify-start">
+                  <div className="bg-[var(--bg-card)] border border-[var(--border-subtle)] p-3 rounded-2xl rounded-bl-none flex gap-1">
+                    <span className="w-1.5 h-1.5 bg-[var(--text-muted)] rounded-full animate-bounce"></span>
+                    <span className="w-1.5 h-1.5 bg-[var(--text-muted)] rounded-full animate-bounce delay-100"></span>
+                    <span className="w-1.5 h-1.5 bg-[var(--text-muted)] rounded-full animate-bounce delay-200"></span>
                   </div>
-                  <div className="bg-gradient-to-r from-gray-100 to-gray-50 p-3 rounded-2xl border border-gray-200">
-                    <div className="flex space-x-1">
-                      {[0, 0.2, 0.4].map((delay, i) => (
-                        <motion.div
-                          key={i}
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{
-                            duration: 0.6,
-                            repeat: Number.POSITIVE_INFINITY,
-                            delay,
-                          }}
-                          className="w-2 h-2 bg-[#FF6363] rounded-full"
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
+                </div>
               )}
-
               <div ref={messagesEndRef} />
             </div>
 
-            {/* ✅ Suggested Questions (restored) */}
-            {quickReplies.length > 0 && messages.length <= 4 && (
-              <div className="p-4 border-t border-gray-100 bg-gray-50">
-                <p className="text-xs text-gray-500 mb-3 openSans">Suggested questions:</p>
-                <div className="grid grid-cols-1 gap-2">
-                  {quickReplies.slice(0, 3).map((reply, index) => (
-                    <motion.button
-                      key={index}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => handleQuickReply(reply)}
-                      className="p-3 bg-white hover:bg-[#FF6363]/10 hover:border-[#FF6363] border border-gray-200 rounded-xl text-xs openSans text-left transition-all duration-300 flex items-center"
+            {/* Quick Replies */}
+            {messages.length < 4 && (
+              <div className="p-2 bg-[var(--bg-card)] border-t border-[var(--border-subtle)] overflow-x-auto whitespace-nowrap">
+                <div className="flex gap-2 px-2">
+                  {quickReplies.map((qr, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleQuickReply(qr)}
+                      className="px-3 py-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-body)] text-xs text-[var(--text-secondary)] hover:border-[var(--primary)] hover:text-[var(--primary)] transition-colors"
                     >
-                      <span className="mr-2">{reply.charAt(0)}</span>
-                      {reply.slice(2)}
-                    </motion.button>
+                      {qr}
+                    </button>
                   ))}
                 </div>
               </div>
             )}
 
-            {/* Input */}
-            <div className="p-4 border-t border-gray-100 bg-white">
-              <div className="flex items-center space-x-2">
+            {/* Input Area */}
+            <div className="p-4 bg-[var(--bg-card)] border-t border-[var(--border-subtle)]">
+              <div className="flex gap-2">
                 <input
-                  type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && !isTyping && handleSendMessage()}
-                  placeholder={isTyping ? 'AI is thinking...' : 'Ask me anything about VisQode...'}
-                  disabled={isTyping}
-                  className="flex-1 p-3 border border-gray-200 rounded-xl focus:border-[#FF6363] focus:outline-none openSans text-sm disabled:bg-gray-50 disabled:cursor-not-allowed"
+                  onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                  placeholder="Type a message..."
+                  className="flex-1 bg-[var(--bg-body)] border border-[var(--border-subtle)] rounded-xl px-4 py-2 text-sm text-[var(--text-primary)] focus:border-[var(--primary)] focus:outline-none transition-colors"
                 />
-                <motion.button
-                  whileHover={{ scale: isTyping ? 1 : 1.1 }}
-                  whileTap={{ scale: isTyping ? 1 : 0.9 }}
+                <button
                   onClick={() => handleSendMessage()}
-                  disabled={!inputValue.trim() || isTyping}
-                  className="w-10 h-10 bg-[#FF6363] rounded-xl flex items-center justify-center text-black hover:bg-[#b91c1c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={!inputValue.trim()}
+                  className="w-10 h-10 flex items-center justify-center bg-[var(--primary)] text-white rounded-xl hover:bg-[var(--primary-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
-                  {isTyping ? (
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{
-                        duration: 1,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: 'linear',
-                      }}
-                      className="w-4 h-4 border-2 border-black border-t-transparent rounded-full"
-                    />
-                  ) : (
-                    <i className="bx bx-send"></i>
-                  )}
-                </motion.button>
+                  <i className="ri-send-plane-fill"></i>
+                </button>
               </div>
-
-              <p className="text-xs text-gray-400 mt-2 openSans text-center">
-                Powered by AI • Responses may vary • For urgent matters: visqode@gmail.com
-              </p>
             </div>
           </motion.div>
         )}

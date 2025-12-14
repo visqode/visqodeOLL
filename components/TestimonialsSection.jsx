@@ -169,7 +169,7 @@ const TestimonialsSection = () => {
   // Card component — polished visuals
   const TestimonialCard = ({ t }) => (
     <article
-      className="min-w-[260px] max-w-[320px] flex-shrink-0 rounded-2xl overflow-hidden transform transition-shadow transition-transform duration-300"
+      className="min-w-[260px] max-w-[320px] flex-shrink-0 rounded-2xl overflow-hidden transform transition-all duration-300"
       style={{
         background:
           'linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.01) 100%)',
@@ -187,7 +187,7 @@ const TestimonialsSection = () => {
                 width="14"
                 height="14"
                 viewBox="0 0 24 24"
-                fill="#FF6363"
+                fill="var(--primary)"
                 className="inline-block mr-1"
                 aria-hidden="true"
               >
@@ -217,7 +217,7 @@ const TestimonialsSection = () => {
             style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.45)' }}
           />
           <div>
-            <h4 className="font-semibold text-[#fffffd] text-sm racing">{t.name}</h4>
+            <h4 className="font-semibold text-[var(--text-primary)] text-sm racing">{t.name}</h4>
             <p className="text-gray-400 text-xs openSans">{t.role}</p>
           </div>
         </div>
@@ -238,7 +238,7 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-10 lg:mb-12"
         >
-          <h2 className="text-4xl lg:text-5xl racing font-bold text-[#fffffd] mb-4">
+          <h2 className="text-4xl lg:text-5xl racing font-bold text-[var(--text-primary)] mb-4">
             What Our Clients Say
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto openSans">

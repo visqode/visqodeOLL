@@ -134,7 +134,7 @@ const NewsletterSection = () => {
   ];
 
   // subtle border color (white/10)
-  const subtleBorder = 'rgba(255,255,255,0.10)';
+  const subtleBorder = 'var(--border-subtle)';
 
   return (
     <section
@@ -253,7 +253,7 @@ const NewsletterSection = () => {
                       required
                       className="w-full px-4 py-2 bg-transparent text-white placeholder-gray-400 border-none outline-none openSans text-sm"
                       aria-label="Email address"
-                      style={{ caretColor: '#FF6363' }}
+                      style={{ caretColor: 'var(--primary)' }}
                     />
                   </div>
 
@@ -262,7 +262,7 @@ const NewsletterSection = () => {
                     disabled={isLoading}
                     whileHover={{ scale: isLoading ? 1 : 1.03 }}
                     whileTap={{ scale: isLoading ? 1 : 0.98 }}
-                    className="px-4 py-2 bg-[#FF6363] text-black rounded-md transition-all duration-150 text-sm font-semibold min-w-[110px] flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="px-4 py-2 bg-[var(--primary)] text-black rounded-md transition-all duration-150 text-sm font-semibold min-w-[110px] flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
                     aria-disabled={isLoading}
                   >
                     {isLoading ? (
@@ -290,7 +290,7 @@ const NewsletterSection = () => {
                   }}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-md flex items-center justify-center bg-[#FF6363]">
+                    <div className="w-10 h-10 rounded-md flex items-center justify-center bg-[var(--primary)]">
                       {remixLoaded ? (
                         <i className="ri-check-line text-black text-lg" />
                       ) : (
@@ -311,7 +311,7 @@ const NewsletterSection = () => {
 
             <p className="text-xs text-gray-400 openSans mt-3 text-center">
               No spam — unsubscribe anytime. By subscribing you agree to our{' '}
-              <a href="#" className="text-[#FF6363] hover:underline">
+              <a href="#" className="text-[var(--primary)] hover:underline">
                 Privacy Policy
               </a>
               .
@@ -328,17 +328,17 @@ const NewsletterSection = () => {
             aria-hidden
           >
             <div className="flex items-center gap-2">
-              <i className="ri-user-line text-[#FF6363]" />
+              <i className="ri-user-line text-[var(--primary)]" />
               <span className="openSans">5,000+ subscribers</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <i className="ri-star-line text-[#FF6363]" />
+              <i className="ri-star-line text-[var(--primary)]" />
               <span className="openSans">4.9/5 rating</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <i className="ri-shield-check-line text-[#FF6363]" />
+              <i className="ri-shield-check-line text-[var(--primary)]" />
               <span className="openSans">GDPR compliant</span>
             </div>
           </motion.div>

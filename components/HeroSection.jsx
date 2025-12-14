@@ -45,34 +45,18 @@ const HeroSection = () => {
         <div className="max-w-[90%] md:max-w-[75%] mx-auto text-center text-white flex justify-center items-center flex-col">
           <SplitText
             className="text-4xl sm:text-6xl md:text-7xl text-center py-1 md:py-2 racing font-bold tracking-tight"
-            text="We Build & Scale"
-            delay={100}
-            duration={0.3}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            textAlign="center"
+            text="Building the"
           />
           <SplitText
-            className="text-4xl sm:text-6xl md:text-7xl text-center py-1 md:py-2 racing font-bold tracking-tight"
-            text="Digital Products"
-            delay={100}
-            duration={0.3}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            threshold={0.1}
-            textAlign="center"
+            className="text-4xl sm:text-6xl md:text-8xl text-center py-1 md:py-2 racing font-black tracking-tighter leading-none"
+            text="Digital Future"
           />
-          <div className="mt-6 max-w-xl">
+          <div className="mt-8 max-w-2xl">
             <ShinyText
-              text="Founding successful companies by combining ideas with business expertise, capital and technical execution."
+              text="VisQode is a strategic technology partner. We combine engineering precision with design intelligence to scale ambitious businesses."
               disabled={false}
               speed={3}
-              className="!text-base md:text-lg leading-relaxed font-medium opacity-90"
+              className="!text-lg md:text-xl leading-relaxed font-light openSans text-[var(--text-secondary)]"
             />
           </div>
         </div>
@@ -81,7 +65,7 @@ const HeroSection = () => {
           {/* Start Your Project Button - goes to contact section */}
           <button
             onClick={(e) => handleSectionClick(e, 'contact')}
-            className="w-full font-semibold sm:w-auto px-4 py-2 text-[#fffffd] border border-[#fffffd]/60 rounded-xl text-center hover:bg-[#fffffd]/10 hover:border-[#fffffd] hover:shadow-lg hover:shadow-red-500/50 transition-all duration-300"
+            className="w-full font-semibold sm:w-auto px-4 py-2 text-[var(--white)] border border-[var(--border-subtle)] rounded-xl text-center hover:bg-[var(--white)]/10 hover:border-[var(--white)] hover:shadow-lg hover:shadow-[var(--primary)]/50 transition-all duration-300"
           >
             Start Your Project <i className="ri-arrow-right-long-line"></i>
           </button>
@@ -90,9 +74,9 @@ const HeroSection = () => {
       {/* scroll bar indicator */}
       <div className="absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce [animation-duration:1.5s] [animation-iteration-count:infinite] ">
         {/* Mouse outline */}
-        <div className="w-6 h-10 border-2 border-[#e0d1d1] rounded-full relative flex items-start justify-center overflow-hidden bg-white/10 backdrop-blur-sm">
+        <div className="w-6 h-10 border-2 border-[var(--white)]/80 rounded-full relative flex items-start justify-center overflow-hidden bg-[var(--white)]/10 backdrop-blur-sm">
           {/* Bouncing dot */}
-          <div className="w-1.5 h-1.5 bg-[#ff0000] rounded-full mt-2 animate-bounce [animation-duration:1.5s] [animation-iteration-count:infinite]"></div>
+          <div className="w-1.5 h-1.5 bg-[var(--primary)] rounded-full mt-2 animate-bounce [animation-duration:1.5s] [animation-iteration-count:infinite]"></div>
         </div>
         <p className="mt-2 text-xs text-white opacity-70">Scroll</p>
       </div>

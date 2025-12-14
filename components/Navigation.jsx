@@ -1,21 +1,26 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredService, setHoveredService] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
+  // Scroll detection
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Lock body scroll on mobile menu
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
@@ -30,13 +35,13 @@ const Navigation = () => {
       name: 'Services',
       href: '/services',
       dropdown: [
-        { name: 'Development', href: '/services/development' },
         { name: 'Brand Building', href: '/services/brand-building' },
-        { name: 'Graphic Design', href: '/services/graphic-design' },
+        { name: 'Development', href: '/services/development' },
+        { name: 'Creative Design', href: '/services/creative-design' },
       ],
     },
     { name: 'Consulting', href: '/consulting' },
-    { name: 'Freelance Hire', href: '/freelance-hire' },
+    { name: 'Hire Talent', href: '/freelance-hire' },
   ];
 
   const handleContactClick = (e) => {
@@ -51,249 +56,216 @@ const Navigation = () => {
   };
 
   return (
-    <nav
-      aria-label="Primary"
-      className={`fixed left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-screen-xl transition-all duration-400 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${
-        scrolled
-          ? 'top-2 bg-[rgba(10,10,10,0.92)] backdrop-blur-md'
-          : 'top-6 bg-[rgba(10,10,10,0.78)] backdrop-blur-md'
-      } border border-white/20 rounded-lg ring-red-600/8 shadow-[0_6px_20px_rgba(0,0,0,0.5)]`}
-      style={{ willChange: 'transform, background-color, box-shadow' }}
-    >
-      <div className="flex items-center justify-between px-5 md:px-6 py-2 md:py-3">
-        {/* Logo */}
-        <div className="text-base md:text-lg font-semibold text-white select-none">
-          <Link href="/">VisQode</Link>
-        </div>
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'top-4' : 'top-6'
+        }`}
+      >
+        <div
+          className={`mx-auto w-[92%] max-w-7xl rounded-2xl border transition-all duration-300 ${
+            scrolled
+              ? 'bg-[var(--bg-darker)]/80 backdrop-blur-xl border-[var(--white)]/10 shadow-2xl py-3 px-6'
+              : 'bg-[var(--bg-darker)]/60 backdrop-blur-lg border-[var(--white)]/5 shadow-lg py-4 px-8'
+          }`}
+        >
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="z-50 relative group">
+              <span className="racing text-xl md:text-2xl text-white tracking-wide group-hover:text-[var(--primary)] transition-colors">
+                VisQode
+              </span>
+            </Link>
 
-        {/* Centered links (desktop) - compact spacing */}
-        <div className="hidden md:flex flex-1 justify-center">
-          <ul className="flex items-center gap-5">
-            {navItems.map((item) => {
-              const isActive =
-                pathname === item.href ||
-                (item.dropdown && item.dropdown.some((si) => pathname.startsWith(si.href))) ||
-                (item.href !== '/' && pathname.startsWith(item.href));
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => {
+                const isActive =
+                  pathname === item.href || (item.dropdown && pathname.startsWith('/services'));
 
-              const baseText = isActive ? 'text-red-400' : 'text-gray-300';
-              return (
-                <li key={item.name} className="relative group">
-                  {item.dropdown ? (
-                    <div className="relative">
+                if (item.dropdown) {
+                  return (
+                    <div
+                      key={item.name}
+                      onMouseEnter={() => setHoveredService(true)}
+                      onMouseLeave={() => setHoveredService(false)}
+                      className="relative py-2"
+                    >
                       <button
-                        className={`text-sm px-2 py-1 rounded-lg transition-colors duration-150 font-medium ${baseText} hover:text-red-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent`}
-                        aria-haspopup="true"
+                        className={`flex items-center gap-1 text-sm font-medium transition-colors ${
+                          isActive || hoveredService
+                            ? 'text-[var(--primary)]'
+                            : 'text-white/80 hover:text-white'
+                        }`}
                       >
                         {item.name}
-                        <svg
-                          className="inline-block w-3 h-3 ml-1 align-middle transition-transform group-hover:rotate-180"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
+                        <i
+                          className={`ri-arrow-down-s-line transition-transform duration-300 ${
+                            hoveredService ? 'rotate-180' : ''
+                          }`}
+                        />
                       </button>
 
-                      {/* Dropdown (compact) */}
-                      <div className="absolute top-full left-0 mt-2 w-44 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                        <div className="bg-[rgba(8,8,8,0.94)] backdrop-blur-sm border border-[rgba(220,38,38,0.06)] rounded-lg overflow-hidden py-1">
-                          {item.dropdown.map((subItem) => {
-                            const subActive =
-                              pathname === subItem.href || pathname.startsWith(subItem.href);
-                            return (
+                      <AnimatePresence>
+                        {hoveredService && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-56"
+                          >
+                            <div className="bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-xl shadow-2xl p-2 overflow-hidden backdrop-blur-3xl">
+                              {item.dropdown.map((sub) => (
+                                <Link
+                                  key={sub.name}
+                                  href={sub.href}
+                                  className="block px-4 py-3 rounded-lg text-sm text-[var(--text-secondary)] hover:text-white hover:bg-[var(--primary)]/10 transition-colors"
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`text-sm font-medium transition-colors ${
+                      isActive ? 'text-[var(--primary)]' : 'text-white/80 hover:text-white'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* CTA Button */}
+            <div className="hidden md:block">
+              <button
+                onClick={handleContactClick}
+                className="px-6 py-2 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white text-sm font-bold racing rounded-full transition-all shadow-lg shadow-[var(--primary)]/20 hover:shadow-[var(--primary)]/40 hover:-translate-y-0.5"
+              >
+                Let's Talk
+              </button>
+            </div>
+
+            {/* Mobile Toggle */}
+            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden z-50 text-white p-2">
+              <i className={`text-2xl ${isOpen ? 'ri-close-line' : 'ri-menu-4-line'}`} />
+            </button>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 bg-[var(--bg-darker)]/95 backdrop-blur-xl md:hidden flex flex-col items-center justify-center"
+          >
+            <motion.div
+              className="w-full max-w-xs space-y-6 text-center"
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+            >
+              {navItems.map((item) => (
+                <motion.div
+                  key={item.name}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
+                >
+                  {item.dropdown ? (
+                    <div className="space-y-4">
+                      <button
+                        onClick={() => setServicesOpen(!servicesOpen)}
+                        className="text-2xl racing font-bold text-white flex items-center justify-center gap-2 mx-auto"
+                      >
+                        {item.name}
+                        <i
+                          className={`ri-arrow-down-s-line text-lg transition-transform ${
+                            servicesOpen ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {servicesOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden space-y-3"
+                          >
+                            {item.dropdown.map((sub) => (
                               <Link
-                                key={subItem.name}
-                                href={subItem.href}
-                                className={`block px-3 py-2 text-sm transition-colors duration-150 font-medium ${
-                                  subActive ? 'text-red-400' : 'text-gray-100'
-                                } hover:text-red-400`}
+                                key={sub.name}
+                                href={sub.href}
                                 onClick={() => setIsOpen(false)}
+                                className="block text-lg openSans text-[var(--text-secondary)]"
                               >
-                                {subItem.name}
+                                {sub.name}
                               </Link>
-                            );
-                          })}
-                        </div>
-                      </div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   ) : (
                     <Link
                       href={item.href}
-                      className={`text-sm px-2 py-1 rounded-lg transition-colors duration-150 font-medium ${baseText} hover:text-red-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent`}
+                      onClick={() => setIsOpen(false)}
+                      className="block text-2xl racing font-bold text-white hover:text-[var(--primary)] transition-colors"
                     >
                       {item.name}
-                      {isActive && <span className="sr-only"> (current)</span>}
                     </Link>
                   )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+                </motion.div>
+              ))}
 
-        {/* Right side: Contact button - compact and red */}
-        <div className="hidden md:flex items-center">
-          <button
-            onClick={handleContactClick}
-            className="bg-[var(--primary)] text-white px-4 py-1 rounded-md transition-transform duration-150 hover:scale-105 hover:shadow-[0_8px_30px_rgba(220,38,38,0.12)] font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-          >
-            Contact
-          </button>
-        </div>
-
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setIsOpen((p) => !p)}
-          className="md:hidden p-2 rounded-lg text-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
-        >
-          <svg
-            className="w-5 h-5"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      <div
-        id="mobile-menu"
-        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-200 ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-        aria-hidden={!isOpen}
-      >
-        <div
-          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-          onClick={() => setIsOpen(false)}
-        />
-        <div className="absolute inset-0 flex items-start justify-center pt-20 px-4">
-          <div
-            className={`w-full max-w-sm rounded-lg border border-[rgba(220,38,38,0.06)] bg-[rgba(8,8,8,0.94)] backdrop-blur-sm shadow-lg transform transition-all duration-200 ease-out ${
-              isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
-            }`}
-            role="dialog"
-            aria-modal="true"
-          >
-            <div className="flex items-center justify-between px-4 py-3">
-              <div className="font-medium text-white">VisQode</div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-2 rounded-md text-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+                className="pt-8"
               >
-                <svg
-                  className="w-5 h-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <div className="px-4 pb-5">
-              <nav className="flex flex-col gap-2">
-                {navItems.map((item) => (
-                  <div key={item.name}>
-                    {item.dropdown ? (
-                      <div>
-                        <button
-                          onClick={() => setServicesOpen(!servicesOpen)}
-                          className="w-full py-2 text-sm px-3 rounded-md transition-colors duration-150 font-medium flex items-center justify-between text-gray-200 hover:text-red-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/30 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-                        >
-                          {item.name}
-                          <svg
-                            className={`w-4 h-4 transition-transform ${
-                              servicesOpen ? 'rotate-180' : ''
-                            }`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </svg>
-                        </button>
-                        {servicesOpen && (
-                          <div className="ml-3 mt-2 space-y-1">
-                            {item.dropdown.map((subItem) => (
-                              <Link
-                                key={subItem.name}
-                                href={subItem.href}
-                                onClick={() => {
-                                  setIsOpen(false);
-                                  setServicesOpen(false);
-                                }}
-                                className="block py-2 text-sm text-gray-200 hover:text-red-400 px-3 rounded-md transition-colors duration-150"
-                              >
-                                {subItem.name}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className="py-2 text-sm text-gray-200 block rounded-md hover:text-red-400 px-3 font-medium transition-colors duration-150"
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </div>
-                ))}
-
-                {/* Contact button on mobile (compact red) */}
                 <button
                   onClick={handleContactClick}
-                  className="mt-3 py-2 w-full text-left rounded-md text-sm px-3 font-medium bg-red-500 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                  className="px-8 py-4 bg-[var(--primary)] text-white font-bold racing rounded-full w-full text-lg shadow-xl"
                 >
-                  Contact
+                  Start Project
                 </button>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

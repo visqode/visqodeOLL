@@ -2,234 +2,179 @@
 
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import PageHero from '@/components/PageHero';
-import ScrollReveal from '@/components/Features/ScrollReveal';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Consulting() {
-  const consultingAreas = [
+  const engagementModels = [
     {
-      icon: 'bx-cog',
-      title: 'Tech Stack Selection',
+      title: 'Strategic Advisory',
       description:
-        'Choose the right technology stack or platform for your project with expert guidance.',
-      benefits: [
-        'Future-proof solutions',
-        'Cost-effective choices',
-        'Scalability planning',
-        'Performance optimization',
-      ],
+        'High-level guidance for C-Suite executives. We validate roadmaps, assess technical risks, and align technology with business goals.',
+      idealFor: 'CTOs, VPs of Engineering, Founders',
     },
     {
-      icon: 'bx-trending-up',
-      title: 'Digital Strategy',
+      title: 'Technical Audit',
       description:
-        'Get a custom digital strategy for launch or scale tailored to your business goals.',
-      benefits: ['Market analysis', 'Competitive research', 'Growth roadmap', 'ROI planning'],
+        'A deep-dive forensic analysis of your current infrastructure. We identify bottlenecks, security vulnerabilities, and scalability ceilings.',
+      idealFor: 'Legacy Systems, Pre-Scaling Ventures',
     },
     {
-      icon: 'bx-palette',
-      title: 'Branding & Marketing',
+      title: 'Team Augmentation',
       description:
-        'Learn how to streamline branding, marketing, and development for maximum impact.',
-      benefits: [
-        'Brand positioning',
-        'Marketing channels',
-        'Content strategy',
-        'Visual consistency',
-      ],
-    },
-    {
-      icon: 'bx-shield-check',
-      title: 'Expert Guidance',
-      description: 'Avoid expensive mistakes with expert advice tailored to your specific needs.',
-      benefits: ['Risk assessment', 'Best practices', 'Industry insights', 'Cost optimization'],
+        'Embed senior architects and leads into your teams to drive culture change and technical excellence from within.',
+      idealFor: 'Growing Engineering Teams',
     },
   ];
 
-  const process = [
+  const frameworks = [
     {
       step: '01',
-      title: 'Discovery Call',
+      title: 'Diagnosis & Baseline',
       description:
-        'We start with a comprehensive discussion about your goals, challenges, and current situation.',
-      duration: '30-60 minutes',
+        'We don’t guess. We measure. Through code review, stakeholder interviews, and performance profiling, we establish the ground truth.',
     },
     {
       step: '02',
-      title: 'Analysis & Research',
+      title: 'Architecture Strategy',
       description:
-        'Our team analyzes your requirements and researches the best solutions for your needs.',
-      duration: '1-2 days',
+        'We design the "To-Be" state. Not just the technology, but the team structure, deployment pipelines, and data flow needed to get there.',
     },
     {
       step: '03',
-      title: 'Strategy Development',
+      title: 'Execution Oversight',
       description:
-        'We create a detailed roadmap and recommendations tailored to your specific situation.',
-      duration: '2-3 days',
-    },
-    {
-      step: '04',
-      title: 'Implementation Support',
-      description: 'We provide ongoing guidance and support as you implement our recommendations.',
-      duration: 'Ongoing',
+        'Strategy is useless without execution. We stay involved to ensure implementation matches the vision, handling critical pivots along the way.',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#161616]">
-      <div className="bg-black text-white">
-        <Navigation />
-      </div>
+    <div className="min-h-screen bg-[var(--bg-body)] text-[var(--text-primary)] selection:bg-[var(--primary)] selection:text-white">
+      <Navigation />
 
-      <PageHero
-        title="Digital Consulting"
-        subtitle="Expert Guidance for Your Digital Journey"
-        description="We guide you in making the right digital decisions for your brand or business. You bring the vision. We bring the roadmap."
-        backgroundImage="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-      />
-
-      <main className="container mx-auto px-4 py-16 md:py-24">
-        {/* Consulting Areas */}
-        <div className="max-w-7xl mx-auto mb-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl racing font-bold mb-6">How We Guide You</h2>
-            <ScrollReveal
-              baseOpacity={0}
-              enableBlur={true}
-              baseRotation={5}
-              blurStrength={10}
-              textClassName="text-lg md:text-xl openSans text-gray-400 max-w-3xl mx-auto"
-            >
-              Our consulting services help you make informed decisions and avoid costly mistakes in
-              your digital journey.
-            </ScrollReveal>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {consultingAreas.map((area, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-[#1a1a1a] p-8 rounded-3xl hover:shadow-lg transition-all duration-300"
-              >
-                <div className="flex items-start gap-6 mb-6">
-                  <div className="w-16 h-16 bg-[#FF6363] rounded-full flex items-center justify-center flex-shrink-0">
-                    <i className={`bx ${area.icon} text-2xl text-[#fffffd]`}></i>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl racing font-bold mb-4">{area.title}</h3>
-                    <ScrollReveal
-                      baseOpacity={0}
-                      enableBlur={true}
-                      baseRotation={5}
-                      blurStrength={10}
-                      textClassName="openSans text-gray-300 leading-relaxed mb-6"
-                    >
-                      {area.description}
-                    </ScrollReveal>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  {area.benefits.map((benefit, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <i className="bx bx-check text-[#FF6363] text-sm flex-shrink-0"></i>
-                      <span className="openSans text-sm text-gray-400">{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* Editorial Header */}
+      <header className="pt-32 pb-20 px-4 md:pt-48 md:pb-32">
+        <div className="container mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h5 className="text-[var(--primary)] font-bold tracking-widest uppercase mb-4 openSans">
+              Strategic Consulting
+            </h5>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black racing mb-8 leading-[0.9] tracking-tighter">
+              CLARITY IN <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-white/50">
+                CHAOS.
+              </span>
+            </h1>
+            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center max-w-4xl">
+              <div className="w-20 h-1 bg-[var(--primary)] rounded-full"></div>
+              <p className="text-xl md:text-2xl text-[var(--text-secondary)] openSans font-light leading-relaxed max-w-2xl">
+                We bridge the gap between business ambition and technical reality. No fluff. Just
+                hard truths and actionable roadmaps.
+              </p>
+            </div>
+          </motion.div>
         </div>
+      </header>
 
-        {/* Our Process */}
-        <div className="max-w-6xl mx-auto mb-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl racing font-bold mb-6">Our Consulting Process</h2>
-            <ScrollReveal
-              baseOpacity={0}
-              enableBlur={true}
-              baseRotation={5}
-              blurStrength={10}
-              textClassName="text-lg md:text-xl openSans text-gray-400 max-w-3xl mx-auto"
-            >
-              A structured approach that ensures you get the guidance and support you need at every
-              step.
-            </ScrollReveal>
-          </div>
-
-          <div className="space-y-8">
-            {process.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`flex flex-col ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'
-                } items-center gap-8`}
-              >
-                <div className="flex-1 bg-[#161616] p-8 rounded-3xl shadow-lg">
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="text-4xl md:text-5xl racing text-[#FF6363] font-bold">
-                      {step.step}
+      <main>
+        {/* Framework Section */}
+        <section className="py-20 border-t border-[var(--border-subtle)]">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="flex flex-col lg:flex-row gap-16">
+              <div className="lg:w-1/3">
+                <h2 className="text-3xl font-bold racing mb-4 sticky top-32">
+                  THE <br /> FRAMEWORK
+                </h2>
+              </div>
+              <div className="lg:w-2/3 space-y-16">
+                {frameworks.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="flex gap-6 group"
+                  >
+                    <span className="text-4xl font-black text-[var(--border-subtle)] group-hover:text-[var(--primary)] transition-colors racing">
+                      {item.step}
                     </span>
                     <div>
-                      <h3 className="text-2xl md:text-3xl racing font-bold">{step.title}</h3>
-                      <span className="text-sm openSans text-gray-500">{step.duration}</span>
+                      <h3 className="text-2xl font-bold mb-3 racing">{item.title}</h3>
+                      <p className="text-lg text-[var(--text-secondary)] openSans leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
-                  </div>
-                  <ScrollReveal
-                    baseOpacity={0}
-                    enableBlur={true}
-                    baseRotation={5}
-                    blurStrength={10}
-                    textClassName="openSans text-gray-300 leading-relaxed"
-                  >
-                    {step.description}
-                  </ScrollReveal>
-                </div>
-
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-[#FF6363] rounded-full flex items-center justify-center text-[#fffffd] font-bold text-xl racing">
-                    {index + 1}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* CTA Section */}
-        <div className="bg-black text-white rounded-3xl p-12 text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl racing font-bold mb-6">
-            Ready to Get Expert Guidance?
-          </h2>
-          <ScrollReveal
-            baseOpacity={0}
-            enableBlur={true}
-            baseRotation={5}
-            blurStrength={10}
-            textClassName="text-lg md:text-xl openSans mb-8 text-gray-300"
-          >
-            Let's discuss your digital challenges and create a roadmap for success. Schedule your
-            consultation today.
-          </ScrollReveal>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-[#FF6363] text-[#fffffd] rounded-full hover:bg-[#b91c1c] transition-all duration-300 racing text-lg font-bold"
-          >
-            Schedule a Consultation
-          </motion.button>
-        </div>
+        {/* Engagement Models */}
+        <section className="py-20 bg-[var(--bg-darker)] border-y border-[var(--border-subtle)]">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold racing mb-6">ENGAGEMENT MODELS</h2>
+              <p className="text-[var(--text-secondary)] openSans max-w-2xl">
+                Flexible structures designed to fit your organization's maturity and specific
+                challenges.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {engagementModels.map((model, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-[var(--bg-card)] p-8 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--primary)]/40 transition-colors flex flex-col justify-between"
+                >
+                  <div>
+                    <h3 className="text-xl font-bold racing mb-4 text-[var(--text-primary)]">
+                      {model.title}
+                    </h3>
+                    <p className="text-[var(--text-secondary)] openSans mb-8 text-sm leading-relaxed">
+                      {model.description}
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-[var(--border-subtle)]">
+                    <span className="text-xs uppercase tracking-wider text-[var(--text-muted)] block mb-1">
+                      Best For
+                    </span>
+                    <span className="text-sm font-medium text-[var(--primary)]">
+                      {model.idealFor}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-32 px-4">
+          <div className="container mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl md:text-5xl font-bold racing mb-6">EXECUTE WITH CONFIDENCE</h2>
+            <p className="text-xl text-[var(--text-secondary)] openSans mb-10 max-w-2xl mx-auto">
+              Stop debating. Start building the right way.
+            </p>
+            <div className="flex justify-center gap-6">
+              <Link
+                href="/#contact"
+                className="px-10 py-4 bg-[var(--primary)] text-white racing font-bold rounded-full hover:bg-[var(--primary-hover)] transition-all transform hover:-translate-y-1 shadow-xl shadow-[var(--primary)]/20"
+              >
+                Schedule Discovery
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

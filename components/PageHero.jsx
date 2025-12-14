@@ -36,7 +36,7 @@ const PageHero = ({
 
         {subtitle && (
           <motion.h2
-            className="text-xl md:text-2xl lg:text-3xl racing text-[#FF6363] mb-6"
+            className="text-xl md:text-2xl lg:text-3xl racing text-[var(--primary)] mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
