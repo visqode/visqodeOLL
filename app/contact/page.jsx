@@ -1,10 +1,56 @@
 'use client';
 
+import { useState, useRef } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
+import EmailService from '@/lib/emailjs';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    subject: 'General Inquiry',
+    message: '',
+  });
+  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+  const emailService = useRef(new EmailService());
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      // Map form fields to EmailService expected format
+      // Note: EmailService expects 'services', 'budget', 'description'
+      // We are mapping our simple form to these fields
+      const payload = {
+        fullName: formData.fullName,
+        email: formData.email,
+        services: [formData.subject], // Using subject as service interest
+        budget: 'Not specified',
+        description: formData.message,
+        businessName: 'Not provided',
+      };
+
+      const result = await emailService.current.sendContactForm(payload);
+
+      if (result.success) {
+        setStatus('success');
+        setFormData({ fullName: '', email: '', subject: 'General Inquiry', message: '' });
+      } else {
+        console.error('Submission failed:', result.message);
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus('error');
+    }
+  };
   return (
     <div className="min-h-screen bg-[var(--bg-body)] text-[var(--text-primary)] selection:bg-[var(--primary)] selection:text-white">
       <Navigation />
@@ -96,7 +142,7 @@ export default function Contact() {
                 <h2 className="text-2xl font-bold racing mb-8 text-[var(--text-primary)]">
                   SEND A MESSAGE
                 </h2>
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
@@ -104,6 +150,10 @@ export default function Contact() {
                       </label>
                       <input
                         type="text"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        required
                         className="w-full bg-[var(--bg-darker)] border border-[var(--border-subtle)] rounded-lg p-3 text-white focus:outline-none focus:border-[var(--primary)] transition-colors"
                         placeholder="John Doe"
                       />
@@ -114,6 +164,10 @@ export default function Contact() {
                       </label>
                       <input
                         type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
                         className="w-full bg-[var(--bg-darker)] border border-[var(--border-subtle)] rounded-lg p-3 text-white focus:outline-none focus:border-[var(--primary)] transition-colors"
                         placeholder="john@example.com"
                       />
@@ -123,7 +177,12 @@ export default function Contact() {
                     <label className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
                       Subject
                     </label>
-                    <select className="w-full bg-[var(--bg-darker)] border border-[var(--border-subtle)] rounded-lg p-3 text-white focus:outline-none focus:border-[var(--primary)] transition-colors">
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full bg-[var(--bg-darker)] border border-[var(--border-subtle)] rounded-lg p-3 text-white focus:outline-none focus:border-[var(--primary)] transition-colors"
+                    >
                       <option>General Inquiry</option>
                       <option>Project Proposal</option>
                       <option>Careers</option>
@@ -134,14 +193,39 @@ export default function Contact() {
                       Message
                     </label>
                     <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
                       rows="4"
                       className="w-full bg-[var(--bg-darker)] border border-[var(--border-subtle)] rounded-lg p-3 text-white focus:outline-none focus:border-[var(--primary)] transition-colors"
                       placeholder="Tell us about your project..."
                     ></textarea>
                   </div>
-                  <button className="w-full bg-[var(--primary)] text-black font-bold racing py-4 rounded-lg hover:bg-[var(--primary-hover)] transition-colors">
-                    SEND MESSAGE
+                  <button
+                    disabled={status === 'loading'}
+                    className="w-full bg-[var(--primary)] text-black font-bold racing py-4 rounded-lg hover:bg-[var(--primary-hover)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {status === 'loading' ? 'SENDING...' : 'SEND MESSAGE'}
                   </button>
+                  {status === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 bg-green-500/10 border border-green-500/20 text-green-400 rounded-lg text-center"
+                    >
+                      Message sent successfully! We'll be in touch.
+                    </motion.div>
+                  )}
+                  {status === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg text-center"
+                    >
+                      Something went wrong. Please try again.
+                    </motion.div>
+                  )}
                 </form>
               </div>
             </div>
