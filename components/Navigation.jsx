@@ -81,7 +81,7 @@ const Navigation = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-8 font-bold">
               {navItems.map((item) => {
                 const isActive =
                   pathname === item.href || (item.dropdown && pathname.startsWith('/services'));
@@ -154,7 +154,7 @@ const Navigation = () => {
             <div className="hidden md:block">
               <button
                 onClick={handleContactClick}
-                className="px-6 py-2 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white text-sm font-bold racing rounded-full transition-all shadow-lg shadow-[var(--primary)]/20 hover:shadow-[var(--primary)]/40 hover:-translate-y-0.5"
+                className="px-6 py-2 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white text-sm font-bold racing rounded-lg transition-all shadow-lg shadow-[var(--primary)]/20 hover:shadow-[var(--primary)]/40 hover:-translate-y-0.5"
               >
                 Let's Talk
               </button>
